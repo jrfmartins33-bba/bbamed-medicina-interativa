@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ambiente de Estudos | Postura e Locomoção</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="scene01" class="scene-01" aria-labelledby="scene01Title">
+    <div class="scene-01__content">
+      <div class="scene-01__brain-stage">
+        <div class="scene-01__brain-wrap">
+          <img class="scene-01__brain" src="../Imagens/Imagem 01 - Cerebro transparente.png" alt="Cérebro humano em visualização 3D">
+        </div>
+      </div>
+      <h1 id="scene01Title">POSTURA E LOCOMOÇÃO</h1>
+      <p>Descubra como o cérebro planeja, coordena e executa cada movimento do corpo humano.</p>
+      <button id="startScene" class="scene-01__button" type="button">Iniciar</button>
+    </div>
+    <footer class="scene-01__footer">Tempo estimado: 35 min</footer>
+  </section>
+
+  <section id="scene02" class="scene-02" aria-labelledby="scene02Title" data-active="none">
+    <div class="scene-02__shell">
+      <div class="scene-02__visual">
+        <div class="scene-02__image-card">
+          <img class="scene-02__image" src="../Imagens/Cena 02/Imagem_cena02_04_transparente.png" alt="Vista lateral anatômica do cérebro humano">
+          <svg class="scene-02__overlay" viewBox="0 0 4096 4096" aria-hidden="true">
+            <path class="scene-02__region scene-02__region--motor" d="M1295 980 C1540 790 1840 772 2048 900 C1960 1050 1906 1210 1928 1392 C1954 1562 2078 1672 2078 1845 C2078 2048 1972 2225 1830 2392 C1568 2440 1305 2308 1198 2092 C1088 1870 1205 1640 1315 1460 C1412 1300 1330 1190 1285 1080 C1262 1025 1256 1010 1295 980 Z" />
+            <path class="scene-02__region scene-02__region--sensory" d="M2110 850 C2015 1022 1982 1218 2026 1398 C2066 1568 2200 1678 2210 1850 C2224 2075 2096 2268 1918 2440 C2298 2492 2658 2338 2820 2090 C2955 1885 2872 1595 2685 1428 C2500 1265 2515 1120 2620 980 C2738 822 2420 760 2110 850 Z" />
+            <path class="scene-02__sulcus" d="M2050 900 C1950 1045 1880 1210 1905 1395 C1930 1575 2070 1690 2070 1860 C2070 2050 1970 2205 1845 2355" />
+          </svg>
+          <button class="scene-02__hotspot scene-02__hotspot--sulcus" data-scene02-topic="sulcus" type="button" aria-label="Destacar Sulco Central"></button>
+          <button class="scene-02__hotspot scene-02__hotspot--motor" data-scene02-topic="motor" type="button" aria-label="Destacar Área Motora Primária"></button>
+          <button class="scene-02__hotspot scene-02__hotspot--sensory" data-scene02-topic="sensory" type="button" aria-label="Destacar Área Somatossensorial Primária"></button>
+        </div>
+        <div class="scene-02__legend" aria-label="Legenda anatômica da cena">
+          <span><i class="scene-02__legend-mark scene-02__legend-mark--motor"></i>Vermelho: Giro Pré-Central / motor</span>
+          <span><i class="scene-02__legend-mark scene-02__legend-mark--sensory"></i>Azul: Giro Pós-Central / sensitivo</span>
+          <span><i class="scene-02__legend-line"></i>Linha clara: Sulco Central</span>
+        </div>
+      </div>
+
+      <aside class="scene-02__panel" aria-live="polite">
+        <p class="scene-02__eyebrow">Cena 02 · Córtex cerebral</p>
+        <h1 id="scene02Title">Sulco Central</h1>
+        <p class="scene-02__subtitle">A fronteira anatômica entre movimento e sensibilidade.</p>
+        <p id="scene02PanelText" class="scene-02__text">O sulco central separa duas regiões fundamentais do córtex cerebral: à frente, o giro pré-central, responsável pela função motora; atrás, o giro pós-central, responsável pela sensibilidade somática.</p>
+
+        <div class="scene-02__controls" aria-label="Estruturas interativas">
+          <button class="scene-02__topic-button" data-scene02-topic="sulcus" type="button">Sulco Central</button>
+          <button class="scene-02__topic-button scene-02__topic-button--motor" data-scene02-topic="motor" type="button">Área Motora Primária · Giro Pré-Central</button>
+          <button class="scene-02__topic-button scene-02__topic-button--sensory" data-scene02-topic="sensory" type="button">Área Somatossensorial Primária · Giro Pós-Central</button>
+        </div>
+
+        <div id="scene02Discovery" class="scene-02__discovery" data-mode="none">
+          <p class="scene-02__discovery-kicker">Aprendizagem ativa</p>
+          <h2 id="scene02DiscoveryTitle">Clique em uma estrutura</h2>
+          <p id="scene02DiscoveryText">Use os marcadores pulsantes para revelar a função de cada região cortical.</p>
+          <div id="scene02DiscoveryChips" class="scene-02__discovery-chips">
+            <span>Giro Pré-Central</span>
+            <span>Giro Pós-Central</span>
+            <span>Sulco Central</span>
+          </div>
+        </div>
+
+        <div class="scene-02__rule">
+          <h2>Regra de ouro</h2>
+          <div class="scene-02__rule-grid">
+            <p><strong>Antes do Sulco Central:</strong><span>Área Motora Primária</span></p>
+            <p><strong>Depois do Sulco Central:</strong><span>Área Somatossensorial Primária</span></p>
+          </div>
+          <p class="scene-02__rule-memory"><strong>Lembre-se:</strong><br>Motor antes.<br>Sensitivo depois.</p>
+        </div>
+
+        <div class="scene-02__quiz">
+          <h2>Mini quiz</h2>
+          <p>Qual estrutura separa a área motora primária da área somatossensorial primária?</p>
+          <div class="scene-02__answers">
+            <button data-scene02-answer="wrong" type="button">A) Cerebelo</button>
+            <button data-scene02-answer="correct" type="button">B) Sulco Central</button>
+            <button data-scene02-answer="wrong" type="button">C) Tálamo</button>
+            <button data-scene02-answer="wrong" type="button">D) Corpo Caloso</button>
+          </div>
+          <p id="scene02QuizFeedback" class="scene-02__feedback" aria-live="polite"></p>
+        </div>
+
+        <div class="scene-02__nav">
+          <button id="backToScene01" class="scene-02__nav-button" type="button">Voltar para Cena 01</button>
+          <button id="nextSceneButton" class="scene-02__nav-button scene-02__nav-button--primary" type="button">Próxima Cena</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="scene03" class="scene-03" aria-labelledby="scene03Title" data-active="hand" hidden>
+    <div class="scene-03__shell">
+      <div class="scene-03__visual" aria-label="Homúnculo sensorial interativo">
+        <div class="scene-03__stage">
+          <img class="scene-03__homunculus" src="../Imagens/Cena 03/Cena03_homunculo.png" alt="Homúnculo sensorial clássico">
+          <span class="scene-03__focus scene-03__focus--hand" aria-hidden="true"></span>
+          <span class="scene-03__focus scene-03__focus--face" aria-hidden="true"></span>
+          <span class="scene-03__focus scene-03__focus--tongue" aria-hidden="true"></span>
+          <span class="scene-03__focus scene-03__focus--foot" aria-hidden="true"></span>
+          <button class="scene-03__hotspot scene-03__hotspot--hand is-active" data-scene03-topic="hand" type="button" aria-label="Explorar representação cortical da mão"></button>
+          <button class="scene-03__hotspot scene-03__hotspot--face" data-scene03-topic="face" type="button" aria-label="Explorar representação cortical da face"></button>
+          <button class="scene-03__hotspot scene-03__hotspot--tongue" data-scene03-topic="tongue" type="button" aria-label="Explorar representação cortical da língua"></button>
+          <button class="scene-03__hotspot scene-03__hotspot--foot" data-scene03-topic="foot" type="button" aria-label="Explorar representação cortical do pé"></button>
+        </div>
+      </div>
+
+      <aside class="scene-03__panel">
+        <p class="scene-03__eyebrow">Cena 03 · Homúnculo sensorial</p>
+        <h1 id="scene03Title">Homúnculo Sensorial</h1>
+        <p class="scene-03__subtitle">Explore como a sensibilidade corporal é representada no córtex somatossensorial.</p>
+
+        <div class="scene-03__topics" aria-label="Regiões do homúnculo sensorial">
+          <button class="is-active" data-scene03-topic="hand" type="button">Mão</button>
+          <button data-scene03-topic="face" type="button">Face</button>
+          <button data-scene03-topic="tongue" type="button">Língua</button>
+          <button data-scene03-topic="foot" type="button">Pé</button>
+        </div>
+
+        <article id="scene03Card" class="scene-03__card" aria-live="polite">
+          <div class="scene-03__card-image">
+            <img id="scene03CardImage" src="../Imagens/Cena 03/Cena03_mão.png" alt="Representação anatômica da mão">
+          </div>
+          <p id="scene03CardKicker" class="scene-03__card-kicker">Região selecionada · Mão</p>
+          <h2 id="scene03CardTitle">Representação Cortical da Mão</h2>
+          <p id="scene03CardDescription">A mão ocupa uma das maiores áreas do córtex somatossensorial devido à enorme densidade de receptores táteis e à necessidade de movimentos extremamente precisos.</p>
+          <div class="scene-03__card-detail">
+            <strong>Aplicação clínica</strong>
+            <p id="scene03CardClinical">Alterações nessa região podem comprometer destreza fina e percepção tátil.</p>
+          </div>
+          <div class="scene-03__card-detail scene-03__card-detail--soft">
+            <strong>Curiosidade</strong>
+            <p id="scene03CardCuriosity">A área cortical destinada à mão é muito maior do que seu tamanho físico sugeriria.</p>
+          </div>
+        </article>
+
+        <div class="scene-03__nav">
+          <button id="backToScene02" class="scene-03__nav-button" type="button">Voltar para Cena 02</button>
+          <button id="nextFromScene03" class="scene-03__nav-button scene-03__nav-button--primary" type="button">Próxima Cena</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Ambiente virtual de estudos</p>
+      <h1>Postura e Locomoção</h1>
+      <p class="subtitle">Sistema motor, vias descendentes, postura, integração sensorial e síndromes neurológicas.</p>
+    </div>
+    <div class="score-panel" aria-live="polite">
+      <span class="score-label">Progresso</span>
+      <strong id="progressText">0%</strong>
+      <div class="meter" aria-hidden="true"><span id="progressBar"></span></div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <nav class="side-nav" aria-label="Navegação principal">
+      <button class="nav-button is-active" data-view="modules">Módulos</button>
+      <button class="nav-button" data-view="atlas">Lâminas</button>
+      <button class="nav-button" data-view="anatomy">Anatomia 3D</button>
+      <button class="nav-button" data-view="slides3d">Lâminas 3D</button>
+      <button class="nav-button" data-view="flashcards">Flashcards</button>
+      <button class="nav-button" data-view="quiz">Quiz</button>
+      <button class="nav-button" data-view="cases">Casos</button>
+      <button class="nav-button" data-view="review">Revisão</button>
+      <a class="nav-link" href="MATERIAIS.html">Materiais HTML</a>
+    </nav>
+
+    <section class="workspace">
+      <section id="modulesView" class="view is-active" aria-labelledby="modulesTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Trilha guiada</p>
+            <h2 id="modulesTitle">Módulos de aprendizagem</h2>
+          </div>
+          <button id="resetProgress" class="ghost-button" type="button">Reiniciar progresso</button>
+        </div>
+        <div class="module-layout">
+          <div id="moduleList" class="module-list"></div>
+          <article id="moduleContent" class="learning-panel"></article>
+        </div>
+      </section>
+
+      <section id="atlasView" class="view" aria-labelledby="atlasTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">PDF original</p>
+            <h2 id="atlasTitle">Lâminas comentadas</h2>
+          </div>
+          <div class="segmented">
+            <button id="prevSlide" type="button">Anterior</button>
+            <button id="nextSlide" type="button">Próxima</button>
+          </div>
+        </div>
+        <div class="atlas-grid">
+          <aside id="slideThumbs" class="thumb-strip"></aside>
+          <article class="slide-reader">
+            <div id="slideStage" class="slide-stage"></div>
+            <div id="slideNotes" class="slide-notes"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="anatomyView" class="view" aria-labelledby="anatomyTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Modelo anatômico 360°</p>
+            <h2 id="anatomyTitle">Anatomia 3D integrada</h2>
+          </div>
+        </div>
+        <article class="anatomy-shell">
+          <iframe id="anatomyFrame" class="anatomy-frame" title="Modelo 3D de áreas corticais"></iframe>
+        </article>
+      </section>
+
+      <section id="slides3dView" class="view" aria-labelledby="slides3dTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Visualização Imersiva</p>
+            <h2 id="slides3dTitle">Lâminas em Perspectiva 3D</h2>
+          </div>
+        </div>
+        <article class="anatomy-shell">
+          <iframe id="slides3dFrame" class="anatomy-frame" title="Carrossel 3D de Lâminas"></iframe>
+        </article>
+      </section>
+
+      <section id="flashcardsView" class="view" aria-labelledby="flashcardsTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Revisão ativa</p>
+            <h2 id="flashcardsTitle">Flashcards</h2>
+          </div>
+          <div class="segmented">
+            <button id="prevCard" type="button">Anterior</button>
+            <button id="nextCard" type="button">Próximo</button>
+          </div>
+        </div>
+        <article class="flashcard-area">
+          <button id="flashcard" class="flashcard" type="button" aria-live="polite"></button>
+          <div class="card-actions">
+            <button id="flipCard" class="primary-button" type="button">Virar cartão</button>
+            <button id="markCard" class="ghost-button" type="button">Marcar como dominado</button>
+          </div>
+          <p id="cardCounter" class="muted"></p>
+        </article>
+      </section>
+
+      <section id="quizView" class="view" aria-labelledby="quizTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Treino de prova</p>
+            <h2 id="quizTitle">Quiz de fixação</h2>
+          </div>
+          <button id="restartQuiz" class="ghost-button" type="button">Recomeçar quiz</button>
+        </div>
+        <article id="quizPanel" class="quiz-panel"></article>
+      </section>
+
+      <section id="casesView" class="view" aria-labelledby="casesTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Aplicação clínica</p>
+            <h2 id="casesTitle">Casos rápidos</h2>
+          </div>
+        </div>
+        <div id="caseGrid" class="case-grid"></div>
+      </section>
+
+      <section id="reviewView" class="view" aria-labelledby="reviewTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Reta final</p>
+            <h2 id="reviewTitle">Revisão estratégica</h2>
+          </div>
+        </div>
+        <div class="review-grid">
+          <article class="review-block">
+            <h3>Mapa de uma resposta excelente</h3>
+            <ol>
+              <li>Comece pelo nível de comando: córtex, tronco, medula e músculo.</li>
+              <li>Diferencie via voluntária fina de ajustes automáticos.</li>
+              <li>Inclua feedback sensorial: propriocepção, vestibular e visão.</li>
+              <li>Feche com clínica: NMS, NMI e cerebelo têm sinais diferentes.</li>
+            </ol>
+          </article>
+          <article class="review-block">
+            <h3>Comparação obrigatória</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Síndrome</th>
+                  <th>Tônus</th>
+                  <th>Reflexos</th>
+                  <th>Sinal forte</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>NMS</td>
+                  <td>Espasticidade</td>
+                  <td>Hiperreflexia</td>
+                  <td>Babinski, fraqueza central</td>
+                </tr>
+                <tr>
+                  <td>NMI</td>
+                  <td>Hipotonia</td>
+                  <td>Hiporreflexia</td>
+                  <td>Atrofia, falha de ativação</td>
+                </tr>
+                <tr>
+                  <td>Cerebelar</td>
+                  <td>Variável</td>
+                  <td>Sem padrão piramidal</td>
+                  <td>Ataxia, dismetria, tremor de intenção</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+          <article class="review-block">
+            <h3>Checklist de domínio</h3>
+            <div id="reviewChecklist" class="checklist"></div>
+          </article>
+          <article class="review-block">
+            <h3>Integração sensorial</h3>
+            <div class="sensor-lab">
+              <label><input type="checkbox" id="senseProprio" checked> Propriocepção</label>
+              <label><input type="checkbox" id="senseVestibular" checked> Vestibular</label>
+              <label><input type="checkbox" id="senseVision" checked> Visão</label>
+            </div>
+            <div id="sensorResult" class="sensor-result"></div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

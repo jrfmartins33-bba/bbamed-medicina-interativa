@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia de Estudos | Postura e Locomoção</title>
+  <style>
+    :root {
+      --paper: #f7f5ef;
+      --surface: #ffffff;
+      --ink: #17202a;
+      --muted: #66707a;
+      --line: #d9d5c9;
+      --teal: #176b70;
+      --wine: #8c2f39;
+      --amber: #b06f18;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 28px;
+      color: #fff;
+      background: linear-gradient(110deg, #17202a, #176b70);
+      border-bottom: 4px solid var(--amber);
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    nav a, .top-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 7px 11px;
+      color: #fff;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 24px auto 48px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 38px rgba(23,32,42,.10);
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+    h2 {
+      margin: 34px 0 12px;
+      padding-top: 10px;
+      color: var(--teal);
+      border-top: 1px solid var(--line);
+    }
+    h3 { margin: 24px 0 8px; color: var(--wine); }
+    p { margin: 0 0 14px; }
+    ul, ol { margin-top: 8px; padding-left: 22px; }
+    li { margin: 5px 0; }
+    table {
+      width: 100%;
+      margin: 14px 0 18px;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--wine);
+      background: #fbfaf6;
+    }
+    blockquote {
+      margin: 16px 0;
+      padding: 12px 16px;
+      background: #fff7e8;
+      border-left: 5px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      font-weight: 700;
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+    .note {
+      padding: 14px;
+      background: #e8f3f1;
+      border-left: 5px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+    }
+    .top-link {
+      margin-top: 22px;
+      color: var(--teal);
+      background: #e8f3f1;
+      border-color: transparent;
+    }
+    @media (max-width: 680px) {
+      main { padding: 18px; }
+      header { padding: 28px 18px; }
+      table { font-size: .92rem; }
+    }
+  </style>
+</head>
+<body id="topo">
+  <header>
+    <p class="eyebrow">Guia HTML compartilhável</p>
+    <h1>Guia de Estudos</h1>
+    <p>Postura e Locomoção: sistema motor, vias descendentes, postura e síndromes neurológicas.</p>
+    <nav aria-label="Links do pacote">
+      <a href="index.html">Ambiente principal</a>
+      <a href="MATERIAIS.html">Materiais</a>
+      <a href="QUESTOES_REVISAO.html">Questões</a>
+      <a href="FLASHCARDS.html">Flashcards</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Como estudar</h2>
+      <ol>
+        <li>Abra o ambiente principal em <strong>index.html</strong>.</li>
+        <li>Estude os módulos em ordem.</li>
+        <li>Ao terminar cada módulo, marque como concluído.</li>
+        <li>Revise os flashcards até conseguir responder antes de virar o cartão.</li>
+        <li>Faça o quiz sem consultar as lâminas.</li>
+        <li>Finalize pelos casos rápidos e pela tabela NMS x NMI x Cerebelar.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Ideia central</h2>
+      <p>Movimento não é apenas contração muscular. Ele depende de uma cadeia integrada:</p>
+      <ul>
+        <li><strong>Córtex:</strong> decide, planeja e inicia movimentos voluntários.</li>
+        <li><strong>Tronco encefálico:</strong> ajusta postura, tônus, reflexos e equilíbrio.</li>
+        <li><strong>Medula:</strong> recebe comandos descendentes e organiza a saída motora.</li>
+        <li><strong>Músculos:</strong> executam a ação.</li>
+        <li><strong>Sistemas sensoriais:</strong> informam posição, movimento e erro para corrigir a ação.</li>
+      </ul>
+      <blockquote>O movimento voluntário depende de comando cortical, transmissão por vias descendentes, ativação de neurônios motores inferiores e ajuste por feedback sensorial.</blockquote>
+    </section>
+
+    <section>
+      <h2>Módulo 1 - Sistema motor</h2>
+      <p>O sistema motor integra cérebro, medula, músculos e sentidos. O movimento só acontece porque essas partes trabalham coordenadamente.</p>
+      <ul>
+        <li>O córtex decide e envia comandos.</li>
+        <li>O tronco encefálico ajusta comandos automáticos.</li>
+        <li>A medula executa e organiza respostas locais.</li>
+        <li>Os sentidos corrigem o movimento em tempo real.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Módulo 2 - Córtex motor</h2>
+      <p>O córtex motor primário fica no giro pré-central, no lobo frontal. Ele é a principal área para iniciar movimentos voluntários.</p>
+      <table>
+        <thead>
+          <tr><th>Área</th><th>Função</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Córtex motor primário</td><td>Comando voluntário e origem importante do trato corticoespinal.</td></tr>
+          <tr><td>Área pré-motora</td><td>Planejamento com base em estímulos externos, como visão.</td></tr>
+          <tr><td>Área motora suplementar</td><td>Organização de sequências aprendidas e movimentos repetidos.</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Homúnculo cortical:</strong> mãos, face e boca aparecem maiores porque precisam de controle fino. Tamanho cortical não equivale ao tamanho anatômico da parte do corpo.</p>
+    </section>
+
+    <section>
+      <h2>Módulo 3 - Trato corticoespinal</h2>
+      <p>O trato corticoespinal é a via voluntária mais importante para movimentos conscientes e precisos.</p>
+      <ol>
+        <li>Nasce principalmente no córtex motor primário.</li>
+        <li>Desce pelo encéfalo e tronco encefálico.</li>
+        <li>Cruza em grande parte no bulbo, na decussação das pirâmides.</li>
+        <li>Segue pela medula.</li>
+        <li>Atua sobre interneurônios e neurônios motores inferiores.</li>
+        <li>Influência a contração muscular.</li>
+      </ol>
+      <p class="note">Músculos distais, como os das mãos e dedos, dependem muito dessa via para movimentos finos. O cruzamento explica por que lesões acima da decussação podem causar déficit do lado oposto.</p>
+    </section>
+
+    <section>
+      <h2>Módulo 4 - Tronco encefálico e vias extrapiramidais</h2>
+      <p>O tronco encefálico regula funções motoras básicas e automáticas. Ele integra córtex, cerebelo e medula.</p>
+      <table>
+        <thead>
+          <tr><th>Via</th><th>Papel principal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vestibuloespinal</td><td>Equilíbrio e postura com base no ouvido interno.</td></tr>
+          <tr><td>Reticuloespinal</td><td>Tônus muscular, postura e automatismos.</td></tr>
+          <tr><td>Rubroespinal</td><td>Controle de músculos flexores, principalmente membros superiores.</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Comparação essencial:</strong> corticoespinal é movimento voluntário fino; extrapiramidais são postura, equilíbrio, tônus e movimentos automáticos.</p>
+    </section>
+
+    <section>
+      <h2>Módulo 5 - Controle da postura</h2>
+      <p>Postura é estabilidade ativa contra a gravidade. O corpo não fica parado passivamente; ele faz ajustes constantes.</p>
+      <table>
+        <thead>
+          <tr><th>Sistema</th><th>O que informa</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Propriocepção</td><td>Posição e movimento de articulações e músculos.</td></tr>
+          <tr><td>Vestibular</td><td>Posição da cabeça e aceleração.</td></tr>
+          <tr><td>Visão</td><td>Orientação do corpo no espaço.</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>Ajustes antecipatórios:</strong> ocorrem antes do movimento para preparar o corpo.</li>
+        <li><strong>Ajustes compensatórios:</strong> ocorrem depois de uma perturbação para recuperar equilíbrio.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Módulo 6 - Síndromes neurológicas</h2>
+      <h3>Neurônio motor superior</h3>
+      <p>O NMS comanda de cima e modula a atividade do NMI. Quando há lesão de NMS, perde-se parte do controle inibitório.</p>
+      <ul>
+        <li>Espasticidade.</li>
+        <li>Hiperreflexia.</li>
+        <li>Babinski.</li>
+        <li>Fraqueza central.</li>
+      </ul>
+
+      <h3>Neurônio motor inferior</h3>
+      <p>O NMI é a via final para ativar o músculo. Quando ele falha, o músculo recebe pouco ou nenhum comando efetivo.</p>
+      <ul>
+        <li>Fraqueza.</li>
+        <li>Hipotonia.</li>
+        <li>Hiporreflexia.</li>
+        <li>Atrofia.</li>
+      </ul>
+
+      <h3>Cerebelo</h3>
+      <p>O cerebelo coordena movimentos. Lesões cerebelares geram erro de coordenação, não apenas fraqueza.</p>
+      <ul>
+        <li>Ataxia.</li>
+        <li>Dismetria.</li>
+        <li>Tremor de intenção.</li>
+        <li>Marcha instável.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tabela final de comparação</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>NMS</th>
+            <th>NMI</th>
+            <th>Cerebelar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tônus</td><td>Aumentado, espasticidade</td><td>Diminuído, hipotonia</td><td>Pode variar</td></tr>
+          <tr><td>Reflexos</td><td>Aumentados</td><td>Diminuídos ou ausentes</td><td>Sem padrão piramidal</td></tr>
+          <tr><td>Trofismo</td><td>Menor atrofia inicialmente</td><td>Atrofia evidente</td><td>Não é o sinal principal</td></tr>
+          <tr><td>Sinal clássico</td><td>Babinski</td><td>Atrofia e hiporreflexia</td><td>Ataxia e dismetria</td></tr>
+          <tr><td>Problema central</td><td>Perda de controle descendente</td><td>Falha na ativação final do músculo</td><td>Falha de coordenação</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Roteiro de 3 dias</h2>
+      <h3>Dia 1</h3>
+      <p>Módulos 1, 2 e 3. Desenhe o caminho do trato corticoespinal. Responda 10 flashcards.</p>
+      <h3>Dia 2</h3>
+      <p>Módulos 4 e 5. Explique em voz alta a diferença entre corticoespinal e extrapiramidal. Use o simulador de integração sensorial.</p>
+      <h3>Dia 3</h3>
+      <p>Módulo 6. Compare NMS, NMI e cerebelar sem olhar. Faça quiz e casos clínicos. Revise os erros.</p>
+    </section>
+
+    <section>
+      <h2>Perguntas para autoexplicação</h2>
+      <ol>
+        <li>Por que postura é uma atividade ativa?</li>
+        <li>Qual é a diferença entre movimento voluntário fino e ajuste automático?</li>
+        <li>Como a decussação das pirâmides ajuda a interpretar déficits motores?</li>
+        <li>Por que a lesão de NMS causa hiperreflexia?</li>
+        <li>Por que a lesão de NMI causa hipotonia e atrofia?</li>
+        <li>O que diferencia ataxia cerebelar de fraqueza motora?</li>
+      </ol>
+    </section>
+
+    <a class="top-link" href="#topo">Voltar ao topo</a>
+  </main>
+</body>
+</html>

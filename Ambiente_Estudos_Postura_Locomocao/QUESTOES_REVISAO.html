@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questões de Revisão | Postura e Locomoção</title>
+  <style>
+    :root {
+      --paper: #f7f5ef;
+      --surface: #ffffff;
+      --ink: #17202a;
+      --muted: #66707a;
+      --line: #d9d5c9;
+      --teal: #176b70;
+      --wine: #8c2f39;
+      --amber: #b06f18;
+      --green: #336b3f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 28px;
+      color: #fff;
+      background: linear-gradient(110deg, #17202a, #176b70);
+      border-bottom: 4px solid var(--amber);
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    nav a, .top-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 7px 11px;
+      color: #fff;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 24px auto 48px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 38px rgba(23,32,42,.10);
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+    h2 {
+      margin: 34px 0 12px;
+      padding-top: 10px;
+      color: var(--teal);
+      border-top: 1px solid var(--line);
+    }
+    h3 { margin: 24px 0 8px; color: var(--wine); }
+    p { margin: 0 0 14px; }
+    ol, ul { margin-top: 8px; padding-left: 22px; }
+    li { margin: 6px 0; }
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+    .question-card {
+      margin: 14px 0;
+      padding: 16px;
+      background: #fbfaf6;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .answer {
+      margin-top: 12px;
+      padding: 12px;
+      color: #173f21;
+      background: #e6f2e7;
+      border-left: 5px solid var(--green);
+      border-radius: 0 8px 8px 0;
+    }
+    .model {
+      margin: 14px 0;
+      padding: 16px;
+      background: #fff7e8;
+      border-left: 5px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+    }
+    .top-link {
+      margin-top: 22px;
+      color: var(--teal);
+      background: #e8f3f1;
+      border-color: transparent;
+    }
+    @media (max-width: 680px) {
+      main { padding: 18px; }
+      header { padding: 28px 18px; }
+    }
+  </style>
+</head>
+<body id="topo">
+  <header>
+    <p class="eyebrow">Questões HTML compartilháveis</p>
+    <h1>Questões de Revisão</h1>
+    <p>Treino de prova para Postura e Locomoção, com respostas e casos clínicos.</p>
+    <nav aria-label="Links do pacote">
+      <a href="index.html">Ambiente principal</a>
+      <a href="MATERIAIS.html">Materiais</a>
+      <a href="GUIA_DE_ESTUDOS.html">Guia</a>
+      <a href="FLASHCARDS.html">Flashcards</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Parte 1 - Resposta curta</h2>
+      <ol>
+        <li>Explique por que o movimento depende de integração entre córtex, tronco encefálico, medula, músculos e sentidos.</li>
+        <li>Qual é a função do córtex motor primário?</li>
+        <li>O que significa dizer que o córtex motor tem organização somatotópica?</li>
+        <li>Por que mãos e face ocupam grande área no homúnculo motor?</li>
+        <li>Diferencie área pré-motora e área motora suplementar.</li>
+        <li>Descreva o trajeto básico do trato corticoespinal.</li>
+        <li>O que é a decussação das pirâmides?</li>
+        <li>Qual é a função principal das vias extrapiramidais?</li>
+        <li>Compare as vias vestibuloespinal, reticuloespinal e rubroespinal.</li>
+        <li>Como propriocepção, sistema vestibular e visão participam do controle postural?</li>
+        <li>Diferencie ajustes posturais antecipatórios e compensatórios.</li>
+        <li>Liste quatro sinais de síndrome do neurônio motor superior.</li>
+        <li>Liste quatro sinais de síndrome do neurônio motor inferior.</li>
+        <li>Quais sinais sugerem síndrome cerebelar?</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Parte 2 - Múltipla escolha</h2>
+      <article class="question-card">
+        <h3>1. O trato corticoespinal é mais relacionado a:</h3>
+        <p>A. Movimento voluntário fino.</p>
+        <p>B. Olfato.</p>
+        <p>C. Controle renal.</p>
+        <p>D. Digestão.</p>
+        <div class="answer"><strong>Resposta:</strong> A.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>2. Hiperreflexia e Babinski sugerem:</h3>
+        <p>A. Síndrome do neurônio motor inferior.</p>
+        <p>B. Síndrome do neurônio motor superior.</p>
+        <p>C. Lesão visual isolada.</p>
+        <p>D. Lesão muscular sem envolvimento neural.</p>
+        <div class="answer"><strong>Resposta:</strong> B.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>3. Hipotonia, hiporreflexia e atrofia sugerem:</h3>
+        <p>A. NMS.</p>
+        <p>B. NMI.</p>
+        <p>C. Apenas ansiedade.</p>
+        <p>D. Alteração vestibular leve.</p>
+        <div class="answer"><strong>Resposta:</strong> B.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>4. Ataxia, dismetria e tremor de intenção apontam para:</h3>
+        <p>A. Cerebelo.</p>
+        <p>B. Córtex auditivo.</p>
+        <p>C. Nervo olfatório.</p>
+        <p>D. Retina.</p>
+        <div class="answer"><strong>Resposta:</strong> A.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>5. O sistema vestibular ajuda principalmente a detectar:</h3>
+        <p>A. Posição da cabeça e aceleração.</p>
+        <p>B. Cheiro.</p>
+        <p>C. Temperatura do sangue.</p>
+        <p>D. Memória verbal.</p>
+        <div class="answer"><strong>Resposta:</strong> A.</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Parte 3 - Casos clínicos</h2>
+      <article class="question-card">
+        <h3>Caso A</h3>
+        <p>Paciente após AVC apresenta rigidez, reflexos aumentados e Babinski.</p>
+        <div class="answer"><strong>Resposta esperada:</strong> síndrome do neurônio motor superior. A perda de controle descendente e inibitório gera espasticidade, hiperreflexia e reflexo patológico.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>Caso B</h3>
+        <p>Paciente apresenta fraqueza flácida, perda de volume muscular e reflexos diminuídos.</p>
+        <div class="answer"><strong>Resposta esperada:</strong> síndrome do neurônio motor inferior. O músculo deixa de receber ativação final adequada.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>Caso C</h3>
+        <p>Paciente caminha com base alargada, erra a distância ao tocar um objeto e apresenta tremor durante movimento dirigido.</p>
+        <div class="answer"><strong>Resposta esperada:</strong> síndrome cerebelar. Os sinais indicam falha de coordenação, não apenas fraqueza.</div>
+      </article>
+
+      <article class="question-card">
+        <h3>Caso D</h3>
+        <p>Pessoa perde estabilidade quando fecha os olhos em uma superfície irregular.</p>
+        <div class="answer"><strong>Resposta esperada:</strong> dificuldade de integração sensorial postural. A retirada da visão aumenta dependência de propriocepção e vestibular; se a superfície também atrapalha propriocepção, o equilíbrio fica vulnerável.</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Parte 4 - Respostas-modelo</h2>
+      <article class="model">
+        <h3>Corticoespinal</h3>
+        <p>O trato corticoespinal é uma via descendente responsável por movimentos voluntários, principalmente movimentos finos e distais. Ele se origina no córtex motor, desce pelo tronco encefálico, cruza em grande parte na decussação das pirâmides no bulbo e segue para a medula, onde influencia interneurônios e neurônios motores inferiores.</p>
+      </article>
+
+      <article class="model">
+        <h3>Postura</h3>
+        <p>Postura é um processo ativo de estabilidade contra a gravidade. Ela depende de reflexos, tônus muscular, vias extrapiramidais e integração sensorial. Propriocepção informa posição articular, o sistema vestibular informa posição da cabeça e aceleração, e a visão orienta o corpo no espaço. O corpo usa ajustes antecipatórios antes do movimento e compensatórios após perturbações.</p>
+      </article>
+
+      <article class="model">
+        <h3>NMS x NMI</h3>
+        <p>Na lesão de neurônio motor superior, ocorre perda de controle descendente e inibitório, levando a espasticidade, hiperreflexia, Babinski e fraqueza central. Na lesão de neurônio motor inferior, há falha na ativação final do músculo, causando fraqueza, hipotonia, hiporreflexia e atrofia.</p>
+      </article>
+    </section>
+
+    <a class="top-link" href="#topo">Voltar ao topo</a>
+  </main>
+</body>
+</html>

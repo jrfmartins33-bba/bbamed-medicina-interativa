@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instruções | Ambiente de Estudos</title>
+  <style>
+    :root {
+      --paper: #f7f5ef;
+      --surface: #ffffff;
+      --ink: #17202a;
+      --line: #d9d5c9;
+      --teal: #176b70;
+      --amber: #b06f18;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    header {
+      padding: 34px 28px;
+      color: #fff;
+      background: linear-gradient(110deg, #17202a, #176b70);
+      border-bottom: 4px solid var(--amber);
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 7px 11px;
+      color: #fff;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    main {
+      width: min(880px, calc(100% - 32px));
+      margin: 24px auto 48px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 16px 38px rgba(23,32,42,.10);
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; }
+    h2 {
+      margin: 28px 0 10px;
+      padding-top: 10px;
+      color: var(--teal);
+      border-top: 1px solid var(--line);
+    }
+    p { margin: 0 0 14px; }
+    ul, ol { margin-top: 8px; padding-left: 22px; }
+    li { margin: 6px 0; }
+    code {
+      padding: 2px 5px;
+      background: #eee9dc;
+      border-radius: 5px;
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .86;
+    }
+    .box {
+      padding: 14px;
+      background: #fff7e8;
+      border-left: 5px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+    }
+    @media (max-width: 680px) {
+      main { padding: 18px; }
+      header { padding: 28px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Instruções HTML compartilháveis</p>
+    <h1>Ambiente de Estudos</h1>
+    <p>Como usar e compartilhar o pacote de Postura e Locomoção.</p>
+    <nav aria-label="Links do pacote">
+      <a href="index.html">Ambiente principal</a>
+      <a href="MATERIAIS.html">Materiais</a>
+      <a href="GUIA_DE_ESTUDOS.html">Guia</a>
+      <a href="QUESTOES_REVISAO.html">Questões</a>
+      <a href="FLASHCARDS.html">Flashcards</a>
+      <a href="LAMINAS_3D.html">Lâminas 3D</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="box">
+      <p><strong>Arquivo principal:</strong> abra <code>index.html</code> no navegador. O ambiente roda localmente e não precisa instalar nada.</p>
+    </section>
+
+    <section>
+      <h2>O que tem dentro</h2>
+      <ul>
+        <li>Módulos guiados por assunto.</li>
+        <li>Leitor das lâminas originais do PDF.</li>
+        <li>Aba interna de anatomia 3D em 360 graus inspirada na lâmina de áreas corticais.</li>
+        <li>Experiência 3D das lâminas com perspectiva, rotação e modo automático.</li>
+        <li>Flashcards interativos com progresso salvo no navegador.</li>
+        <li>Quiz de fixação.</li>
+        <li>Casos rápidos de aplicação clínica.</li>
+        <li>Tabela comparativa NMS x NMI x Cerebelar.</li>
+        <li>Simulador conceitual de integração sensorial.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Materiais HTML</h2>
+      <ul>
+        <li><code>GUIA_DE_ESTUDOS.html</code>: explicação organizada da aula.</li>
+        <li><code>QUESTOES_REVISAO.html</code>: perguntas, casos e respostas-modelo.</li>
+        <li><code>FLASHCARDS.html</code>: flashcards interativos em página única.</li>
+        <li><code>ANATOMIA_3D.html</code>: arquivo de apoio do modelo 3D; o acesso principal fica dentro do ambiente completo.</li>
+        <li><code>LAMINAS_3D.html</code>: visualização 3D compartilhável das 21 lâminas.</li>
+        <li><code>MATERIAIS.html</code>: central de links para todos os arquivos.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como compartilhar</h2>
+      <p>Para compartilhar apenas teoria, questões ou flashcards, envie o HTML correspondente. Esses arquivos funcionam sozinhos.</p>
+      <p>Para compartilhar o ambiente completo com as lâminas originais, envie a pasta <code>Ambiente_Estudos_Postura_Locomocao</code> junto com a pasta <code>page_images</code>, mantendo as duas na mesma pasta-mãe.</p>
+    </section>
+
+    <section>
+      <h2>Melhor forma de usar</h2>
+      <ol>
+        <li>Estude os módulos no <code>index.html</code>.</li>
+        <li>Reveja as lâminas relacionadas em cada módulo.</li>
+        <li>Faça os flashcards até responder sem olhar.</li>
+        <li>Resolva o quiz.</li>
+        <li>Termine pelos casos clínicos.</li>
+        <li>Leia o guia antes da prova.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
