@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BBAMed - Cena 08 | Neurônio Motor Superior x Inferior</title>
+<style>
+:root{
+  --bg:#071018;
+  --panel:rgba(13,28,39,.78);
+  --panel-strong:rgba(15,34,47,.92);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(94,226,214,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --blue:#5bc7ff;
+  --teal:#5ee2d6;
+  --coral:#ff7664;
+  --amber:#ffb43c;
+  --green:#7ddf9b;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+  --active:var(--teal);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 18% 8%,rgba(91,199,255,.20),transparent 30%),
+    radial-gradient(circle at 84% 12%,rgba(255,118,100,.12),transparent 34%),
+    linear-gradient(180deg,#071018 0%,#08141d 52%,#061017 100%);
+}
+button{font:inherit;border:0}
+ul,ol{margin:0;padding:0;list-style:none}
+.page{width:min(1240px,100%);margin:0 auto;padding:16px 18px 58px}
+.topbar{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.brand{color:var(--text);font-weight:750}
+.scene-id{color:var(--teal);font-weight:850}
+.scene-seq-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.scene-seq-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.scene-seq-nav a:hover,
+.scene-seq-nav a:focus-visible{
+  border-color:var(--teal);
+  color:var(--teal);
+}
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:850;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.hero{
+  position:relative;
+  min-height:clamp(440px,62vh,680px);
+  margin-top:14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  isolation:isolate;
+}
+.hero-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:saturate(1.05) contrast(1.04) brightness(.76);
+  z-index:-2;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,16,24,.92) 0%,rgba(5,16,24,.72) 34%,rgba(5,16,24,.28) 62%,rgba(5,16,24,.58) 100%),
+    linear-gradient(180deg,rgba(5,16,24,.16),rgba(5,16,24,.80));
+  z-index:-1;
+}
+.hero-content{
+  position:relative;
+  min-height:inherit;
+  display:grid;
+  grid-template-columns:minmax(320px,.92fr) minmax(360px,1.08fr);
+  gap:18px;
+  align-items:end;
+  padding:28px;
+}
+.hero-copy{align-self:center;max-width:650px}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.35rem,5.2vw,5rem);
+  line-height:.94;
+  font-weight:820;
+  letter-spacing:0;
+}
+.hero-sub{
+  margin:14px 0 0;
+  max-width:580px;
+  color:var(--soft);
+  font-size:1.06rem;
+}
+.gold-line{
+  display:grid;
+  gap:8px;
+  margin-top:18px;
+}
+.gold-line span{
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  border:1px solid color-mix(in srgb,var(--active) 42%,transparent);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--active) 13%,transparent);
+  padding:7px 12px;
+  color:var(--soft);
+  font-size:.88rem;
+  font-weight:800;
+}
+.hero-controls{
+  align-self:end;
+  justify-self:stretch;
+  display:grid;
+  gap:10px;
+  padding:14px;
+  border:1px solid rgba(137,218,216,.20);
+  border-radius:var(--radius);
+  background:rgba(7,16,24,.70);
+  backdrop-filter:blur(8px);
+}
+.mode-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.mode-btn{
+  min-height:86px;
+  padding:13px 14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.04);
+  color:var(--soft);
+  text-align:left;
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.mode-btn:hover,
+.mode-btn.is-active{
+  transform:translateY(-2px);
+  border-color:var(--mode-color);
+  background:color-mix(in srgb,var(--mode-color) 15%,transparent);
+  color:var(--text);
+}
+.mode-btn strong{
+  display:block;
+  margin-bottom:3px;
+  color:color-mix(in srgb,var(--mode-color) 70%,#ffffff);
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.mode-btn span{display:block;font-size:.96rem}
+.control-note{
+  margin:0;
+  color:var(--muted);
+  font-size:.78rem;
+}
+.section{padding-top:22px}
+.lab-shell{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+  gap:14px;
+  align-items:stretch;
+}
+.pathway-panel,
+.diagnostic-panel,
+.summary-panel{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(18,39,52,.72),rgba(7,16,24,.82));
+  box-shadow:var(--shadow);
+}
+.pathway-panel{
+  position:relative;
+  min-height:520px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.pathway-panel::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(94,226,214,.12);
+  border-radius:6px;
+  pointer-events:none;
+}
+.pathway-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:saturate(1.02) contrast(1.04) brightness(.72);
+  z-index:-2;
+}
+.pathway-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,16,24,.78),transparent 34%,transparent 68%,rgba(5,16,24,.72)),
+    linear-gradient(180deg,rgba(5,16,24,.16),rgba(5,16,24,.42));
+  z-index:-1;
+}
+.lesion-zone{
+  position:absolute;
+  display:grid;
+  place-items:center;
+  width:98px;
+  min-height:48px;
+  padding:7px 10px;
+  border:1px solid var(--zone-color);
+  border-radius:999px;
+  background:rgba(4,16,23,.72);
+  color:var(--text);
+  cursor:pointer;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+  box-shadow:0 0 0 1px rgba(255,255,255,.03),0 12px 30px rgba(0,0,0,.22);
+  transition:transform .2s ease,background .2s ease,filter .2s ease;
+}
+.lesion-zone::before{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border:1px solid color-mix(in srgb,var(--zone-color) 48%,transparent);
+  border-radius:999px;
+  opacity:.6;
+  animation:ringPulse 2.2s ease-out infinite;
+}
+.lesion-zone:hover,
+.lesion-zone.is-active{
+  transform:translateY(-2px) scale(1.02);
+  background:color-mix(in srgb,var(--zone-color) 20%,rgba(4,16,23,.78));
+  filter:drop-shadow(0 0 14px var(--zone-color));
+}
+.lesion-zone--nms{--zone-color:var(--coral);left:51%;top:43%}
+.lesion-zone--nmi{--zone-color:var(--amber);left:72%;top:70%}
+@keyframes ringPulse{
+  0%{transform:scale(.92);opacity:.72}
+  100%{transform:scale(1.18);opacity:0}
+}
+.pathway-caption{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  width:min(430px,calc(100% - 36px));
+  border:1px solid rgba(137,218,216,.18);
+  border-radius:var(--radius);
+  background:rgba(4,16,23,.74);
+  padding:14px;
+}
+.pathway-caption h2{
+  margin:0;
+  font-size:1rem;
+  color:var(--teal);
+}
+.pathway-caption p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.diagnostic-panel{
+  display:grid;
+  grid-template-rows:auto auto 1fr auto;
+  gap:14px;
+  padding:18px;
+}
+.panel-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.panel-head h2{
+  margin:0;
+  color:color-mix(in srgb,var(--active) 60%,#ffffff);
+  font-size:clamp(1.65rem,3vw,2.28rem);
+  line-height:1;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:4px 10px;
+  border:1px solid color-mix(in srgb,var(--active) 38%,transparent);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--active) 12%,transparent);
+  color:color-mix(in srgb,var(--active) 70%,#ffffff);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.diagnostic-copy{
+  margin:0;
+  color:var(--soft);
+  font-size:.94rem;
+}
+.muscle-demo{
+  min-height:184px;
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:
+    radial-gradient(circle at 72% 48%,color-mix(in srgb,var(--active) 14%,transparent),transparent 36%),
+    rgba(255,255,255,.026);
+  overflow:hidden;
+}
+.muscle-svg{
+  width:100%;
+  height:100%;
+  min-height:184px;
+  display:block;
+}
+.nerve-final,
+.nerve-superior{
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:stroke .28s ease,opacity .28s ease,stroke-width .28s ease,filter .28s ease;
+}
+.nerve-superior{
+  stroke:rgba(91,199,255,.58);
+  stroke-width:5;
+}
+.nerve-final{
+  stroke:rgba(255,180,60,.72);
+  stroke-width:6;
+}
+.muscle-shape{
+  fill:rgba(255,118,100,.60);
+  stroke:rgba(255,204,196,.82);
+  stroke-width:2;
+  transform-box:fill-box;
+  transform-origin:center;
+  transition:fill .28s ease,filter .28s ease,opacity .28s ease;
+}
+.muscle-fiber{
+  fill:none;
+  stroke:rgba(255,231,226,.54);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  opacity:.6;
+}
+.fasciculation{
+  fill:var(--amber);
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.disconnect-mark{
+  opacity:0;
+  transition:opacity .24s ease;
+}
+.page[data-mode="nms"] .nerve-superior{
+  stroke:var(--coral);
+  stroke-width:4;
+  opacity:.74;
+  stroke-dasharray:8 10;
+  filter:drop-shadow(0 0 9px rgba(255,118,100,.42));
+}
+.page[data-mode="nms"] .nerve-final{
+  stroke:var(--amber);
+  opacity:1;
+  filter:drop-shadow(0 0 12px rgba(255,180,60,.52));
+}
+.page[data-mode="nms"] .muscle-shape{
+  fill:rgba(255,118,100,.80);
+  filter:drop-shadow(0 0 15px rgba(255,118,100,.42));
+  animation:nmsRigid 1.1s ease-in-out infinite;
+}
+.page[data-mode="nms"] .muscle-fiber{
+  stroke:rgba(255,240,236,.82);
+  opacity:.86;
+}
+.page[data-mode="nmi"] .nerve-superior{
+  stroke:rgba(91,199,255,.30);
+  opacity:.44;
+}
+.page[data-mode="nmi"] .nerve-final{
+  stroke:rgba(255,180,60,.26);
+  stroke-dasharray:9 13;
+  opacity:.36;
+}
+.page[data-mode="nmi"] .muscle-shape{
+  fill:rgba(255,118,100,.42);
+  opacity:.78;
+  animation:nmiFlaccid 1.8s ease-in-out infinite;
+}
+.page[data-mode="nmi"] .disconnect-mark{
+  opacity:1;
+}
+.page[data-mode="nmi"] .fasciculation{
+  animation:fasciculate .54s ease-in-out infinite;
+}
+.page[data-mode="nmi"] .fasciculation:nth-of-type(2){animation-delay:.16s}
+.page[data-mode="nmi"] .fasciculation:nth-of-type(3){animation-delay:.31s}
+@keyframes nmsRigid{
+  0%,100%{transform:scaleX(.96) scaleY(1.04)}
+  50%{transform:scaleX(.91) scaleY(1.08)}
+}
+@keyframes nmiFlaccid{
+  0%,100%{transform:translateY(3px) scaleX(.78) scaleY(.84)}
+  50%{transform:translateY(8px) scaleX(.74) scaleY(.78)}
+}
+@keyframes fasciculate{
+  0%,100%{transform:scale(.5);opacity:0}
+  40%{transform:scale(1.25);opacity:.95}
+}
+.sequence{
+  display:grid;
+  gap:9px;
+}
+.sequence li{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  border:1px solid rgba(137,218,216,.12);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.025);
+  padding:10px;
+  opacity:.32;
+  transform:translateY(8px);
+  transition:opacity .3s ease,transform .3s ease,border-color .3s ease,background .3s ease;
+}
+.sequence li.is-visible{
+  opacity:1;
+  transform:translateY(0);
+  border-color:color-mix(in srgb,var(--active) 34%,transparent);
+  background:color-mix(in srgb,var(--active) 8%,transparent);
+}
+.step-number{
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:color-mix(in srgb,var(--active) 14%,transparent);
+  color:color-mix(in srgb,var(--active) 72%,#ffffff);
+  font-weight:900;
+}
+.step-title{
+  display:block;
+  color:var(--text);
+  font-weight:850;
+}
+.step-detail{
+  display:block;
+  margin-top:1px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.phrase-card{
+  border:1px solid color-mix(in srgb,var(--active) 34%,transparent);
+  border-radius:var(--radius);
+  background:color-mix(in srgb,var(--active) 10%,transparent);
+  padding:12px;
+  color:var(--soft);
+  font-size:.92rem;
+  opacity:.4;
+  transition:opacity .28s ease,transform .28s ease;
+}
+.phrase-card.is-ready{
+  opacity:1;
+  transform:translateY(-1px);
+}
+.phrase-card strong{
+  display:block;
+  margin-bottom:2px;
+  color:color-mix(in srgb,var(--active) 70%,#ffffff);
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.summary-panel{
+  margin-top:14px;
+  padding:16px;
+}
+.summary-panel h2{
+  margin:0 0 12px;
+  color:var(--teal);
+  font-size:1.16rem;
+}
+.comparison-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.compare-col{
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.026);
+  padding:12px;
+}
+.compare-col h3{
+  margin:0 0 8px;
+  font-size:.86rem;
+  color:var(--col-color);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.compare-col li{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:26px;
+  color:var(--soft);
+  font-size:.9rem;
+}
+.compare-col li::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--col-color);
+  flex:0 0 auto;
+}
+.clinical-quiz{
+  position:relative;
+  margin-top:14px;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:
+    linear-gradient(90deg,rgba(94,226,214,.08) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.035),transparent 28%),
+    linear-gradient(180deg,rgba(12,31,42,.86),rgba(6,16,24,.92));
+  background-size:28px 100%,100% 100%,100% 100%;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.clinical-quiz::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-top:1px solid rgba(94,226,214,.32);
+  pointer-events:none;
+}
+.quiz-head{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:12px;
+}
+.quiz-head h2{
+  margin:0;
+  color:var(--teal);
+  font-size:clamp(1.32rem,2.4vw,2rem);
+  line-height:1;
+}
+.quiz-head p:not(.eyebrow){
+  margin:7px 0 0;
+  max-width:690px;
+  color:var(--soft);
+  font-size:.94rem;
+}
+.quiz-actions{
+  display:flex;
+  align-items:stretch;
+  gap:8px;
+}
+.quiz-score{
+  display:grid;
+  place-items:center;
+  min-width:86px;
+  min-height:58px;
+  padding:8px 12px;
+  border:1px solid rgba(94,226,214,.28);
+  border-radius:var(--radius);
+  background:rgba(5,16,24,.58);
+}
+.quiz-score span{
+  color:var(--teal);
+  font-size:1.28rem;
+  font-weight:900;
+  line-height:1;
+}
+.quiz-score small{
+  color:var(--muted);
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.quiz-reset{
+  min-width:82px;
+  min-height:58px;
+  padding:8px 12px;
+  border:1px solid rgba(137,218,216,.18);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  cursor:pointer;
+  font-size:.74rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.quiz-reset:hover,
+.quiz-reset:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--teal);
+  background:rgba(94,226,214,.10);
+  color:var(--text);
+}
+.quiz-meter{
+  position:relative;
+  height:8px;
+  margin-bottom:12px;
+  border:1px solid rgba(137,218,216,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  overflow:hidden;
+}
+.quiz-meter span{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--teal),var(--green));
+  transition:width .3s ease;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.case-card{
+  position:relative;
+  display:grid;
+  grid-template-rows:auto auto 1fr auto auto;
+  gap:11px;
+  min-height:310px;
+  padding:13px;
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.028);
+  transition:transform .24s ease,border-color .24s ease,background .24s ease,box-shadow .24s ease;
+}
+.case-card::before{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:0;
+  height:3px;
+  border-radius:0 0 999px 999px;
+  background:rgba(137,218,216,.24);
+  transition:background .24s ease;
+}
+.case-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(94,226,214,.24);
+  background:rgba(255,255,255,.04);
+}
+.case-card[data-state="correct"]{
+  border-color:rgba(125,223,155,.48);
+  box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 0 1px rgba(125,223,155,.10);
+}
+.case-card[data-state="correct"]::before{background:var(--green)}
+.case-card[data-state="incorrect"]{
+  border-color:rgba(255,118,100,.50);
+  box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 0 1px rgba(255,118,100,.10);
+}
+.case-card[data-state="incorrect"]::before{background:var(--coral)}
+.case-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.case-top strong{
+  color:var(--text);
+  font-size:.78rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.case-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  padding:4px 8px;
+  border:1px solid rgba(137,218,216,.15);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.case-card h3{
+  margin:0;
+  color:var(--soft);
+  font-size:.9rem;
+}
+.sign-list{
+  display:grid;
+  gap:8px;
+  align-content:start;
+}
+.sign-list li{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-height:34px;
+  padding:8px 10px;
+  border:1px solid rgba(137,218,216,.12);
+  border-radius:var(--radius);
+  background:rgba(5,16,24,.36);
+  color:var(--text);
+  font-weight:800;
+}
+.sign-list li::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--case-color,var(--teal));
+  box-shadow:0 0 12px var(--case-color,var(--teal));
+  flex:0 0 auto;
+}
+.case-question{
+  margin:0;
+  align-self:end;
+  color:var(--teal);
+  font-size:.82rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.quiz-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.quiz-option{
+  min-height:46px;
+  padding:10px 12px;
+  border:1px solid rgba(137,218,216,.16);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  cursor:pointer;
+  font-weight:950;
+  letter-spacing:.05em;
+  text-align:center;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease;
+}
+.quiz-option:hover,
+.quiz-option:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(94,226,214,.38);
+  color:var(--text);
+}
+.quiz-option.is-selected{
+  border-color:var(--case-color,var(--teal));
+  background:color-mix(in srgb,var(--case-color,var(--teal)) 16%,transparent);
+  color:var(--text);
+}
+.quiz-option.is-correct{
+  border-color:rgba(125,223,155,.64);
+  background:rgba(125,223,155,.16);
+  color:#dffbe7;
+}
+.quiz-option.is-incorrect{
+  border-color:rgba(255,118,100,.64);
+  background:rgba(255,118,100,.16);
+  color:#ffe4df;
+}
+.case-feedback{
+  min-height:52px;
+  margin:0;
+  padding-top:2px;
+  color:var(--muted);
+  font-size:.84rem;
+  font-weight:700;
+}
+.case-card[data-state="correct"] .case-feedback{color:#bdf2cc}
+.case-card[data-state="incorrect"] .case-feedback{color:#ffd0c9}
+.quiz-status{
+  min-height:28px;
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:800;
+}
+@media(max-width:980px){
+  .hero-content,.lab-shell{grid-template-columns:1fr}
+  .hero-controls{align-self:end}
+  .pathway-panel{min-height:460px}
+  .case-grid{grid-template-columns:1fr}
+  .case-card{min-height:0}
+}
+@media(max-width:680px){
+  .page{padding:14px 12px 46px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:6px}
+  .scene-seq-nav{width:100%;justify-content:flex-start}
+  .hero-content{padding:18px}
+  .mode-grid,.comparison-grid{grid-template-columns:1fr}
+  .quiz-head{flex-direction:column}
+  .quiz-actions{width:100%}
+  .quiz-score,.quiz-reset{flex:1}
+  .pathway-panel{min-height:390px}
+  .lesion-zone{width:86px;min-height:42px;font-size:.66rem}
+  .lesion-zone--nms{left:45%;top:42%}
+  .lesion-zone--nmi{left:64%;top:70%}
+}
+</style>
+</head>
+<body>
+<div class="page" data-mode="idle">
+  <header class="topbar">
+    <div class="brand">BBAMed</div>
+    <div><span class="scene-id">Cena 08</span> - Neurônio Motor Superior x Inferior</div>
+    <nav class="scene-seq-nav" aria-label="Navegação sequencial">
+      <a href="cena07_controle_postura_integracao_sensorial.html">&larr; Anterior</a>
+      <a href="index.html">Índice</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-img" src="../Imagens/Cena 08/cena08_1.png" alt="Via motora descendente conectando córtex motor, medula, nervo periférico e músculo" />
+    <div class="hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">Semiologia Neurológica Essencial</p>
+        <h1 id="hero-title">NMS x NMI</h1>
+        <p class="hero-sub">A diferença clínica fica clara quando o músculo vira protagonista: conectado sem freio cerebral ou desconectado da via final comum.</p>
+        <div class="gold-line" aria-label="Frases de Ouro">
+          <span>NMS: o músculo continua conectado. O freio cerebral foi perdido.</span>
+          <span>NMI: o músculo perdeu sua ligação com o sistema nervoso.</span>
+        </div>
+      </div>
+
+      <div class="hero-controls" aria-label="Escolha o tipo de lesão">
+        <div class="mode-grid">
+          <button class="mode-btn" data-mode-choice="nms" style="--mode-color:var(--coral)" type="button">
+            <strong>Lesão NMS</strong>
+            <span>Conectado, sem freio</span>
+          </button>
+          <button class="mode-btn" data-mode-choice="nmi" style="--mode-color:var(--amber)" type="button">
+            <strong>Lesão NMI</strong>
+            <span>Desconectado, denervado</span>
+          </button>
+        </div>
+        <p class="control-note">Clique em um padrão para revelar os sinais em sequência, como no raciocínio do exame neurológico.</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="lab-title">
+      <div class="lab-shell">
+        <article class="pathway-panel" aria-label="Mapa visual da via motora">
+          <img class="pathway-img" src="../Imagens/Cena 08/cena08_1.png" alt="Mapa visual da via motora superior e inferior" />
+          <button class="lesion-zone lesion-zone--nms" data-mode-choice="nms" type="button">NMS</button>
+          <button class="lesion-zone lesion-zone--nmi" data-mode-choice="nmi" type="button">NMI</button>
+          <div class="pathway-caption">
+            <h2 id="lab-title">Onde a lesão muda o exame?</h2>
+            <p>NMS altera a modulação descendente. NMI interrompe a via final comum entre medula, nervo periférico e músculo.</p>
+          </div>
+        </article>
+
+        <aside class="diagnostic-panel" aria-live="polite">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Painel Diagnóstico</p>
+              <h2 id="panel-title">Escolha NMS ou NMI</h2>
+            </div>
+            <span class="badge" id="panel-badge">modo comparativo</span>
+          </div>
+
+          <p class="diagnostic-copy" id="panel-summary">A cena mostra primeiro a lesão, depois o comportamento do músculo, e só então libera os sinais semiológicos.</p>
+
+          <div class="muscle-demo" aria-label="Músculo animado">
+            <svg class="muscle-svg" viewBox="0 0 520 210" role="img" aria-label="Representação do músculo e da conexão neural">
+              <path class="nerve-superior" d="M42 72 C110 54 178 56 236 76 C270 88 300 96 330 92" />
+              <path class="nerve-final" d="M72 142 C134 128 186 136 232 152 C266 164 296 166 330 150" />
+              <g class="disconnect-mark">
+                <path d="M318 132 L350 166" stroke="#ff7664" stroke-width="6" stroke-linecap="round" />
+                <path d="M350 132 L318 166" stroke="#ff7664" stroke-width="6" stroke-linecap="round" />
+              </g>
+              <path class="muscle-shape" d="M356 62 C418 38 476 70 486 106 C474 154 420 178 356 150 C332 138 324 122 326 106 C324 90 332 74 356 62 Z" />
+              <path class="muscle-fiber" d="M365 82 C392 94 424 96 462 86" />
+              <path class="muscle-fiber" d="M358 108 C394 119 429 120 468 108" />
+              <path class="muscle-fiber" d="M365 134 C396 126 429 126 460 138" />
+              <circle class="fasciculation" cx="398" cy="92" r="5" />
+              <circle class="fasciculation" cx="438" cy="120" r="4.5" />
+              <circle class="fasciculation" cx="386" cy="137" r="4" />
+            </svg>
+          </div>
+
+          <ol class="sequence" id="sequence-list" aria-label="Sequência semiológica">
+            <li>
+              <span class="step-number">1</span>
+              <span><strong class="step-title">Aguardando seleção</strong><span class="step-detail">Escolha NMS ou NMI para iniciar o raciocínio.</span></span>
+            </li>
+          </ol>
+
+          <div class="phrase-card" id="phrase-card">
+            <strong>Frase de Ouro</strong>
+            <span id="phrase-text">A diferença aparece no comportamento do músculo.</span>
+          </div>
+        </aside>
+      </div>
+
+      <article class="summary-panel" aria-labelledby="summary-title" style="padding:20px">
+        <p class="eyebrow">Comparativo Interativo</p>
+        <h2 id="summary-title" style="margin:0 0 16px;font-size:1.3rem">Resumo Final da Cena 08</h2>
+
+        <!-- TOGGLE NMS ↔ NMI -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px">
+          <span id="tgl-nms-label" style="font-size:.82rem;font-weight:900;color:var(--coral);letter-spacing:.06em;text-transform:uppercase;opacity:1;transition:opacity .3s">NMS</span>
+          <button id="toggle-btn" type="button" aria-label="Alternar entre NMS e NMI" style="
+            position:relative;width:72px;height:36px;
+            border:2px solid var(--line-strong);border-radius:999px;
+            background:rgba(255,255,255,.06);cursor:pointer;
+            transition:border-color .3s;padding:0;
+          ">
+            <span id="toggle-thumb" style="
+              position:absolute;top:3px;left:3px;
+              width:26px;height:26px;border-radius:50%;
+              background:var(--coral);
+              box-shadow:0 0 14px rgba(255,118,100,.6);
+              transition:left .35s ease, background .35s ease, box-shadow .35s ease;
+            "></span>
+          </button>
+          <span id="tgl-nmi-label" style="font-size:.82rem;font-weight:900;color:var(--amber);letter-spacing:.06em;text-transform:uppercase;opacity:.4;transition:opacity .3s">NMI</span>
+        </div>
+
+        <!-- 4 EIXOS SEMIOLÓGICOS ANIMADOS -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px" id="axes-grid">
+
+          <!-- TÔNUS -->
+          <div style="text-align:center">
+            <p style="margin:0 0 8px;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Tônus</p>
+            <div style="position:relative;width:100%;height:120px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02);overflow:hidden">
+              <div id="ax-tonus" style="
+                position:absolute;bottom:0;left:10%;width:80%;
+                height:85%;
+                background:linear-gradient(180deg,rgba(255,118,100,.7),rgba(255,118,100,.3));
+                border-radius:6px 6px 0 0;
+                transition:height .6s ease, background .6s ease;
+              "></div>
+              <div style="position:absolute;top:50%;left:0;right:0;border-top:1px dashed rgba(255,255,255,.15)"></div>
+            </div>
+            <p id="ax-tonus-label" style="margin:6px 0 0;font-size:.8rem;font-weight:800;color:var(--coral);transition:color .3s">Hipertonia ↑</p>
+          </div>
+
+          <!-- REFLEXOS -->
+          <div style="text-align:center">
+            <p style="margin:0 0 8px;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Reflexos</p>
+            <div style="position:relative;width:100%;height:120px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02);overflow:hidden">
+              <div id="ax-reflexos" style="
+                position:absolute;bottom:0;left:10%;width:80%;
+                height:90%;
+                background:linear-gradient(180deg,rgba(255,118,100,.7),rgba(255,118,100,.3));
+                border-radius:6px 6px 0 0;
+                transition:height .6s ease, background .6s ease;
+              "></div>
+              <div style="position:absolute;top:50%;left:0;right:0;border-top:1px dashed rgba(255,255,255,.15)"></div>
+            </div>
+            <p id="ax-reflexos-label" style="margin:6px 0 0;font-size:.8rem;font-weight:800;color:var(--coral);transition:color .3s">Hiperreflexia ↑</p>
+          </div>
+
+          <!-- TROFISMO -->
+          <div style="text-align:center">
+            <p style="margin:0 0 8px;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Trofismo</p>
+            <div style="position:relative;width:100%;height:120px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02);overflow:hidden;display:flex;align-items:center;justify-content:center">
+              <!-- Ícone músculo que encolhe/incha -->
+              <svg id="ax-muscle-svg" viewBox="0 0 80 80" width="70" height="70" style="transition:transform .6s ease">
+                <ellipse id="ax-muscle" cx="40" cy="40" rx="30" ry="24"
+                  fill="rgba(255,118,100,.55)" stroke="rgba(255,204,196,.7)" stroke-width="2"
+                  style="transition:rx .6s ease, ry .6s ease, fill .6s ease"/>
+              </svg>
+            </div>
+            <p id="ax-trofismo-label" style="margin:6px 0 0;font-size:.8rem;font-weight:800;color:var(--teal);transition:color .3s">Preservado</p>
+          </div>
+
+          <!-- BABINSKI -->
+          <div style="text-align:center">
+            <p style="margin:0 0 8px;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">Babinski</p>
+            <div style="position:relative;width:100%;height:120px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02);overflow:hidden;display:flex;align-items:center;justify-content:center">
+              <!-- Seta do hálux — para cima (NMS+) ou para baixo (NMI-) -->
+              <svg viewBox="0 0 60 80" width="50" height="70">
+                <line x1="30" y1="65" x2="30" y2="20" stroke="rgba(255,255,255,.15)" stroke-width="2" stroke-dasharray="4 3"/>
+                <g id="ax-babinski-arrow" style="transition:transform .6s ease;transform-origin:30px 42px">
+                  <polygon points="30,12 20,32 40,32" fill="var(--coral)" style="transition:fill .3s"/>
+                  <line x1="30" y1="32" x2="30" y2="60" stroke="var(--coral)" stroke-width="4" stroke-linecap="round" style="transition:stroke .3s"/>
+                </g>
+              </svg>
+            </div>
+            <p id="ax-babinski-label" style="margin:6px 0 0;font-size:.8rem;font-weight:800;color:var(--coral);transition:color .3s">Positivo ↑</p>
+          </div>
+        </div>
+
+        <!-- RESUMO TEXTUAL DINÂMICO -->
+        <div id="toggle-summary" style="
+          padding:14px 16px;border:1px solid rgba(255,118,100,.3);border-radius:var(--radius);
+          background:rgba(255,118,100,.06);transition:border-color .4s, background .4s;
+        ">
+          <p id="toggle-summary-title" style="margin:0 0 4px;font-size:.74rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:var(--coral);transition:color .3s">
+            Síndrome do Neurônio Motor Superior
+          </p>
+          <p id="toggle-summary-text" style="margin:0;color:var(--soft);font-size:.88rem;line-height:1.5">
+            Conexão preservada, freio cerebral perdido. <strong>Hipertonia espástica + hiperreflexia + Babinski positivo</strong>. Pouca atrofia inicial. Fraqueza central sem perda completa da contração.
+          </p>
+        </div>
+
+        <!-- PÉROLAS CLÍNICAS (mantidas) -->
+        <div class="summary-pearl" style="
+          margin-top:14px;padding:14px 16px;
+          border:1px solid rgba(94,226,214,.3);border-radius:var(--radius);
+          background:rgba(94,226,214,.06);
+        ">
+          <p style="margin:0 0 6px;color:var(--teal);font-size:.72rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase">
+            💎 Pérola Clínica — ELA (Esclerose Lateral Amiotrófica)
+          </p>
+          <p style="margin:0;color:var(--soft);font-size:.88rem;line-height:1.5">
+            A ELA é a exceção que confirma a regra: afeta <strong style="color:var(--coral)">NMS e NMI simultaneamente</strong>.
+            O paciente apresenta espasticidade + hiperreflexia (NMS) junto com fasciculações + atrofia (NMI).
+            Se na prova aparecer sinais mistos → pense em doença do neurônio motor (ELA).
+          </p>
+        </div>
+        <div class="summary-pearl" style="
+          margin-top:10px;padding:14px 16px;
+          border:1px solid rgba(255,180,60,.25);border-radius:var(--radius);
+          background:rgba(255,180,60,.05);
+        ">
+          <p style="margin:0 0 6px;color:var(--amber);font-size:.72rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase">
+            💊 Farmacologia — Para lembrar na prova
+          </p>
+          <p style="margin:0;color:var(--soft);font-size:.88rem;line-height:1.5">
+            <strong style="color:var(--coral)">NMS → Baclofeno</strong> (relaxante muscular de ação central, agonista GABA-B) — reduz espasticidade.<br>
+            <strong style="color:var(--amber)">NMI → Sem tratamento para tônus</strong> — o problema é a denervação. Foco em reabilitação e prevenção de atrofia.
+          </p>
+        </div>
+      </article>
+
+      <article class="clinical-quiz" aria-labelledby="quiz-title">
+        <div class="quiz-head">
+          <div>
+            <p class="eyebrow">Microteste Clínico</p>
+            <h2 id="quiz-title">Fechamento em Casos</h2>
+            <p>Leia o padrão semiológico, responda NMS ou NMI e veja o raciocínio imediatamente.</p>
+          </div>
+          <div class="quiz-actions">
+            <div class="quiz-score" aria-live="polite">
+              <span id="quiz-score">0/6</span>
+              <small>acertos</small>
+            </div>
+            <button class="quiz-reset" id="quiz-reset" type="button">Refazer</button>
+          </div>
+        </div>
+
+        <div class="quiz-meter" aria-hidden="true"><span id="quiz-meter-fill"></span></div>
+
+        <div class="case-grid">
+          <article class="case-card" data-case-card data-answer="NMS" data-case-color="#ff7664" style="--case-color:var(--coral)">
+            <div class="case-top">
+              <strong>Caso 01</strong>
+              <span class="case-tag">central</span>
+            </div>
+            <h3>Paciente apresenta:</h3>
+            <ul class="sign-list">
+              <li>Babinski positivo</li>
+              <li>Hiperreflexia</li>
+            </ul>
+            <p class="case-question">NMS ou NMI?</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 01">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="NMI" data-case-color="#ffb43c" style="--case-color:var(--amber)">
+            <div class="case-top">
+              <strong>Caso 02</strong>
+              <span class="case-tag">denervação</span>
+            </div>
+            <h3>Paciente apresenta:</h3>
+            <ul class="sign-list">
+              <li>Fasciculações</li>
+              <li>Atrofia muscular</li>
+            </ul>
+            <p class="case-question">NMS ou NMI?</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 02">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="NMI" data-case-color="#ffb43c" style="--case-color:var(--amber)">
+            <div class="case-top">
+              <strong>Caso 03</strong>
+              <span class="case-tag">arco reflexo</span>
+            </div>
+            <h3>Paciente apresenta:</h3>
+            <ul class="sign-list">
+              <li>Flacidez</li>
+              <li>Reflexos abolidos</li>
+            </ul>
+            <p class="case-question">NMS ou NMI?</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 03">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+          <article class="case-card" data-case-card data-answer="NMS" data-case-color="#ff7664" style="--case-color:var(--coral)">
+            <div class="case-top">
+              <strong>Caso 04</strong>
+              <span class="case-tag">AVC</span>
+            </div>
+            <h3>Paciente pós-AVC apresenta:</h3>
+            <ul class="sign-list">
+              <li>Espasticidade em membro superior</li>
+              <li>Hiperreflexia patelar</li>
+              <li>Fraqueza sem atrofia significativa</li>
+            </ul>
+            <p class="case-question">NMS ou NMI?</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 04">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="NMI" data-case-color="#ffb43c" style="--case-color:var(--amber)">
+            <div class="case-top">
+              <strong>Caso 05</strong>
+              <span class="case-tag">Guillain-Barré</span>
+            </div>
+            <h3>Paciente com fraqueza ascendente:</h3>
+            <ul class="sign-list">
+              <li>Arreflexia global</li>
+              <li>Fraqueza flácida simétrica</li>
+              <li>Sem Babinski</li>
+            </ul>
+            <p class="case-question">NMS ou NMI?</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 05">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="NMS" data-case-color="#5bc7ff" style="--case-color:var(--blue)">
+            <div class="case-top">
+              <strong>Caso 06</strong>
+              <span class="case-tag">ELA — desafio</span>
+            </div>
+            <h3>Paciente com ELA apresenta:</h3>
+            <ul class="sign-list">
+              <li>Fasciculações + atrofia (sinais de NMI)</li>
+              <li>Babinski positivo + hiperreflexia (sinais de NMS)</li>
+              <li>Qual predomina neste caso?</li>
+            </ul>
+            <p class="case-question">O Babinski aponta para:</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 06">
+              <button class="quiz-option" data-quiz-choice="NMS" type="button" aria-pressed="false">NMS</button>
+              <button class="quiz-option" data-quiz-choice="NMI" type="button" aria-pressed="false">NMI</button>
+            </div>
+            <p class="case-feedback" aria-live="polite">Aguardando resposta.</p>
+          </article>
+
+        </div>
+
+        <p class="quiz-status" id="quiz-status" aria-live="polite">Meta: Separar aumento de reflexos por lesão central de perda de tônus por falha da via final..</p>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script>
+const modes = {
+  nms: {
+    color: "#ff7664",
+    title: "Lesão de NMS",
+    badge: "central",
+    summary: "O músculo permanece conectado pela via final. O que se perde é a modulação inibitória superior.",
+    phrase: "O músculo continua conectado. O freio cerebral foi perdido.",
+    steps: [
+      ["Via final preservada", "Corno anterior, nervo periférico e placa motora seguem capazes de ativar o músculo."],
+      ["Freio cerebral perdido", "A lesão central (córtex motor → cápsula interna → tronco cerebral) reduz a modulação inibitória descendente."],
+      ["Tônus aumenta", "O músculo fica rígido e resistente ao alongamento: hipertonia espástica. 💊 Tratamento: baclofeno (relaxante muscular de ação central)."],
+      ["Reflexos aumentam", "O arco reflexo fica desinibido → hiperreflexia. Ex: nervo L4 comprime o reflexo patelar — resposta exagerada."],
+      ["Babinski positivo", "Extensão do hálux ao estímulo plantar. Sinal piramidal patognomônico de lesão do neurônio motor superior."],
+      ["Fraqueza central", "Dificuldade de movimento, mas sem perda completa da contração muscular. Pouca atrofia inicial."],
+      ["Resultado: espasticidade", "Conexão preservada, controle superior perdido. Quadro: hipertonia + hiperreflexia + Babinski + pouca atrofia."]
+    ]
+  },
+  nmi: {
+    color: "#ffb43c",
+    title: "Lesão de NMI",
+    badge: "via final comum",
+    summary: "A conexão final com o músculo falha. Sem estímulo neural efetivo, o músculo perde tônus, reflexo e volume.",
+    phrase: "O músculo perdeu sua ligação com o sistema nervoso.",
+    steps: [
+      ["Via final interrompida", "A lesão atinge corno anterior, raiz, nervo periférico ou placa motora."],
+      ["Comando não chega", "O músculo deixa de receber ativação neural adequada."],
+      ["Tônus cai", "O músculo fica flácido por perda do estímulo motor final."],
+      ["Reflexos caem", "O arco reflexo depende do NMI; por isso reduz ou desaparece."],
+      ["Fasciculações aparecem", "Fibras musculares podem contrair em pequenos tremores espontâneos."],
+      ["Resultado: atrofia importante", "A denervação leva a perda de volume muscular progressiva."]
+    ]
+  }
+};
+
+const page = document.querySelector(".page");
+const title = document.getElementById("panel-title");
+const badge = document.getElementById("panel-badge");
+const summary = document.getElementById("panel-summary");
+const phraseCard = document.getElementById("phrase-card");
+const phraseText = document.getElementById("phrase-text");
+const sequenceList = document.getElementById("sequence-list");
+let revealTimers = [];
+
+function clearTimers(){
+  revealTimers.forEach((timer) => window.clearTimeout(timer));
+  revealTimers = [];
+}
+
+function renderSequence(mode){
+  sequenceList.innerHTML = mode.steps.map((step, index) => `
+    <li>
+      <span class="step-number">${index + 1}</span>
+      <span>
+        <strong class="step-title">${step[0]}</strong>
+        <span class="step-detail">${step[1]}</span>
+      </span>
+    </li>
+  `).join("");
+
+  phraseCard.classList.remove("is-ready");
+  mode.steps.forEach((_, index) => {
+    const timer = window.setTimeout(() => {
+      sequenceList.children[index]?.classList.add("is-visible");
+      if(index === mode.steps.length - 1){
+        phraseCard.classList.add("is-ready");
+      }
+    }, 260 + index * 520);
+    revealTimers.push(timer);
+  });
+}
+
+function setMode(key){
+  const mode = modes[key];
+  if(!mode) return;
+
+  clearTimers();
+  page.dataset.mode = key;
+  document.documentElement.style.setProperty("--active", mode.color);
+  title.textContent = mode.title;
+  badge.textContent = mode.badge;
+  summary.textContent = mode.summary;
+  phraseText.textContent = mode.phrase;
+
+  document.querySelectorAll("[data-mode-choice]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.modeChoice === key);
+  });
+
+  renderSequence(mode);
+
+  // Smooth scroll para o painel diagnóstico
+  setTimeout(() => {
+    document.querySelector(".lab-shell")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 300);
+}
+
+document.querySelectorAll("[data-mode-choice]").forEach((button) => {
+  button.addEventListener("click", () => setMode(button.dataset.modeChoice));
+});
+
+const quizFeedback = [
+  {
+    correct: "Correto. Babinski positivo com hiperreflexia é assinatura de lesão do NMS..",
+    review: "Reveja: Babinski + reflexos aumentados apontam para NMS.."
+  },
+  {
+    correct: "Correto. Fasciculações com atrofia muscular sugerem denervação, portanto NMI.",
+    review: "Reveja: fasciculações + atrofia puxam o raciocínio para NMI.."
+  },
+  {
+    correct: "Correto. Flacidez + reflexos abolidos indicam falha da via final comum → NMI..",
+    review: "Reveja: quando tônus e reflexos desaparecem, pense em NMI.."
+  }
+];
+
+const quizCards = Array.from(document.querySelectorAll("[data-case-card]"));
+const quizScore = document.getElementById("quiz-score");
+const quizMeterFill = document.getElementById("quiz-meter-fill");
+const quizStatus = document.getElementById("quiz-status");
+const quizReset = document.getElementById("quiz-reset");
+
+function updateQuizProgress(){
+  const answered = quizCards.filter((card) => card.dataset.selected).length;
+  const correct = quizCards.filter((card) => card.dataset.selected === card.dataset.answer).length;
+
+  quizScore.textContent = `${correct}/${quizCards.length}`;
+  quizMeterFill.style.width = `${(correct / quizCards.length) * 100}%`;
+
+  if(answered === 0){
+    quizStatus.textContent = "Meta: Separar aumento de reflexos por lesão central de perda de tônus por falha da via final..";
+    return;
+  }
+
+  if(answered < quizCards.length){
+    quizStatus.textContent = `${answered} de ${quizCards.length} casos respondidos. Continue o fechamento clínico..`;
+    return;
+  }
+
+  quizStatus.textContent = correct === quizCards.length
+    ? "Fechamento perfeito: NMS aumenta reflexos; NMI derruba tônus, reflexos e trofismo.."
+    : "Quase. Use a regra de ouro: NMS = reflexos aumentados; NMI = via final falhando..";
+}
+
+function answerQuizCase(card, choice){
+  const index = quizCards.indexOf(card);
+  const answer = card.dataset.answer;
+  const isCorrect = choice === answer;
+  const feedback = card.querySelector(".case-feedback");
+
+  card.dataset.selected = choice;
+  card.dataset.state = isCorrect ? "correct" : "incorrect";
+
+  card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+    const buttonChoice = button.dataset.quizChoice;
+    button.classList.toggle("is-selected", buttonChoice === choice);
+    button.classList.toggle("is-correct", buttonChoice === answer);
+    button.classList.toggle("is-incorrect", buttonChoice === choice && !isCorrect);
+    button.setAttribute("aria-pressed", buttonChoice === choice ? "true" : "false");
+  });
+
+  feedback.textContent = isCorrect ? quizFeedback[index].correct : quizFeedback[index].review;
+  updateQuizProgress();
+}
+
+quizCards.forEach((card) => {
+  card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+    button.addEventListener("click", () => answerQuizCase(card, button.dataset.quizChoice));
+  });
+});
+
+quizReset.addEventListener("click", () => {
+  quizCards.forEach((card) => {
+    delete card.dataset.selected;
+    delete card.dataset.state;
+    card.querySelector(".case-feedback").textContent = "Aguardando resposta.";
+    card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+      button.classList.remove("is-selected","is-correct","is-incorrect");
+      button.setAttribute("aria-pressed", "false");
+    });
+  });
+
+  updateQuizProgress();
+});
+
+/* ═══════════════════════════════════════════════
+   TOGGLE INTERATIVO — RESUMO NMS ↔ NMI
+   Anima 4 eixos: tônus, reflexos, trofismo, Babinski
+═══════════════════════════════════════════════ */
+let toggleState = "nms"; // começa em NMS
+
+const toggleBtn       = document.getElementById("toggle-btn");
+const toggleThumb     = document.getElementById("toggle-thumb");
+const tglNmsLabel     = document.getElementById("tgl-nms-label");
+const tglNmiLabel     = document.getElementById("tgl-nmi-label");
+const axTonus         = document.getElementById("ax-tonus");
+const axTonusLabel    = document.getElementById("ax-tonus-label");
+const axReflexos      = document.getElementById("ax-reflexos");
+const axReflexosLabel = document.getElementById("ax-reflexos-label");
+const axMuscle        = document.getElementById("ax-muscle");
+const axTrofismoLabel = document.getElementById("ax-trofismo-label");
+const axBabinskiArrow = document.getElementById("ax-babinski-arrow");
+const axBabinskiLabel = document.getElementById("ax-babinski-label");
+const toggleSummBox   = document.getElementById("toggle-summary");
+const toggleSummTitle = document.getElementById("toggle-summary-title");
+const toggleSummText  = document.getElementById("toggle-summary-text");
+
+function setToggle(state) {
+  toggleState = state;
+
+  if (state === "nms") {
+    // Thumb esquerda
+    toggleThumb.style.left = "3px";
+    toggleThumb.style.background = "#ff7664";
+    toggleThumb.style.boxShadow = "0 0 14px rgba(255,118,100,.6)";
+    tglNmsLabel.style.opacity = "1";
+    tglNmiLabel.style.opacity = ".4";
+
+    // Tônus: barra ALTA (hipertonia)
+    axTonus.style.height = "85%";
+    axTonus.style.background = "linear-gradient(180deg,rgba(255,118,100,.7),rgba(255,118,100,.3))";
+    axTonusLabel.textContent = "Hipertonia ↑";
+    axTonusLabel.style.color = "#ff7664";
+
+    // Reflexos: barra ALTA (hiperreflexia)
+    axReflexos.style.height = "90%";
+    axReflexos.style.background = "linear-gradient(180deg,rgba(255,118,100,.7),rgba(255,118,100,.3))";
+    axReflexosLabel.textContent = "Hiperreflexia ↑";
+    axReflexosLabel.style.color = "#ff7664";
+
+    // Trofismo: músculo GRANDE (preservado)
+    axMuscle.setAttribute("rx", "30");
+    axMuscle.setAttribute("ry", "24");
+    axMuscle.style.fill = "rgba(255,118,100,.55)";
+    axTrofismoLabel.textContent = "Preservado";
+    axTrofismoLabel.style.color = "#5ee2d6";
+
+    // Babinski: seta PARA CIMA (positivo)
+    axBabinskiArrow.style.transform = "rotate(0deg)";
+    axBabinskiArrow.querySelector("polygon").style.fill = "#ff7664";
+    axBabinskiArrow.querySelector("line").style.stroke = "#ff7664";
+    axBabinskiLabel.textContent = "Positivo ↑";
+    axBabinskiLabel.style.color = "#ff7664";
+
+    // Resumo textual
+    toggleSummBox.style.borderColor = "rgba(255,118,100,.3)";
+    toggleSummBox.style.background = "rgba(255,118,100,.06)";
+    toggleSummTitle.style.color = "#ff7664";
+    toggleSummTitle.textContent = "Síndrome do Neurônio Motor Superior";
+    toggleSummText.innerHTML = 'Conexão preservada, freio cerebral perdido. <strong>Hipertonia espástica + hiperreflexia + Babinski positivo</strong>. Pouca atrofia inicial. Fraqueza central sem perda completa da contração.';
+
+  } else {
+    // Thumb direita
+    toggleThumb.style.left = "39px";
+    toggleThumb.style.background = "#ffb43c";
+    toggleThumb.style.boxShadow = "0 0 14px rgba(255,180,60,.6)";
+    tglNmsLabel.style.opacity = ".4";
+    tglNmiLabel.style.opacity = "1";
+
+    // Tônus: barra BAIXA (hipotonia)
+    axTonus.style.height = "18%";
+    axTonus.style.background = "linear-gradient(180deg,rgba(255,180,60,.6),rgba(255,180,60,.2))";
+    axTonusLabel.textContent = "Hipotonia ↓";
+    axTonusLabel.style.color = "#ffb43c";
+
+    // Reflexos: barra BAIXA (hiporreflexia)
+    axReflexos.style.height = "12%";
+    axReflexos.style.background = "linear-gradient(180deg,rgba(255,180,60,.6),rgba(255,180,60,.2))";
+    axReflexosLabel.textContent = "Hipo/Arreflexia ↓";
+    axReflexosLabel.style.color = "#ffb43c";
+
+    // Trofismo: músculo PEQUENO (atrofia)
+    axMuscle.setAttribute("rx", "16");
+    axMuscle.setAttribute("ry", "12");
+    axMuscle.style.fill = "rgba(255,180,60,.35)";
+    axTrofismoLabel.textContent = "Atrofia ↓";
+    axTrofismoLabel.style.color = "#ffb43c";
+
+    // Babinski: seta PARA BAIXO (negativo/flexor)
+    axBabinskiArrow.style.transform = "rotate(180deg)";
+    axBabinskiArrow.querySelector("polygon").style.fill = "#7ddf9b";
+    axBabinskiArrow.querySelector("line").style.stroke = "#7ddf9b";
+    axBabinskiLabel.textContent = "Negativo ↓";
+    axBabinskiLabel.style.color = "#7ddf9b";
+
+    // Resumo textual
+    toggleSummBox.style.borderColor = "rgba(255,180,60,.3)";
+    toggleSummBox.style.background = "rgba(255,180,60,.06)";
+    toggleSummTitle.style.color = "#ffb43c";
+    toggleSummTitle.textContent = "Síndrome do Neurônio Motor Inferior";
+    toggleSummText.innerHTML = 'Via final comum destruída. <strong>Hipotonia flácida + hiporreflexia + fasciculações + atrofia importante</strong>. Babinski negativo. Fraqueza periférica com perda de contração.';
+  }
+}
+
+toggleBtn.addEventListener("click", () => {
+  setToggle(toggleState === "nms" ? "nmi" : "nms");
+});
+</script>
+</body>
+</html>
