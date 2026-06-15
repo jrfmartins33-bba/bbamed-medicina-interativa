@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cena 03 - Homúnculo Sensorial</title>
+<style>
+/* =========================
+   BBAMed visual system
+   ========================= */
+:root{
+  --bg:#071018;
+  --bg-2:#0a1620;
+  --panel:rgba(13,28,39,.78);
+  --panel-2:rgba(17,39,52,.86);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(94,226,214,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --teal:#5ee2d6;
+  --teal-deep:#164f53;
+  --coral:#ff7664;
+  --gold:#ddbc84;
+  --ink:#061017;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+  --morph-sync:.18;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    linear-gradient(180deg,#071018 0%,#08141d 44%,#071018 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 96px);
+}
+button,input{font:inherit}
+button{border:0}
+img{display:block;max-width:100%}
+.page{max-width:1180px;margin:0 auto;padding:22px 18px 72px}
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:42px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.brand{color:var(--text);font-weight:700}
+.scene-id{color:var(--teal)}
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0;
+}
+.hero{
+  position:relative;
+  padding:18px 0 36px;
+  border-bottom:1px solid rgba(137,218,216,.13);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:30px;
+  align-items:center;
+}
+.hero-copy{position:relative;z-index:2}
+.hero h1{
+  margin:0;
+  max-width:680px;
+  font-size:4.35rem;
+  line-height:.98;
+  font-weight:750;
+  letter-spacing:0;
+}
+.hero-sub{
+  max-width:610px;
+  margin:18px 0 0;
+  color:var(--soft);
+  font-size:1.08rem;
+}
+.hero-visual{
+  position:relative;
+  min-height:340px;
+  overflow:hidden;
+  border-radius:var(--radius);
+  isolation:isolate;
+}
+.hero-visual img{
+  width:100%;
+  height:100%;
+  min-height:340px;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(1.04) contrast(1.04);
+}
+.s1-glow{
+  position:absolute;
+  left:39%;
+  top:8%;
+  width:20%;
+  height:62%;
+  border-radius:999px;
+  transform:rotate(8deg);
+  background:linear-gradient(90deg,transparent,rgba(94,226,214,.5),rgba(94,226,214,.18),transparent);
+  filter:blur(7px);
+  mix-blend-mode:screen;
+  pointer-events:none;
+  animation:s1pulse 3.6s ease-in-out infinite;
+}
+.s1-label{
+  position:absolute;
+  right:16px;
+  bottom:16px;
+  padding:7px 10px;
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius);
+  background:rgba(4,16,23,.64);
+  color:var(--teal);
+  font-weight:800;
+  box-shadow:0 0 30px rgba(94,226,214,.16);
+}
+@keyframes s1pulse{0%,100%{opacity:.72}50%{opacity:1}}
+
+/* =========================
+   Structural sections
+   ========================= */
+.section{padding:38px 0 0}
+.section-head{max-width:760px;margin-bottom:18px}
+.section h2{
+  margin:0;
+  font-size:2rem;
+  line-height:1.12;
+  font-weight:730;
+  letter-spacing:0;
+}
+.section-note{
+  margin:10px 0 0;
+  color:var(--muted);
+  max-width:690px;
+}
+.map-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:18px;
+  align-items:stretch;
+}
+.glass-panel{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(18,39,52,.84),rgba(11,25,35,.72));
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+}
+.panel-pad{padding:18px}
+.panel-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.panel-title span:last-child{color:var(--teal);text-transform:none}
+
+/* =========================
+   Body real x cortical body
+   ========================= */
+.body-panel{display:grid;grid-template-rows:auto 1fr auto}
+.body-stage{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:3/4;
+  min-height:0;
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:
+    radial-gradient(circle at 50% 44%,rgba(18,40,55,.92),rgba(7,16,24,1) 68%),
+    linear-gradient(180deg,#0b1b26,#071018);
+  box-shadow:inset 0 0 80px rgba(94,226,214,.08),inset 0 -36px 80px rgba(0,0,0,.34);
+}
+.body-stage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:inherit;
+  pointer-events:none;
+  z-index:6;
+}
+.body-stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:4;
+  background:
+    radial-gradient(circle at 54% 42%,rgba(94,226,214,.1),transparent 45%),
+    linear-gradient(180deg,rgba(7,16,24,.02),rgba(7,16,24,.28));
+  pointer-events:none;
+}
+.body-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:contain;
+  object-position:center;
+  opacity:.94;
+  transition:filter .28s ease,opacity .28s ease,transform .28s ease;
+}
+.human-img{z-index:1}
+.homunculus-img{
+  z-index:2;
+  padding:14px 0;
+  opacity:0;
+  transform:scale(1.1);
+  filter:saturate(.84) contrast(1.12) brightness(.92) sepia(.06) drop-shadow(0 24px 34px rgba(0,0,0,.44)) drop-shadow(0 0 22px rgba(94,226,214,.12));
+}
+.body-overlay{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:5;
+}
+.focus-marker{
+  opacity:.86;
+  filter:drop-shadow(0 0 10px rgba(94,226,214,.55));
+  transition:opacity .24s ease,filter .24s ease;
+}
+.focus-marker path{
+  fill:none;
+  stroke:var(--teal);
+  stroke-width:.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.focus-marker .focus-soft{stroke:rgba(255,118,100,.68);stroke-width:.45}
+.nerve-path{
+  fill:none;
+  stroke:var(--coral);
+  stroke-width:.65;
+  stroke-linecap:round;
+  stroke-dasharray:3 2;
+  opacity:0;
+  filter:drop-shadow(0 0 6px rgba(255,118,100,.48));
+}
+.morph-controls{
+  display:grid;
+  gap:12px;
+  margin-top:16px;
+}
+.morph-labels{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:.86rem;
+  font-weight:650;
+}
+.morph-labels b{color:var(--text)}
+.range{
+  width:100%;
+  height:5px;
+  appearance:none;
+  -webkit-appearance:none;
+  border-radius:999px;
+  outline:0;
+  background:linear-gradient(90deg,var(--teal),var(--coral));
+}
+.range::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--text);
+  border:4px solid #0c1a24;
+  box-shadow:0 0 0 1px var(--line-strong),0 8px 22px rgba(0,0,0,.38);
+  cursor:pointer;
+}
+.range::-moz-range-thumb{
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background:var(--text);
+  border:4px solid #0c1a24;
+  box-shadow:0 0 0 1px var(--line-strong),0 8px 22px rgba(0,0,0,.38);
+  cursor:pointer;
+}
+.control-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.ghost-button{
+  min-height:40px;
+  padding:0 15px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:var(--text);
+  font-weight:700;
+  cursor:pointer;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.ghost-button:hover,.ghost-button:focus-visible{
+  border-color:var(--line-strong);
+  background:rgba(94,226,214,.1);
+  outline:0;
+}
+.morph-readout{color:var(--teal);font-weight:800}
+
+/* =========================
+   Cortical territory bars
+   ========================= */
+.territory-panel{display:grid;grid-template-rows:auto 1fr auto}
+.territory-list{display:grid;gap:9px}
+.territory-row{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(98px,150px) 1fr auto;
+  align-items:center;
+  gap:10px;
+  min-height:42px;
+  padding:8px 10px;
+  border:1px solid rgba(137,218,216,.11);
+  border-radius:var(--radius);
+  color:var(--text);
+  background:rgba(5,15,22,.5);
+  text-align:left;
+}
+button.territory-row{cursor:pointer}
+button.territory-row:hover,button.territory-row:focus-visible{
+  border-color:var(--line-strong);
+  outline:0;
+}
+.territory-name{font-weight:760}
+.territory-track{
+  position:relative;
+  height:9px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+}
+.territory-fill{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:var(--w);
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--teal-deep),var(--teal));
+  box-shadow:0 0 18px rgba(94,226,214,.22);
+}
+.territory-factor{
+  color:var(--muted);
+  font-size:.8rem;
+  white-space:nowrap;
+}
+.territory-row.is-active{
+  border-color:var(--line-strong);
+  background:rgba(94,226,214,.08);
+  box-shadow:0 0 26px rgba(94,226,214,var(--morph-sync));
+}
+.territory-row.is-active .territory-fill{
+  background:linear-gradient(90deg,var(--teal),var(--coral));
+  box-shadow:0 0 24px rgba(94,226,214,.45);
+}
+.territory-note{
+  margin:14px 0 0;
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+/* =========================
+   Regional interaction
+   ========================= */
+.region-workbench{
+  display:grid;
+  grid-template-columns:310px 1fr;
+  gap:18px;
+}
+.chip-panel{padding:16px}
+.chips{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:9px;
+}
+.chip{
+  width:100%;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  color:var(--text);
+  text-align:left;
+  font-weight:760;
+  cursor:pointer;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.chip:hover,.chip:focus-visible{
+  border-color:var(--line-strong);
+  outline:0;
+}
+.chip.active{
+  color:var(--ink);
+  background:var(--teal);
+  border-color:var(--teal);
+}
+.detail-panel{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  min-height:340px;
+  overflow:hidden;
+}
+.detail-media{
+  position:relative;
+  min-height:320px;
+  background:#050d13;
+  overflow:hidden;
+}
+.detail-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent,rgba(5,13,19,.26));
+  pointer-events:none;
+}
+.detail-image{
+  width:100%;
+  height:100%;
+  min-height:320px;
+  object-fit:cover;
+  object-position:center;
+  filter:invert(1) hue-rotate(180deg) saturate(1.12) contrast(1.04) brightness(.96);
+}
+.detail-copy{
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.detail-copy h3{
+  margin:0 0 10px;
+  font-size:2rem;
+  line-height:1.1;
+  letter-spacing:0;
+}
+.detail-copy p{
+  margin:0;
+  color:var(--soft);
+  font-size:1.02rem;
+}
+.detail-meta{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.meta-pill{
+  padding:7px 9px;
+  border-radius:var(--radius);
+  border:1px solid rgba(94,226,214,.25);
+  color:var(--teal);
+  background:rgba(94,226,214,.07);
+  font-size:.78rem;
+  font-weight:760;
+}
+
+/* =========================
+   Two-point experiment
+   ========================= */
+.experiment-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.touch-stage,.touch-controls{padding:20px}
+.touch-stage{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:300px;
+}
+.skinpad{
+  position:relative;
+  width:100%;
+  max-width:390px;
+  height:170px;
+  overflow:hidden;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,192,170,.34);
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.16),transparent 36%),
+    linear-gradient(180deg,#e7b592,#b77960);
+  box-shadow:inset 0 0 32px rgba(80,35,26,.28),0 16px 40px rgba(0,0,0,.26);
+}
+.skinpad::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(90deg,rgba(114,65,50,.12) 0 1px,transparent 1px 18px);
+  opacity:.45;
+}
+.dot{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--coral);
+  box-shadow:0 0 0 5px rgba(255,118,100,.23),0 0 22px rgba(255,118,100,.42);
+  transform:translate(-50%,-50%);
+  transition:left .2s ease;
+}
+.verdict{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:1.45rem;
+  font-weight:760;
+  text-align:center;
+}
+.verdict.two{color:var(--teal)}
+.seg{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:8px 0 22px;
+}
+.seg button{
+  min-height:42px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  font-weight:760;
+  cursor:pointer;
+}
+.seg button:hover,.seg button:focus-visible{
+  border-color:var(--line-strong);
+  outline:0;
+}
+.seg button.on{
+  color:var(--ink);
+  background:var(--teal);
+  border-color:var(--teal);
+}
+.label-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  margin:0 0 7px;
+  color:var(--muted);
+  font-size:.86rem;
+  font-weight:700;
+}
+.label-line b{color:var(--text)}
+.threshold{
+  margin:16px 0 0;
+  color:var(--muted);
+}
+.threshold b{color:var(--text)}
+
+/* =========================
+   Clinical cards and note
+   ========================= */
+.clinical-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.clinical-card{
+  padding:22px;
+  min-height:205px;
+}
+.tag{
+  margin:0 0 10px;
+  color:var(--coral);
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.clinical-card h3{
+  margin:0 0 10px;
+  font-size:1.45rem;
+  letter-spacing:0;
+}
+.clinical-card p{
+  margin:0;
+  color:var(--soft);
+}
+.science-note{
+  margin-top:34px;
+  padding-top:18px;
+  border-top:1px solid rgba(137,218,216,.14);
+  color:var(--muted);
+  font-size:.88rem;
+  max-width:860px;
+}
+.science-note b{color:var(--text)}
+
+/* =========================
+   Responsive and motion
+   ========================= */
+@media (max-width:980px){
+  .hero-grid,.map-grid,.region-workbench,.detail-panel,.experiment-grid,.clinical-grid{
+    grid-template-columns:1fr;
+  }
+  .hero h1{font-size:3.25rem}
+  .hero-visual,.hero-visual img{min-height:300px}
+  .body-stage{max-width:480px}
+}
+@media (max-width:620px){
+  .page{padding:18px 14px 54px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:4px}
+  .hero h1{font-size:2.45rem;line-height:1.04}
+  .hero-sub{font-size:1rem}
+  .section{padding-top:32px}
+  .section h2{font-size:1.58rem}
+  .hero-visual,.hero-visual img{min-height:230px}
+  .body-stage{max-width:350px}
+  .territory-row{grid-template-columns:1fr;gap:7px}
+  .territory-factor{white-space:normal}
+  .detail-copy{padding:20px}
+  .detail-copy h3{font-size:1.62rem}
+  .touch-stage,.touch-controls,.clinical-card{padding:18px}
+  .seg{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.001ms!important;
+  }
+}
+.scene-seq-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.scene-seq-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.scene-seq-nav a:hover,
+.scene-seq-nav a:focus-visible{
+  border-color:var(--teal);
+  color:var(--teal);
+}
+@media(max-width:680px){
+  .scene-seq-nav{width:100%;justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar" aria-label="Identificação da cena">
+    <div class="brand">BBAMed</div>
+    <div><span class="scene-id">Cena 03</span> - Córtex somatossensorial primário (S1)</div>
+    <nav class="scene-seq-nav" aria-label="Navegacao sequencial">
+      <a href="index.html#scene02">&larr; Anterior</a>
+      <a href="index.html">Indice</a>
+      <a href="cena04_trato_corticoespinhal.html">Proxima &rarr;</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Homúnculo sensorial</p>
+        <h1 id="hero-title">Por que seus lábios sentem mais do que as costas inteiras?</h1>
+        <p class="hero-sub">O corpo que o cérebro sente não é proporcional ao corpo anatômico. Ele é proporcional ao território cortical dedicado a cada região.</p>
+      </div>
+      <div class="hero-visual" aria-label="Cérebro com a faixa somatossensorial iluminada">
+        <img src="../Imagens/Cena 03/Cena03_Brain_Master_Final.png" alt="Cérebro em vista lateral com a faixa somatossensorial destacada em teal" />
+        <div class="s1-glow" aria-hidden="true"></div>
+        <div class="s1-label" aria-hidden="true">S1</div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="map-title">
+      <div class="section-head">
+        <p class="eyebrow">Corpo real x corpo cortical</p>
+        <h2 id="map-title">A forma muda quando o critério é sensibilidade.</h2>
+        <p class="section-note">O controle preserva a ideia do morph: a imagem corporal permanece anatômica, enquanto o overlay revela quais regiões crescem no mapa cortical.</p>
+      </div>
+
+      <div class="map-grid">
+        <article class="glass-panel body-panel panel-pad">
+          <p class="panel-title"><span>Mapa corporal</span><span id="morphValue">0%</span></p>
+          <div class="body-stage" id="bodyStage">
+            <img class="body-img human-img" id="bodyImage" src="../Imagens/Cena 03/human_body.png" alt="Corpo humano anatômico em posição frontal" />
+            <img class="body-img homunculus-img" id="homunculusImage" src="../Imagens/Cena 03/Homunculo_transparente.png" alt="Homúnculo sensorial clássico de Penfield" />
+            <svg class="body-overlay" id="bodyOverlay" viewBox="0 0 100 133" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <path class="nerve-path" id="bodyNerve" d=""></path>
+              <g class="focus-marker" id="focusMarker">
+                <path d="M-6 -4 L-6 -8 L-2 -8 M2 -8 L6 -8 L6 -4 M6 4 L6 8 L2 8 M-2 8 L-6 8 L-6 4"></path>
+                <path class="focus-soft" d="M-3 0 H3 M0 -3 V3"></path>
+              </g>
+            </svg>
+          </div>
+
+          <div class="morph-controls">
+            <div class="morph-labels">
+              <span><b>Corpo real</b></span>
+              <span><b>Corpo cortical</b></span>
+            </div>
+            <input class="range" id="slider" type="range" min="0" max="100" value="0" aria-label="Morfologia: corpo real para corpo cortical" />
+            <div class="control-row">
+              <button class="ghost-button" id="auto" type="button">Ver transformação</button>
+              <span class="morph-readout" id="selectedRegion">Mão em destaque</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="glass-panel territory-panel panel-pad" aria-labelledby="territory-title">
+          <p class="panel-title" id="territory-title"><span>Território cortical</span><span>S1</span></p>
+          <div class="territory-list" id="territoryList"></div>
+          <p class="territory-note">A largura da faixa representa território cortical relativo, não tamanho anatômico. Mais receptores e mais precisão significam mais córtex dedicado.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="region-title">
+      <div class="section-head">
+        <p class="eyebrow">Mão, face, língua e pé</p>
+        <h2 id="region-title">Clique em uma região para ver corpo, córtex e anatomia conversarem.</h2>
+      </div>
+
+      <div class="region-workbench">
+        <aside class="glass-panel chip-panel">
+          <div class="chips" id="chips" role="tablist" aria-label="Selecionar região corporal">
+            <button class="chip active" type="button" data-region="mao" role="tab" aria-selected="true">Mão</button>
+            <button class="chip" type="button" data-region="face" role="tab" aria-selected="false">Face / Lábios</button>
+            <button class="chip" type="button" data-region="lingua" role="tab" aria-selected="false">Língua</button>
+            <button class="chip" type="button" data-region="pe" role="tab" aria-selected="false">Pé</button>
+          </div>
+        </aside>
+
+        <article class="glass-panel detail-panel" id="detailPanel" aria-live="polite">
+          <div class="detail-media">
+            <img class="detail-image" id="detailImage" src="../Imagens/Cena 03/Cena03_mão.png" alt="Anatomia da mão" />
+          </div>
+          <div class="detail-copy">
+            <p class="eyebrow" id="detailKicker">Região selecionada</p>
+            <h3 id="detailTitle">Mão</h3>
+            <p id="detailText">Alta densidade de receptores, discriminação fina e grande representação cortical.</p>
+            <div class="detail-meta">
+              <span class="meta-pill" id="detailMetaA">alta acuidade</span>
+              <span class="meta-pill" id="detailMetaB">território amplo</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="experiment-title">
+      <div class="section-head">
+        <p class="eyebrow">Microexperimento</p>
+        <h2 id="experiment-title">Discriminação de dois pontos.</h2>
+        <p class="section-note">Dois toques muito próximos podem ser sentidos como um único ponto. O limiar muda conforme o território cortical da região testada.</p>
+      </div>
+
+      <div class="experiment-grid">
+        <article class="glass-panel touch-stage">
+          <div class="skinpad" id="skinpad">
+            <div class="dot" id="dotA"></div>
+            <div class="dot" id="dotB"></div>
+          </div>
+          <div class="verdict" id="verdict"></div>
+        </article>
+
+        <article class="glass-panel touch-controls">
+          <div class="label-line"><span>Região da pele</span></div>
+          <div class="seg" id="tpseg">
+            <button class="on" type="button" data-site="finger" aria-pressed="true">Ponta do dedo</button>
+            <button type="button" data-site="back" aria-pressed="false">Costas</button>
+          </div>
+          <div class="label-line"><span>Distância entre os toques</span><b id="distval">5 mm</b></div>
+          <input class="range" id="dist" type="range" min="1" max="70" value="5" aria-label="Distância entre os dois toques em milímetros" />
+          <p class="threshold" id="thr"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="clinical-title">
+      <div class="section-head">
+        <p class="eyebrow">Aplicação clínica</p>
+        <h2 id="clinical-title">Quando o mapa muda, a clínica aparece.</h2>
+      </div>
+
+      <div class="clinical-grid">
+        <article class="glass-panel clinical-card">
+          <p class="tag">Plasticidade - amputação</p>
+          <h3>O membro fantasma</h3>
+          <p>Após uma amputação, o território cortical da mão não fica vazio. Áreas vizinhas podem invadir esse espaço; por isso, tocar a face pode evocar a mão ausente.</p>
+        </article>
+        <article class="glass-panel clinical-card">
+          <p class="tag">Lesão focal - S1</p>
+          <h3>A perda que respeita o mapa</h3>
+          <p>Uma lesão pequena no giro pós-central pode reduzir tato fino apenas nas regiões ali representadas. O déficit segue a somatotopia do córtex.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="science-note"><b>Nota científica.</b> O homúnculo representa área cortical relativa, não proporção anatômica literal. A somatotopia de S1 é didática e simplificada; os limiares de dois pontos são aproximados e variam com método, idade e região testada.</p>
+  </main>
+</div>
+
+<script>
+/* =========================
+   Interactive behavior
+   ========================= */
+(function(){
+  "use strict";
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var REGION = {
+    mao:{
+      title:"Mão",
+      label:"Mão em destaque",
+      asset:"../Imagens/Cena 03/Cena03_mão.png",
+      alt:"Anatomia da mão",
+      text:"Alta densidade de receptores, discriminação fina e grande representação cortical.",
+      meta:["alta acuidade","território amplo"],
+      body:{x:72.9,y:76,scale:1.05},
+      homunculus:{x:70,y:45,scale:1.28}
+    },
+    face:{
+      title:"Face / Lábios",
+      label:"Face e lábios em destaque",
+      asset:"../Imagens/Cena 03/Cena03_face.png",
+      alt:"Anatomia da face e lábios",
+      text:"Alta sensibilidade tátil, temperatura, dor e grande território facial.",
+      meta:["tato fino","território facial"],
+      body:{x:50,y:20,scale:.9},
+      homunculus:{x:74,y:68,scale:1.16}
+    },
+    lingua:{
+      title:"Língua",
+      label:"Língua em destaque",
+      asset:"../Imagens/Cena 03/Cena03_lingua.png",
+      alt:"Anatomia da língua",
+      text:"Discriminação tátil refinada, fala, mastigação e deglutição.",
+      meta:["controle oral","alta precisão"],
+      body:{x:50,y:24.2,scale:.78},
+      homunculus:{x:73,y:84,scale:1.05}
+    },
+    pe:{
+      title:"Pé",
+      label:"Pé em destaque",
+      asset:"../Imagens/Cena 03/Cena03_Pés.png",
+      alt:"Anatomia do pé",
+      text:"Menor acuidade relativa, território cortical menor e função postural/sensorial.",
+      meta:["postura","território menor"],
+      body:{x:56.2,y:130.5,scale:.86},
+      homunculus:{x:25,y:51,scale:.92}
+    }
+  };
+
+  var TERR = [
+    {key:"lingua", name:"Língua", value:92, factor:"alto"},
+    {key:"face", name:"Lábios / Face", value:100, factor:"muito alto"},
+    {key:"mao", name:"Mão", value:97, factor:"muito alto"},
+    {key:"tronco", name:"Tronco", value:16, factor:"baixo"},
+    {key:"pe", name:"Pé", value:22, factor:"menor"},
+    {key:"perna", name:"Perna", value:13, factor:"baixo"}
+  ];
+
+  var selectedKey = "mao";
+  var slider = document.getElementById("slider");
+  var morphValue = document.getElementById("morphValue");
+  var bodyImage = document.getElementById("bodyImage");
+  var homunculusImage = document.getElementById("homunculusImage");
+  var bodyNerve = document.getElementById("bodyNerve");
+  var selectedRegion = document.getElementById("selectedRegion");
+  var focusMarker = document.getElementById("focusMarker");
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  var territoryList = document.getElementById("territoryList");
+  var detailPanel = document.getElementById("detailPanel");
+  var detailImage = document.getElementById("detailImage");
+  var detailTitle = document.getElementById("detailTitle");
+  var detailText = document.getElementById("detailText");
+  var detailMetaA = document.getElementById("detailMetaA");
+  var detailMetaB = document.getElementById("detailMetaB");
+
+  function buildTerritories(){
+    TERR.forEach(function(item){
+      var selectable = Object.prototype.hasOwnProperty.call(REGION,item.key);
+      var row = document.createElement(selectable ? "button" : "div");
+      row.className = "territory-row";
+      row.dataset.key = item.key;
+      row.style.setProperty("--w",item.value + "%");
+      if(selectable){
+        row.type = "button";
+        row.addEventListener("click",function(){ selectRegion(item.key); });
+      }
+      row.innerHTML =
+        '<span class="territory-name">' + item.name + '</span>' +
+        '<span class="territory-track" aria-hidden="true"><span class="territory-fill"></span></span>' +
+        '<span class="territory-factor">' + item.factor + '</span>';
+      territoryList.appendChild(row);
+    });
+  }
+
+  function applyMorph(value){
+    var t = value / 100;
+    bodyImage.style.opacity = (1 - t).toFixed(3);
+    homunculusImage.style.opacity = t.toFixed(3);
+    homunculusImage.style.transform = "scale(" + (1.06 + (.04 * t)).toFixed(3) + ")";
+    document.documentElement.style.setProperty("--morph-sync",(.16 + (.3 * t)).toFixed(3));
+    morphValue.textContent = Math.round(value) + "%";
+    syncFocus(t);
+  }
+
+  function lerp(a,b,t){
+    return a + ((b - a) * t);
+  }
+
+  function getFocusPoint(key,t){
+    var region = REGION[key];
+    return {
+      x:lerp(region.body.x,region.homunculus.x,t),
+      y:lerp(region.body.y,region.homunculus.y,t),
+      scale:lerp(region.body.scale,region.homunculus.scale,t)
+    };
+  }
+
+  function buildNervePath(point){
+    var targetX = 58;
+    var targetY = 9;
+    var midY = Math.max(28,point.y - 28);
+    return "M " + point.x.toFixed(2) + " " + point.y.toFixed(2) +
+      " C " + point.x.toFixed(2) + " " + midY.toFixed(2) +
+      ", " + (targetX - 3).toFixed(2) + " 28" +
+      ", " + targetX + " " + targetY;
+  }
+
+  function syncFocus(t){
+    var point = getFocusPoint(selectedKey,t);
+    focusMarker.setAttribute(
+      "transform",
+      "translate(" + point.x.toFixed(2) + " " + point.y.toFixed(2) + ") scale(" + point.scale.toFixed(3) + ")"
+    );
+    bodyNerve.setAttribute("d",buildNervePath(point));
+    bodyNerve.style.opacity = (.34 + (.5 * t)).toFixed(3);
+  }
+
+  function drawNerve(){
+    syncFocus(Number(slider.value) / 100);
+    if(reduce){ return; }
+    var len = bodyNerve.getTotalLength();
+    bodyNerve.style.transition = "none";
+    bodyNerve.style.strokeDasharray = len;
+    bodyNerve.style.strokeDashoffset = len;
+    bodyNerve.getBoundingClientRect();
+    bodyNerve.style.transition = "stroke-dashoffset .68s ease-out";
+    bodyNerve.style.strokeDashoffset = "0";
+  }
+
+  function selectRegion(key){
+    selectedKey = key;
+    var region = REGION[key];
+
+    chips.forEach(function(chip){
+      var active = chip.dataset.region === key;
+      chip.classList.toggle("active",active);
+      chip.setAttribute("aria-selected",active ? "true" : "false");
+    });
+
+    Array.prototype.slice.call(document.querySelectorAll(".territory-row")).forEach(function(row){
+      row.classList.toggle("is-active",row.dataset.key === key);
+    });
+
+    detailPanel.dataset.region = key;
+    detailImage.src = region.asset;
+    detailImage.alt = region.alt;
+    detailTitle.textContent = region.title;
+    detailText.textContent = region.text;
+    detailMetaA.textContent = region.meta[0];
+    detailMetaB.textContent = region.meta[1];
+    selectedRegion.textContent = region.label;
+    drawNerve();
+  }
+
+  slider.addEventListener("input",function(){
+    applyMorph(Number(slider.value));
+  });
+
+  document.getElementById("auto").addEventListener("click",function(){
+    if(reduce){
+      slider.value = 100;
+      applyMorph(100);
+      return;
+    }
+    var start = performance.now();
+    var duration = 1250;
+    function step(now){
+      var t = Math.min(1,(now - start) / duration);
+      var eased = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2,2) / 2;
+      slider.value = Math.round(eased * 100);
+      applyMorph(Number(slider.value));
+      if(t < 1){ requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+  });
+
+  chips.forEach(function(chip){
+    chip.addEventListener("click",function(){ selectRegion(chip.dataset.region); });
+  });
+
+  /* =========================
+     Two-point discrimination
+     ========================= */
+  var SITES = {
+    finger:{thr:3,label:"ponta do dedo",explain:"Território cortical grande: o cérebro separa toques quase colados."},
+    back:{thr:45,label:"costas",explain:"Território cortical pequeno: toques distantes podem se fundir em um ponto."}
+  };
+  var site = "finger";
+  var dist = document.getElementById("dist");
+  var distval = document.getElementById("distval");
+  var dotA = document.getElementById("dotA");
+  var dotB = document.getElementById("dotB");
+  var verdict = document.getElementById("verdict");
+  var thr = document.getElementById("thr");
+  var pad = document.getElementById("skinpad");
+
+  function renderTP(){
+    var mm = Number(dist.value);
+    var data = SITES[site];
+    var padW = pad.clientWidth || 360;
+    var pxPerMm = Math.min(3,(padW - 42) / 70);
+    var gap = mm * pxPerMm;
+    var center = padW / 2;
+    var two = mm >= data.thr;
+
+    distval.textContent = mm + " mm";
+    dotA.style.left = (center - gap / 2) + "px";
+    dotB.style.left = (center + gap / 2) + "px";
+    verdict.textContent = two ? "Você sente DOIS pontos" : "Você sente UM ponto";
+    verdict.className = "verdict " + (two ? "two" : "one");
+    thr.innerHTML = "Na <b>" + data.label + "</b>, dois toques viram dois pontos a partir de <b>aprox. " + data.thr + " mm</b>. " + data.explain;
+  }
+
+  dist.addEventListener("input",renderTP);
+  window.addEventListener("resize",renderTP);
+  Array.prototype.slice.call(document.querySelectorAll("#tpseg button")).forEach(function(button){
+    button.addEventListener("click",function(){
+      site = button.dataset.site;
+      Array.prototype.slice.call(document.querySelectorAll("#tpseg button")).forEach(function(item){
+        var active = item === button;
+        item.classList.toggle("on",active);
+        item.setAttribute("aria-pressed",active ? "true" : "false");
+      });
+      renderTP();
+    });
+  });
+
+  buildTerritories();
+  applyMorph(0);
+  selectRegion(selectedKey);
+  renderTP();
+})();
+</script>
+</body>
+</html>

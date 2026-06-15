@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BBAMed — Cena 05 · Modelo 3D</title>
+<script type="module" src="model-viewer.min.js"></script>
+<style>
+:root{
+  --bg:#071018;
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(94,226,214,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --teal:#5ee2d6;
+  --blue:#5bc7ff;
+  --coral:#ff7664;
+  --amber:#ffb43c;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 50% 8%,rgba(30,77,122,.36),transparent 44%),
+    linear-gradient(180deg,#071018 0%,#08141d 48%,#071018 100%);
+}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;border:0;cursor:pointer}
+.page{width:min(1180px,100%);margin:0 auto;padding:22px 18px 80px}
+
+/* Topbar */
+.topbar{min-height:42px;display:flex;align-items:center;
+  justify-content:space-between;gap:18px;color:var(--muted);font-size:.84rem}
+.brand{color:var(--text);font-weight:700}
+.scene-id{color:var(--teal)}
+
+/* Hero */
+.eyebrow{margin:0 0 8px;color:var(--teal);font-size:.78rem;
+  font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.hero{padding:26px 0 36px;border-bottom:1px solid rgba(137,218,216,.12)}
+.hero h1{margin:0;font-size:clamp(2.6rem,6vw,4.8rem);line-height:.97;font-weight:750}
+.hero-sub{margin:16px 0 0;max-width:660px;color:var(--soft);font-size:1.12rem}
+.hero-text{margin:10px 0 0;max-width:740px;color:var(--muted);font-size:1rem}
+
+/* Section */
+.section{padding-top:44px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section h2{margin:0;font-size:clamp(1.6rem,3.2vw,2.15rem);line-height:1.1;font-weight:730}
+.section-note{margin:10px 0 0;color:var(--muted)}
+
+/* Grid principal */
+.viewer-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:20px;
+  align-items:start
+}
+
+
+
+/* ── MODEL VIEWER ── */
+.viewer-wrap{
+  position:relative;
+  z-index:1;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:radial-gradient(circle at 50% 40%,rgba(18,40,55,.95),rgba(7,16,24,1) 70%);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+model-viewer{
+  width:100%;
+  height:580px;
+  background:transparent;
+  --poster-color:transparent;
+}
+
+/* Overlay de hint */
+.viewer-hint{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:6px 14px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  background:rgba(4,16,23,.72);
+  color:var(--teal);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  pointer-events:none;
+  white-space:nowrap;
+  animation:fadeHint 3s ease-in-out forwards;
+}
+@keyframes fadeHint{
+  0%{opacity:0;transform:translateX(-50%) translateY(6px)}
+  20%{opacity:1;transform:translateX(-50%) translateY(0)}
+  80%{opacity:1}
+  100%{opacity:0}
+}
+
+/* Badge de estrutura ativa */
+.viewer-badge{
+  position:absolute;
+  top:16px;
+  left:16px;
+  padding:5px 12px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  background:rgba(4,16,23,.8);
+  color:var(--teal);
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+/* Botões de câmera */
+.cam-controls{
+  position:absolute;
+  top:16px;
+  right:16px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.cam-btn{
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(7,16,24,.82);
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  cursor:pointer;
+  transition:border-color .2s,color .2s;
+  white-space:nowrap;
+}
+.cam-btn:hover{border-color:var(--line-strong);color:var(--teal)}
+
+/* ── PAINEL LATERAL ── */
+.info-panel{
+  z-index:2;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(18,39,52,.86),rgba(9,20,29,.76));
+  box-shadow:var(--shadow);
+  padding:24px;
+  position:sticky;
+  top:18px;
+}
+.ip-badge{
+  display:inline-block;padding:4px 11px;border-radius:999px;
+  font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
+  margin-bottom:14px;background:rgba(94,226,214,.14);
+  color:var(--teal);border:1px solid rgba(94,226,214,.3);
+}
+.ip-title{margin:0 0 6px;font-size:1.4rem;font-weight:750;color:var(--teal)}
+.ip-sub{margin:0 0 18px;color:var(--muted);font-size:.91rem;line-height:1.5}
+.ip-block{margin-top:16px}
+.ip-label{font-size:.73rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.dot-list{display:flex;flex-direction:column;gap:5px}
+.dot-list li{
+  display:flex;align-items:flex-start;gap:8px;
+  color:var(--soft);font-size:.9rem;line-height:1.4
+}
+.dot-list li::before{
+  content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  margin-top:5px;background:var(--teal);flex-shrink:0
+}
+
+/* Estruturas clicáveis */
+.struct-list{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.struct-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.03);
+  color:var(--soft);
+  font-size:.88rem;
+  text-align:left;
+  cursor:pointer;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.struct-btn:hover{
+  border-color:var(--line-strong);
+  background:rgba(94,226,214,.07);
+  color:var(--teal);
+}
+.struct-btn.active{
+  border-color:var(--teal);
+  background:rgba(94,226,214,.12);
+  color:var(--teal);
+}
+.struct-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+
+/* Stats rápidos */
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;margin-top:20px;padding-top:16px;
+  border-top:1px solid var(--line)
+}
+.stat{text-align:center}
+.stat-val{font-size:1.2rem;font-weight:700;color:var(--teal);margin:0}
+.stat-label{font-size:.7rem;color:var(--muted);margin:2px 0 0;text-transform:uppercase;letter-spacing:.05em}
+
+/* Hotspot âncora invisível — usado apenas para rastreamento de posição 3D */
+.hs-anchor{
+  display:block;
+  width:0;height:0;
+  padding:0;margin:0;
+  border:none;background:transparent;
+  pointer-events:none;
+}
+
+/* Aviso de modo calibração */
+.calib-notice{
+  display:none;
+  position:absolute;
+  top:56px;left:50%;
+  transform:translateX(-50%);
+  padding:6px 16px;
+  border:1px solid var(--amber);
+  border-radius:999px;
+  background:rgba(4,16,23,.88);
+  color:var(--amber);
+  font-size:.72rem;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;
+  white-space:nowrap;
+  z-index:20;
+  pointer-events:none;
+}
+.calib-notice.on{display:block}
+
+@media(max-width:760px){
+  .viewer-grid{grid-template-columns:1fr}
+  model-viewer{height:420px}
+  .info-panel{position:static}
+}
+
+/* ── HOTSPOTS NATIVOS model-viewer ── */
+.hotspot{
+  display:none;
+  --min-hotspot-opacity:0;
+  background:rgba(94,226,214,.18);
+  border:2px solid var(--teal);
+  border-radius:50%;
+  width:28px;height:28px;
+  cursor:default;
+  position:relative;
+  transition:transform .2s;
+}
+.hotspot::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  border:1.5px solid rgba(94,226,214,.4);
+  animation:hsRing 1.4s ease-out infinite;
+}
+.hotspot::before{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--teal);
+  box-shadow:0 0 10px rgba(94,226,214,.8);
+}
+.hotspot.visible{display:block}
+@keyframes hsRing{
+  0%{transform:scale(1);opacity:.8}
+  100%{transform:scale(2.2);opacity:0}
+}
+/* Label do hotspot */
+.hotspot-label{
+  position:absolute;
+  left:50%;bottom:calc(100% + 10px);
+  transform:translateX(-50%);
+  background:rgba(4,16,23,.92);
+  border:1px solid var(--teal);
+  border-radius:6px;
+  padding:4px 10px;
+  color:var(--teal);
+  font-size:.72rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="brand">BBAMed</div>
+  <div><span class="scene-id">Cena 05</span> — Tronco Encefálico</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Neuroanatomia · Sistema Nervoso Central</p>
+  <h1>TRONCO<br>ENCEFÁLICO</h1>
+  <p class="hero-sub">A estrutura que mantém você funcionando sem que você perceba.</p>
+  <p class="hero-text">Conecta o cérebro à medula espinhal. Controla respiração, frequência cardíaca, deglutição e consciência — tudo de forma automática, 24 horas por dia.</p>
+</section>
+
+<main>
+
+<!-- SEÇÃO — MODELO 3D INTERATIVO -->
+<section class="section" aria-labelledby="s3d-title">
+  <div class="section-head">
+    <p class="eyebrow">Visualização 3D</p>
+    <h2 id="s3d-title">Explore o Modelo em 3D</h2>
+    <p class="section-note">Arraste para rotacionar · Scroll para zoom · Clique nas estruturas para aprender</p>
+  </div>
+
+  <div class="viewer-grid">
+
+    <!-- MODEL VIEWER -->
+    <div class="viewer-wrap">
+      <div class="viewer-badge" id="viewer-badge">Visão geral</div>
+
+      <model-viewer
+        id="brain-viewer"
+        src="tronco-encefalico.glb"
+        alt="Modelo 3D do cérebro, tronco encefálico e coluna vertebral"
+        auto-rotate
+        auto-rotate-delay="2000"
+        rotation-per-second="18deg"
+        camera-controls
+        touch-action="pan-y"
+        shadow-intensity="0.8"
+        exposure="1.1"
+        environment-image="neutral"
+        camera-orbit="0deg 75deg 2m"
+        min-camera-orbit="auto auto 0.5m"
+        max-camera-orbit="auto auto 6m"
+        interpolation-decay="200">
+
+        <!-- Hotspot âncoras 3D — seguem a câmera automaticamente -->
+        <button slot="hotspot-cerebro"     id="hs-cerebro"
+          data-position="0m 0.32m 0.12m"  data-normal="0m 0m 1m"
+          class="hs-anchor"></button>
+        <button slot="hotspot-mesencefalo" id="hs-mesencefalo"
+          data-position="0m 0.07m 0.08m"  data-normal="0m 0m 1m"
+          class="hs-anchor"></button>
+        <button slot="hotspot-ponte"       id="hs-ponte"
+          data-position="0m 0.00m 0.09m"  data-normal="0m 0m 1m"
+          class="hs-anchor"></button>
+        <button slot="hotspot-bulbo"       id="hs-bulbo"
+          data-position="0m -0.09m 0.08m" data-normal="0m 0m 1m"
+          class="hs-anchor"></button>
+        <button slot="hotspot-coluna"      id="hs-coluna"
+          data-position="0m -0.30m 0.04m" data-normal="0m 0m 1m"
+          class="hs-anchor"></button>
+        <button slot="hotspot-nervos"      id="hs-nervos"
+          data-position="0.07m 0.02m 0.08m" data-normal="1m 0m 0m"
+          class="hs-anchor"></button>
+
+
+      <!-- HOTSPOTS — pontos 3D nativos do model-viewer -->
+      <button slot="hotspot-cerebro"     class="hotspot" id="hs-cerebro"
+        data-position="0m 0.38m 0.05m"  data-normal="0m 1m 0m">
+        <span class="hotspot-label">Córtex Motor</span>
+      </button>
+      <button slot="hotspot-mesencefalo" class="hotspot" id="hs-mesencefalo"
+        data-position="0m 0.18m 0.02m"  data-normal="0m 0m 1m">
+        <span class="hotspot-label">Mesencéfalo</span>
+      </button>
+      <button slot="hotspot-ponte"       class="hotspot" id="hs-ponte"
+        data-position="0m 0.06m 0.05m"  data-normal="0m 0m 1m">
+        <span class="hotspot-label">Ponte</span>
+      </button>
+      <button slot="hotspot-bulbo"       class="hotspot" id="hs-bulbo"
+        data-position="0m -0.06m 0.02m" data-normal="0m 0m 1m">
+        <span class="hotspot-label">Bulbo</span>
+      </button>
+      <button slot="hotspot-coluna"      class="hotspot" id="hs-coluna"
+        data-position="0m -0.28m 0m"    data-normal="0m 0m 1m">
+        <span class="hotspot-label">Coluna</span>
+      </button>
+      <button slot="hotspot-nervos"      class="hotspot" id="hs-nervos"
+        data-position="0.08m 0.08m 0.04m" data-normal="1m 0m 0m">
+        <span class="hotspot-label">NC III–XII</span>
+      </button>
+
+      </model-viewer>
+
+      <div class="calib-notice" id="calib-notice">
+        CALIBRAÇÃO · Selecione estrutura → clique no modelo
+      </div>
+
+      <div class="viewer-hint">Arraste para rotacionar · Scroll para zoom</div>
+
+      <!-- Botões de ângulo de câmera -->
+      <div class="cam-controls">
+        <button class="cam-btn" onclick="setView('0deg 75deg 2m')">Frente</button>
+        <button class="cam-btn" onclick="setView('90deg 75deg 2m')">Lateral</button>
+        <button class="cam-btn" onclick="setView('180deg 75deg 2m')">Posterior</button>
+        <button class="cam-btn" onclick="setView('0deg 10deg 2m')">Superior</button>
+        <button class="cam-btn" onclick="setView('0deg 160deg 2m')">Inferior</button>
+      </div>
+    </div>
+
+    <!-- PAINEL LATERAL -->
+    <div class="info-panel">
+      <span class="ip-badge">Estruturas</span>
+      <h3 class="ip-title" id="ip-title">Selecione uma estrutura</h3>
+      <p class="ip-sub" id="ip-sub">Clique em uma estrutura abaixo para ver detalhes anatômicos e funções clínicas.</p>
+
+      <!-- Lista de estruturas clicáveis -->
+      <div class="struct-list">
+        <button class="struct-btn" onclick="selectStruct('cerebro')" id="btn-cerebro">
+          <span class="struct-dot" style="background:#ff7664"></span>
+          Cérebro / Córtex Motor
+        </button>
+        <button class="struct-btn" onclick="selectStruct('mesencefalo')" id="btn-mesencefalo">
+          <span class="struct-dot" style="background:#5bc7ff"></span>
+          Mesencéfalo
+        </button>
+        <button class="struct-btn" onclick="selectStruct('ponte')" id="btn-ponte">
+          <span class="struct-dot" style="background:#5ee2d6"></span>
+          Ponte (Pons)
+        </button>
+        <button class="struct-btn" onclick="selectStruct('bulbo')" id="btn-bulbo">
+          <span class="struct-dot" style="background:#c084fc"></span>
+          Bulbo Raquidiano
+        </button>
+        <button class="struct-btn" onclick="selectStruct('coluna')" id="btn-coluna">
+          <span class="struct-dot" style="background:#ffb43c"></span>
+          Coluna Vertebral
+        </button>
+        <button class="struct-btn" onclick="selectStruct('nervos')" id="btn-nervos">
+          <span class="struct-dot" style="background:#5ee2d6"></span>
+          Nervos Cranianos
+        </button>
+      </div>
+
+      <!-- Info dinâmica -->
+      <div class="ip-block" id="ip-detail" style="display:none">
+        <p class="ip-label" id="ip-detail-label">Funções</p>
+        <ul class="dot-list" id="ip-detail-list"></ul>
+      </div>
+
+      <div class="ip-block" id="ip-clinical-block" style="display:none">
+        <p class="ip-label">Clínica</p>
+        <ul class="dot-list" id="ip-clinical-list"></ul>
+      </div>
+
+      <!-- Stats do modelo -->
+      <div class="stats-row">
+        <div class="stat">
+          <p class="stat-val">30.2</p>
+          <p class="stat-label">MB</p>
+        </div>
+        <div class="stat">
+          <p class="stat-val">3D</p>
+          <p class="stat-label">GLB / Draco</p>
+        </div>
+        <div class="stat">
+          <p class="stat-val">360°</p>
+          <p class="stat-label">Rotação livre</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+/* ═══════════════════════════════════
+   DADOS ANATÔMICOS
+═══════════════════════════════════ */
+const structs = {
+  cerebro: {
+    title: "Cérebro / Córtex Motor",
+    sub: "O córtex motor primário (área 4 de Brodmann) origina os tratos descendentes que controlam o movimento voluntário.",
+    view: "0deg 30deg 1m",
+    target: { x: 50, y: 24 },
+    badge: "Córtex Motor",
+    funcs: [
+      "Origina o trato corticoespinhal (via piramidal)",
+      "Controla movimentos voluntários finos e grosseiros",
+      "Área pré-motora planeja a sequência do movimento",
+      "Área motora suplementar coordena movimentos bilaterais"
+    ],
+    clinical: [
+      "AVC cortical → hemiplegia contralateral",
+      "Lesão da área de Broca → afasia de expressão",
+      "Epilepsia focal motora → 'marcha jacksoniana'"
+    ]
+  },
+  mesencefalo: {
+    title: "Mesencéfalo",
+    sub: "O andar superior do tronco encefálico. Conecta o diencéfalo à ponte e contém importantes núcleos motores e sensitivos.",
+    view: "20deg 60deg 0.9m",
+    target: { x: 48, y: 43 },
+    badge: "Mesencéfalo",
+    funcs: [
+      "Teto: colículos superiores (reflexo visual) e inferiores (auditivo)",
+      "Tegmento: substância negra, núcleo rubro, substância cinzenta periaquedutal",
+      "Base: pedúnculos cerebrais — via do trato corticoespinhal",
+      "Nervo oculomotor (III) e troclear (IV) emergem aqui"
+    ],
+    clinical: [
+      "Síndrome de Parinaud: lesão do teto → paralisia do olhar conjugado para cima",
+      "Doença de Parkinson: degeneração da substância negra (dopamina)",
+      "Síndrome de Weber: lesão do pedúnculo → paralisia NC III + hemiplegia contralateral"
+    ]
+  },
+  ponte: {
+    title: "Ponte (Pons)",
+    sub: "O andar do meio do tronco encefálico. Ponto de passagem e integração entre córtex, cerebelo e medula.",
+    view: "10deg 75deg 0.9m",
+    target: { x: 48, y: 55 },
+    badge: "Ponte",
+    funcs: [
+      "Contém núcleos dos NC V (trigêmeo), VI (abducente), VII (facial), VIII (vestibulococlear)",
+      "Centro pneumotáxico: regula o ritmo respiratório",
+      "Fibras pontocerebelares: coordenação do movimento",
+      "Formação reticular: nível de consciência e ciclo sono-vigília"
+    ],
+    clinical: [
+      "AVC pontino → tetraplegia com preservação da consciência ('locked-in')",
+      "Mielinólise pontina central: desmielinização por correção rápida de hiponatremia",
+      "Paralisia de Bell: lesão do NC VII → paralisia facial periférica"
+    ]
+  },
+  bulbo: {
+    title: "Bulbo Raquidiano",
+    sub: "O andar inferior do tronco encefálico — e o mais vital. Controla as funções autonômicas essenciais à sobrevivência.",
+    view: "0deg 85deg 0.9m",
+    target: { x: 48, y: 66 },
+    badge: "Bulbo",
+    funcs: [
+      "Centro respiratório: grupo respiratório dorsal e ventral",
+      "Centro cardiovascular: controla FC e PA reflexamente",
+      "Núcleos de NC IX, X, XI, XII",
+      "Pirâmides bulbares: decussação do trato corticoespinhal"
+    ],
+    clinical: [
+      "Síndrome de Wallenberg: infarto da PICA → disfagia, ataxia, síndrome de Horner",
+      "Lesão bilateral do bulbo → apneia e parada cardíaca (incompatível com a vida)",
+      "Reflexo do vômito mediado pelo núcleo do trato solitário"
+    ]
+  },
+  coluna: {
+    title: "Coluna Vertebral",
+    sub: "Canal de passagem para a medula espinhal. As vértebras protegem a medula e os nervos espinais que emergem entre elas.",
+    view: "0deg 90deg 1.5m",
+    target: { x: 47, y: 82 },
+    badge: "Coluna",
+    funcs: [
+      "Protege a medula espinhal no canal vertebral",
+      "31 pares de nervos espinais emergem pelos forames intervertebrais",
+      "Segmentos: cervical (C1-C8), torácico (T1-T12), lombar (L1-L5), sacral",
+      "Trato corticoespinhal desce pela substância branca medular"
+    ],
+    clinical: [
+      "Hérnia de disco → compressão radicular: dor, parestesia, fraqueza segmentar",
+      "Lesão medular → perda motora e sensitiva abaixo do nível da lesão",
+      "Síndrome de Brown-Séquard: hemisecção medular → déficits ipsi e contralaterais"
+    ]
+  },
+  nervos: {
+    title: "Nervos Cranianos",
+    sub: "12 pares de nervos que emergem diretamente do encéfalo. Os do tronco encefálico são os NC III ao XII.",
+    view: "30deg 70deg 0.9m",
+    target: { x: 62, y: 53 },
+    badge: "NC III – XII",
+    funcs: [
+      "NC III, IV, VI: motricidade ocular — Mesencéfalo e Ponte",
+      "NC V: sensação facial e mastigação — Ponte",
+      "NC VII: mímica facial e gustação — Ponte",
+      "NC VIII: audição e equilíbrio — Ponte",
+      "NC IX, X, XI, XII: deglutição, fonação, visceral — Bulbo"
+    ],
+    clinical: [
+      "Diplopia: paralisia de NC III, IV ou VI → estrabismo",
+      "Nevralgia do trigêmeo (NC V): dor facial em choque elétrico",
+      "Disfagia + rouquidão: lesão de NC IX/X → urgência neurológica"
+    ]
+  }
+};
+
+/* ═══════════════════════════════════
+   LÓGICA
+═══════════════════════════════════ */
+const viewer  = document.getElementById("brain-viewer");
+const badge   = document.getElementById("viewer-badge");
+const ipTitle = document.getElementById("ip-title");
+const ipSub   = document.getElementById("ip-sub");
+const ipDetail= document.getElementById("ip-detail");
+const ipDetailLabel = document.getElementById("ip-detail-label");
+const ipDetailList  = document.getElementById("ip-detail-list");
+const ipClinBlock   = document.getElementById("ip-clinical-block");
+const ipClinList    = document.getElementById("ip-clinical-list");
+const viewerGrid    = document.querySelector(".viewer-grid");
+const viewerWrap    = document.querySelector(".viewer-wrap");
+
+const RESUME_AFTER_SELECT_MS = 6200;
+const RESUME_AFTER_SWITCH_MS = 3400;
+let activeStructKey = "";
+let autoRotateTimer;
+
+function pauseRotation(){
+  clearTimeout(autoRotateTimer);
+  viewer.autoRotate = false;
+}
+
+function resumeRotation(){
+  clearTimeout(autoRotateTimer);
+  viewer.autoRotate = true;
+  hideAllHotspots();
+}
+
+function scheduleRotationResume(delay){
+  clearTimeout(autoRotateTimer);
+  autoRotateTimer = setTimeout(resumeRotation, delay);
+}
+
+function hideAllHotspots(){
+  document.querySelectorAll('.hotspot').forEach(h => h.classList.remove('visible'));
+}
+
+function showHotspot(key){
+  hideAllHotspots();
+  const hs = document.getElementById('hs-' + key);
+  if(hs) hs.classList.add('visible');
+}
+
+function selectStruct(key){
+  const d = structs[key]; if(!d) return;
+  const switchingStruct = activeStructKey && activeStructKey !== key;
+  pauseRotation();
+  viewer.cameraOrbit = d.view;
+  badge.textContent  = d.badge;
+  ipTitle.textContent = d.title;
+  ipSub.textContent   = d.sub;
+  ipDetailLabel.textContent = "Funções";
+  ipDetailList.innerHTML = d.funcs.map(f=>`<li>${f}</li>`).join("");
+  ipDetail.style.display = "";
+  if(d.clinical && d.clinical.length){
+    ipClinList.innerHTML = d.clinical.map(c=>`<li>${c}</li>`).join("");
+    ipClinBlock.style.display = "";
+  } else { ipClinBlock.style.display = "none"; }
+  document.querySelectorAll(".struct-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("btn-"+key)?.classList.add("active");
+  activeStructKey = key;
+  // Mostra hotspot após câmera mover
+  setTimeout(() => showHotspot(key), 600);
+  scheduleRotationResume(switchingStruct ? RESUME_AFTER_SWITCH_MS : RESUME_AFTER_SELECT_MS);
+}
+
+function setView(orbit){
+  viewer.cameraOrbit = orbit;
+  pauseRotation();
+  hideCallout();
+  scheduleRotationResume(4200);
+}
+
+document.querySelectorAll(".struct-btn").forEach(btn => {
+  btn.addEventListener("pointerleave", () => {
+    if(btn.classList.contains("active")) resumeRotation();
+  });
+});
+
+document.addEventListener("pointerdown", event => {
+  const target = event.target;
+  if(!(target instanceof Element)) return;
+  if(target.closest(".struct-btn") || target.closest(".cam-controls")) return;
+  if(activeStructKey){ resumeRotation(); activeStructKey=""; document.querySelectorAll(".struct-btn").forEach(b=>b.classList.remove("active")); ipDetail.style.display="none"; ipClinBlock.style.display="none"; badge.textContent="Visão geral"; ipTitle.textContent="Selecione uma estrutura"; ipSub.textContent="Clique em uma estrutura abaixo para ver detalhes anatômicos e funções clínicas."; }
+});
+
+window.addEventListener('resize', () => { if(activeStructKey) showHotspot(activeStructKey); });
+
+
+/* Atualiza a seta em tempo real enquanto a câmera anima */
+viewer.addEventListener("camera-change", () => {
+  if(viewer.autoRotate) return;
+  scheduleRotationResume(8000);
+});
+
+/* ═══════════════════════════════════
+   MODO CALIBRAÇÃO (F9)
+   Selecione uma estrutura → pressione F9 → clique no modelo
+   O hotspot se move para o ponto clicado e o console mostra as coordenadas.
+═══════════════════════════════════ */
+let calibrationMode = false;
+const calibNotice = document.getElementById("calib-notice");
+
+document.addEventListener("keydown", e => {
+  if(e.key !== "F9") return;
+  calibrationMode = !calibrationMode;
+  calibNotice?.classList.toggle("on", calibrationMode);
+  viewer.style.cursor = calibrationMode ? "crosshair" : "";
+  console.log("[BBAMed] Modo calibração:", calibrationMode ? "LIGADO" : "DESLIGADO");
+});
+
+viewer.addEventListener("click", e => {
+  if(!calibrationMode || !activeStructKey) return;
+  e.stopPropagation();
+
+  const rect = viewer.getBoundingClientRect();
+  const px = e.clientX - rect.left;
+  const py = e.clientY - rect.top;
+
+  const hit = viewer.positionAndNormalFromPoint(px, py);
+  if(!hit){
+    console.warn("[BBAMed] Nenhuma superfície encontrada nesse ponto.");
+    return;
+  }
+
+  const p = hit.position;
+  const n = hit.normal;
+  const posStr  = `${p.x.toFixed(4)}m ${p.y.toFixed(4)}m ${p.z.toFixed(4)}m`;
+  const normStr = `${n.x.toFixed(4)}m ${n.y.toFixed(4)}m ${n.z.toFixed(4)}m`;
+
+  const hs = document.getElementById("hs-" + activeStructKey);
+  if(hs){
+    hs.setAttribute("data-position", posStr);
+    hs.setAttribute("data-normal",   normStr);
+    console.log(`[BBAMed] ${activeStructKey}:`);
+    console.log(`  data-position="${posStr}"`);
+    console.log(`  data-normal="${normStr}"`);
+    /* Redesenha a seta após o model-viewer reposicionar o hotspot */
+    requestAnimationFrame(() => requestAnimationFrame(() => updateCallout(false)));
+  }
+});
+</script>
+</body>
+</html>

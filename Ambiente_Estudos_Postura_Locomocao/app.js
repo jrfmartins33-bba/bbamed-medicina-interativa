@@ -20,6 +20,9 @@ const modules = [
     title: "2. Córtex motor e áreas associadas",
     time: "16 min",
     slides: [4, 5, 6, 7],
+    sceneLinks: [
+      { label: "Cena 03 — Homúnculo Sensorial", href: "cena03_homunculo_sensorial_1.html" }
+    ],
     goal: "Diferenciar córtex motor primário, área pré-motora e área suplementar.",
     summary:
       "O córtex motor fica no giro pré-central, no lobo frontal. Ele inicia movimentos voluntários. A representação corporal é somatotópica: cada região corporal tem uma área cortical relacionada. Áreas associadas ajudam a preparar movimentos com base em estímulos externos e sequências aprendidas.",
@@ -36,6 +39,9 @@ const modules = [
     title: "3. Trato corticoespinal",
     time: "18 min",
     slides: [8, 9, 10, 12],
+    sceneLinks: [
+      { label: "Cena 04 — Trato Corticoespinhal", href: "cena04_trato_corticoespinhal.html" }
+    ],
     goal: "Seguir a via voluntária do córtex até o músculo.",
     summary:
       "O trato corticoespinal é a via voluntária mais importante para o controle consciente dos movimentos. Ele nasce principalmente no córtex motor primário, desce pelo tronco encefálico, cruza em grande parte na decussação das pirâmides e chega à medula, onde influencia interneurônios e neurônios motores inferiores.",
@@ -52,6 +58,10 @@ const modules = [
     title: "4. Tronco encefálico e vias extrapiramidais",
     time: "18 min",
     slides: [11, 13, 14],
+    sceneLinks: [
+      { label: "Cena 05 — Tronco Encefálico", href: "cena05_HOTSPOTS_3.html" },
+      { label: "Cena 06 — Três Andares do Tronco Encefálico", href: "cena06_tres_andares_tronco_encefalico.html" }
+    ],
     goal: "Entender o controle automático que sustenta postura e locomoção.",
     summary:
       "O tronco encefálico regula funções motoras básicas sem necessidade de consciência. Ele integra córtex, cerebelo e medula, mantém tônus muscular, coordena reflexos e participa do equilíbrio. As vias extrapiramidais são essenciais para movimentos automáticos e ajustes posturais.",
@@ -68,6 +78,9 @@ const modules = [
     title: "5. Controle da postura e integração sensorial",
     time: "20 min",
     slides: [15, 16],
+    sceneLinks: [
+      { label: "Cena 07 — Controle da Postura e Integração Sensorial", href: "cena07_controle_postura_integracao_sensorial.html" }
+    ],
     goal: "Compreender como o corpo se mantém estável contra a gravidade.",
     summary:
       "Postura é estabilidade ativa. Reflexos e ajustes automáticos mantêm o corpo contra a gravidade. Propriocepção, sistema vestibular e visão se combinam para orientar o corpo no espaço. Antes do movimento, há ajustes antecipatórios; quando há desequilíbrio, ajustes compensatórios corrigem rapidamente.",
@@ -512,6 +525,10 @@ function showScene03() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function openSceneFile(fileName) {
+  window.location.href = fileName;
+}
+
 function setScene02Topic(topic) {
   const scene = document.getElementById("scene02");
   const panelText = document.getElementById("scene02PanelText");
@@ -656,6 +673,9 @@ function renderModuleContent() {
     .map((number) => `<button class="source-link" data-slide-jump="${number}" type="button">Lâmina ${number}</button>`)
     .join("");
   const anatomyButton = `<button class="source-link" data-open-anatomy="${module.slides[0] - 1}" type="button">Anatomia 3D</button>`;
+  const sceneButtons = (module.sceneLinks || [])
+    .map((scene) => `<a class="source-link" href="${scene.href}">${scene.label}</a>`)
+    .join("");
 
   els.moduleContent.innerHTML = `
     <h3>${module.title}</h3>
@@ -670,7 +690,7 @@ function renderModuleContent() {
     </div>
     <div class="callout"><strong>Como cai em prova:</strong> ${module.exam}</div>
     <p><strong>Objetivo:</strong> ${module.goal}</p>
-    <div class="source-strip">${sourceButtons}${anatomyButton}</div>
+    <div class="source-strip">${sourceButtons}${anatomyButton}${sceneButtons}</div>
     <div class="module-actions">
       <button id="completeModule" class="primary-button" type="button">${isDone ? "Marcar como não concluído" : "Marcar módulo como concluído"}</button>
       <button id="openModuleQuiz" class="ghost-button" type="button">Treinar no quiz</button>
@@ -933,7 +953,7 @@ if (backToScene01Button) {
 
 const nextSceneButton = document.getElementById("nextSceneButton");
 if (nextSceneButton) {
-  nextSceneButton.addEventListener("click", showScene03);
+  nextSceneButton.addEventListener("click", () => openSceneFile("cena03_homunculo_sensorial_1.html"));
 }
 
 const backToScene02Button = document.getElementById("backToScene02");
@@ -943,7 +963,7 @@ if (backToScene02Button) {
 
 const nextFromScene03Button = document.getElementById("nextFromScene03");
 if (nextFromScene03Button) {
-  nextFromScene03Button.addEventListener("click", showLearningApp);
+  nextFromScene03Button.addEventListener("click", () => openSceneFile("cena04_trato_corticoespinhal.html"));
 }
 
 setScene03Topic("hand", true);
@@ -993,3 +1013,7 @@ renderQuiz();
 renderCases();
 renderChecklist();
 updateSensorLab();
+
+if (window.location.hash === "#scene02") {
+  showScene02();
+}

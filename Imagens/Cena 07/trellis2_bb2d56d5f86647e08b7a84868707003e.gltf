@@ -1,0 +1,187 @@
+{
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "asset": {
+    "version": "2.0",
+    "generator": "https://github.com/mikedh/trimesh"
+  },
+  "accessors": [
+    {
+      "componentType": 5125,
+      "type": "SCALAR",
+      "bufferView": 0,
+      "count": 294567,
+      "max": [
+        64048
+      ],
+      "min": [
+        0
+      ]
+    },
+    {
+      "componentType": 5126,
+      "type": "VEC3",
+      "byteOffset": 0,
+      "bufferView": 1,
+      "count": 64049,
+      "max": [
+        0.15694256126880646,
+        0.5002270936965942,
+        0.08988256752490997
+      ],
+      "min": [
+        -0.15628564357757568,
+        -0.5009104013442993,
+        -0.09049634635448456
+      ]
+    },
+    {
+      "componentType": 5126,
+      "type": "VEC2",
+      "byteOffset": 0,
+      "bufferView": 2,
+      "count": 64049,
+      "max": [
+        0.9995798468589783,
+        0.9995830059051514
+      ],
+      "min": [
+        0,
+        0
+      ]
+    },
+    {
+      "componentType": 5126,
+      "count": 64049,
+      "type": "VEC3",
+      "byteOffset": 0,
+      "bufferView": 3,
+      "max": [
+        0.9999616742134094,
+        0.9999884963035583,
+        0.9999985694885254
+      ],
+      "min": [
+        -0.9999798536300659,
+        -0.9999998807907104,
+        -1
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "geometry_0",
+      "extras": {},
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "TEXCOORD_0": 2,
+            "NORMAL": 3
+          },
+          "indices": 0,
+          "mode": 4,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "uri": "trellis2_bb2d56d5f86647e08b7a84868707003e_img0.webp"
+    },
+    {
+      "uri": "trellis2_bb2d56d5f86647e08b7a84868707003e_img1.webp"
+    }
+  ],
+  "textures": [
+    {
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 0
+        }
+      }
+    },
+    {
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 1
+        }
+      }
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "roughnessFactor": 1,
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      },
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ],
+  "nodes": [
+    {
+      "name": "world",
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "geometry_0",
+      "mesh": 0
+    }
+  ],
+  "extensionsUsed": [
+    "EXT_texture_webp"
+  ],
+  "extensionsRequired": [
+    "EXT_texture_webp"
+  ],
+  "buffers": [
+    {
+      "uri": "trellis2_bb2d56d5f86647e08b7a84868707003e_data.bin",
+      "byteLength": 3227836
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 1178268
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1178268,
+      "byteLength": 768588
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1946856,
+      "byteLength": 512392
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2459248,
+      "byteLength": 768588
+    }
+  ]
+}

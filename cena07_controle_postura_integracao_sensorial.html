@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BBAMed — Cena 07 · Controle da Postura e Integração Sensorial</title>
+<style>
+:root{
+  --bg:#071018;
+  --panel:rgba(13,28,39,.76);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(91,199,255,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --blue:#5bc7ff;
+  --teal:#5ee2d6;
+  --coral:#ff7664;
+  --amber:#ffb43c;
+  --violet:#a78bfa;
+  --green:#7ddf9b;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+  --active:#5ee2d6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 18% 8%,rgba(91,199,255,.22),transparent 30%),
+    radial-gradient(circle at 82% 18%,rgba(94,226,214,.13),transparent 34%),
+    linear-gradient(180deg,#071018 0%,#08141d 52%,#061017 100%);
+}
+button{font:inherit;border:0}
+ul{margin:0;padding:0;list-style:none}
+.page{width:min(1220px,100%);margin:0 auto;padding:16px 18px 56px}
+.topbar{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.brand{color:var(--text);font-weight:750}
+.scene-id{color:var(--teal);font-weight:850}
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:850;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.hero{
+  padding:16px 0 14px;
+  border-bottom:1px solid rgba(137,218,216,.12);
+}
+.hero h1{
+  margin:0;
+  max-width:980px;
+  font-size:clamp(2rem,4.35vw,3.48rem);
+  line-height:1;
+  letter-spacing:0;
+  font-weight:790;
+}
+.hero-sub{
+  margin:10px 0 0;
+  max-width:800px;
+  color:var(--soft);
+  font-size:1.02rem;
+}
+.hero-text{
+  margin:6px 0 0;
+  max-width:820px;
+  color:var(--muted);
+  font-size:.92rem;
+}
+.section{padding-top:22px}
+.lab-shell{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:
+    linear-gradient(180deg,rgba(18,39,52,.72),rgba(7,16,24,.82)),
+    repeating-linear-gradient(90deg,rgba(94,226,214,.032) 0 1px,transparent 1px 76px);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.lab-shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 38% 46%,color-mix(in srgb,var(--active) 22%,transparent),transparent 33%),
+    radial-gradient(circle at 92% 0%,rgba(91,199,255,.12),transparent 28%);
+  pointer-events:none;
+}
+.lab-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);
+  z-index:1;
+}
+.stage-zone{
+  padding:14px;
+  border-right:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.mode-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.mode-btn{
+  min-height:58px;
+  padding:10px 11px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  text-align:left;
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.mode-btn:hover,
+.mode-btn.is-active{
+  transform:translateY(-2px);
+  border-color:var(--mode-color);
+  background:color-mix(in srgb,var(--mode-color) 15%,transparent);
+  color:var(--text);
+}
+.mode-btn strong{
+  display:block;
+  margin-bottom:2px;
+  color:color-mix(in srgb,var(--mode-color) 68%,#ffffff);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.stage{
+  position:relative;
+  height:min(49vh,444px);
+  min-height:390px;
+  border:1px solid rgba(137,218,216,.22);
+  border-radius:var(--radius);
+  background:#051018;
+  overflow:hidden;
+  isolation:isolate;
+}
+.stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 54%,rgba(94,226,214,.06),transparent 30%),
+    linear-gradient(90deg,rgba(5,16,24,.72) 0%,transparent 24%,transparent 76%,rgba(5,16,24,.78) 100%),
+    linear-gradient(180deg,rgba(5,16,24,.16),rgba(5,16,24,.34));
+  pointer-events:none;
+  z-index:1;
+}
+.stage::after{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(94,226,214,.12);
+  border-radius:6px;
+  box-shadow:inset 0 0 48px rgba(94,226,214,.045);
+  pointer-events:none;
+  z-index:4;
+}
+.photo-frame{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.posture-img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+  filter:saturate(.98) contrast(1.03) brightness(.92);
+}
+.diagram{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:2;
+  pointer-events:none;
+}
+.flow{
+  fill:none;
+  stroke:rgba(137,218,216,.14);
+  stroke-width:2.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:stroke .24s ease,stroke-width .24s ease,opacity .24s ease,filter .24s ease;
+  opacity:.22;
+}
+.flow.is-active{
+  stroke:var(--flow-color);
+  stroke-width:4.4;
+  opacity:.96;
+  filter:
+    drop-shadow(0 0 9px var(--flow-color))
+    drop-shadow(0 0 22px color-mix(in srgb,var(--flow-color) 65%,transparent));
+}
+.node{
+  fill:rgba(4,16,23,.64);
+  stroke:rgba(137,218,216,.24);
+  stroke-width:1.5;
+  transition:fill .24s ease,stroke .24s ease,filter .24s ease;
+}
+.node.is-active{
+  fill:color-mix(in srgb,var(--node-color) 22%,rgba(255,255,255,.035));
+  stroke:color-mix(in srgb,var(--node-color) 70%,#ffffff);
+  filter:drop-shadow(0 0 14px var(--node-color));
+}
+.node-label{
+  fill:var(--soft);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+.node-label.small{font-size:11px;fill:var(--muted)}
+.support{
+  fill:rgba(94,226,214,.06);
+  stroke:rgba(94,226,214,.34);
+  stroke-width:1.8;
+  transition:fill .24s ease,stroke .24s ease,stroke-width .24s ease,filter .24s ease;
+}
+.com-line{
+  stroke:var(--amber);
+  stroke-width:2.1;
+  stroke-linecap:round;
+  stroke-dasharray:5 7;
+  opacity:.82;
+  transform-box:fill-box;
+  transform-origin:center;
+  transition:transform .28s ease,stroke .28s ease,opacity .28s ease,filter .28s ease;
+}
+.com-dot{
+  fill:var(--amber);
+  filter:drop-shadow(0 0 12px rgba(255,180,60,.54));
+  transform-box:fill-box;
+  transform-origin:center;
+  transition:transform .28s ease,fill .28s ease;
+}
+.sway{
+  fill:none;
+  stroke:rgba(255,180,60,.55);
+  stroke-width:2.2;
+  opacity:.72;
+}
+.muscle{
+  fill:rgba(94,226,214,.08);
+  stroke:rgba(94,226,214,.32);
+  stroke-width:1.6;
+  opacity:.34;
+  transition:fill .24s ease,stroke .24s ease,opacity .24s ease,filter .24s ease;
+}
+.muscle.is-active{
+  fill:color-mix(in srgb,var(--active) 20%,transparent);
+  stroke:color-mix(in srgb,var(--active) 70%,#ffffff);
+  opacity:1;
+  filter:drop-shadow(0 0 14px var(--active));
+}
+.signal-dot{
+  fill:var(--signal-color,var(--active));
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+  filter:drop-shadow(0 0 9px var(--signal-color,var(--active)));
+}
+.signal-dot.is-active{
+  opacity:1;
+  animation:signalPulse 1.35s ease-in-out infinite;
+}
+@keyframes signalPulse{
+  0%,100%{transform:scale(.72);opacity:.45}
+  50%{transform:scale(1.18);opacity:1}
+}
+.diagram.is-compensatorio .support{
+  fill:rgba(255,180,60,.12);
+  stroke:rgba(255,180,60,.82);
+  stroke-width:2.4;
+  filter:drop-shadow(0 0 14px rgba(255,180,60,.42));
+  animation:supportCompPulse 1.8s ease-in-out infinite;
+}
+.diagram.is-compensatorio .com-line{
+  opacity:1;
+  filter:drop-shadow(0 0 12px rgba(255,180,60,.48));
+}
+.diagram.is-compensatorio .com-dot{
+  fill:#ffb43c;
+  animation:comRecover 1.8s ease-in-out infinite;
+}
+.diagram.is-compensatorio [data-comp-pulse="snc-com"].is-active{
+  animation:sncComPulse 1.8s ease-in-out infinite;
+}
+.diagram.is-feedback .flow[data-feedback-loop]{
+  stroke:var(--teal);
+  stroke-width:4.2;
+  opacity:.9;
+  stroke-dasharray:10 16;
+  animation:feedbackLoopFlow 4.2s linear infinite;
+  filter:
+    drop-shadow(0 0 8px var(--teal))
+    drop-shadow(0 0 18px rgba(94,226,214,.34));
+}
+.diagram.is-feedback .flow[data-feedback-loop="observed-result"]{
+  opacity:.82;
+  stroke-width:4;
+  stroke-dasharray:14 18;
+}
+.diagram.is-feedback [data-signal="feedback"].is-active{
+  fill:var(--teal);
+  opacity:1;
+  animation:feedbackLoopDot 4.2s ease-in-out infinite;
+}
+@keyframes comRecover{
+  0%,100%{transform:translateX(0) scale(1)}
+  24%{transform:translateX(-16px) scale(1.08)}
+  62%{transform:translateX(0) scale(1)}
+}
+@keyframes sncComPulse{
+  0%,100%{opacity:.58;stroke-width:3}
+  48%{opacity:1;stroke-width:4.6}
+}
+@keyframes supportCompPulse{
+  0%,100%{filter:drop-shadow(0 0 8px rgba(255,180,60,.24))}
+  50%{filter:drop-shadow(0 0 18px rgba(255,180,60,.48))}
+}
+@keyframes feedbackLoopFlow{
+  from{stroke-dashoffset:36}
+  to{stroke-dashoffset:-36}
+}
+@keyframes feedbackLoopDot{
+  0%,100%{transform:translate(-119px,-32px) scale(.78);opacity:.55}
+  28%{transform:translate(-119px,198px) scale(1);opacity:1}
+  60%{transform:translate(29px,-140px) scale(1);opacity:.94}
+  86%{transform:translate(-119px,-32px) scale(1);opacity:1}
+}
+.status-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.status-item{
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:6px;
+  background:rgba(255,255,255,.026);
+  padding:8px 9px;
+}
+.status-item span{
+  display:block;
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:850;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.status-item strong{
+  display:block;
+  margin-top:1px;
+  color:var(--text);
+  font-size:.92rem;
+}
+.panel{
+  position:relative;
+  padding:24px;
+  background:linear-gradient(180deg,rgba(18,39,52,.86),rgba(9,20,29,.68));
+}
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:4px;
+  background:linear-gradient(90deg,var(--active),rgba(94,226,214,.18));
+}
+.panel-body{transition:opacity .25s ease,transform .25s ease}
+.panel-body.is-changing{opacity:0;transform:translateY(10px)}
+.panel-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:4px 11px;
+  border:1px solid rgba(94,226,214,.3);
+  border-radius:999px;
+  background:rgba(94,226,214,.14);
+  color:var(--teal);
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.timing{
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.panel-title{
+  margin:0;
+  color:color-mix(in srgb,var(--active) 58%,#ffffff);
+  font-size:clamp(1.82rem,3vw,2.38rem);
+  line-height:1;
+  font-weight:850;
+}
+.summary{
+  margin:10px 0 0;
+  color:var(--soft);
+  font-size:.96rem;
+}
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:14px;
+}
+.metric{
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:6px;
+  background:rgba(255,255,255,.032);
+  padding:9px;
+}
+.metric span{
+  display:block;
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:850;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.metric strong{
+  display:block;
+  margin-top:1px;
+  color:var(--text);
+  font-size:.95rem;
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+.info-block{
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  padding:13px;
+}
+.label{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:.73rem;
+  font-weight:850;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.clean-list{
+  display:grid;
+  gap:7px;
+}
+.clean-list li{
+  display:flex;
+  gap:9px;
+  color:var(--soft);
+  font-size:.89rem;
+}
+.clean-list li::before{
+  content:"";
+  width:6px;
+  height:6px;
+  margin-top:8px;
+  border-radius:50%;
+  background:var(--active);
+  flex:0 0 auto;
+}
+.takeaway{
+  margin-top:14px;
+  border:1px solid color-mix(in srgb,var(--active) 36%,transparent);
+  border-radius:var(--radius);
+  background:color-mix(in srgb,var(--active) 9%,transparent);
+  padding:12px;
+  color:var(--soft);
+  font-size:.88rem;
+}
+.matrix{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+.matrix-card{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+  padding:16px;
+}
+.matrix-card h3{
+  margin:0 0 7px;
+  color:color-mix(in srgb,var(--card-color) 65%,#ffffff);
+  font-size:.98rem;
+}
+.matrix-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:.86rem;
+}
+@media(max-width:1040px){
+  .lab-grid{grid-template-columns:1fr}
+  .stage-zone{border-right:0;border-bottom:1px solid var(--line)}
+  .stage{height:430px}
+  .matrix{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .page{padding:18px 14px 54px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:4px}
+  .mode-grid{grid-template-columns:1fr 1fr}
+  .status-strip,.metric-grid,.info-grid,.matrix{grid-template-columns:1fr}
+  .stage{height:390px;min-height:340px}
+}
+@media(max-width:520px){
+  .mode-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <div class="brand">BBAMed</div>
+    <div><span class="scene-id">Cena 07</span> — Controle da Postura e Integração Sensorial</div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Neurofisiologia · Postura e Locomoção</p>
+    <h1>CONTROLE DA POSTURA<br>E INTEGRAÇÃO SENSORIAL</h1>
+    <p class="hero-sub">A estabilidade corporal nasce da fusão entre visão, sistema vestibular e propriocepção.</p>
+    <p class="hero-text">Use o laboratório para observar como o sistema nervoso prepara, corrige e estabiliza o corpo contra a gravidade.</p>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="lab-title">
+      <div class="lab-shell" id="lab-shell">
+        <div class="lab-grid">
+          <div class="stage-zone">
+            <div class="mode-grid" role="tablist" aria-label="Modos de controle postural">
+              <button class="mode-btn is-active" data-mode="integracao" style="--mode-color:var(--teal)" type="button">
+                <strong>Integração</strong>
+                Três entradas
+              </button>
+              <button class="mode-btn" data-mode="reflexos" style="--mode-color:var(--blue)" type="button">
+                <strong>Reflexos</strong>
+                Estabilidade
+              </button>
+              <button class="mode-btn" data-mode="antecipatorio" style="--mode-color:var(--amber)" type="button">
+                <strong>Antecipatório</strong>
+                Preparação
+              </button>
+              <button class="mode-btn" data-mode="compensatorio" style="--mode-color:var(--coral)" type="button">
+                <strong>Compensatório</strong>
+                Correção rápida
+              </button>
+              <button class="mode-btn" data-mode="propriocepcao" style="--mode-color:var(--green)" type="button">
+                <strong>Propriocepção</strong>
+                Articulações
+              </button>
+              <button class="mode-btn" data-mode="vestibular" style="--mode-color:var(--violet)" type="button">
+                <strong>Vestibular</strong>
+                Cabeça
+              </button>
+              <button class="mode-btn" data-mode="visao" style="--mode-color:var(--blue)" type="button">
+                <strong>Visão</strong>
+                Espaço
+              </button>
+              <button class="mode-btn" data-mode="feedback" style="--mode-color:var(--teal)" type="button">
+                <strong>Feedback</strong>
+                Ajuste contínuo
+              </button>
+            </div>
+
+            <div class="stage" id="stage">
+              <div class="photo-frame">
+                <img
+                  class="posture-img"
+                  src="Imagens/Cena 07/1.png"
+                  alt="Pessoa em avaliação postural sobre plataforma em laboratório"
+                />
+              </div>
+
+              <svg class="diagram" viewBox="0 0 1000 560" role="img" aria-label="Camada interativa sobre fotografia de controle postural">
+                <path class="flow" data-flow="visao" style="--flow-color:var(--blue)" d="M188 84 C292 66 398 66 490 76" />
+                <path class="flow" data-flow="visao" style="--flow-color:var(--blue)" d="M490 76 C526 94 574 126 612 158" />
+                <path class="flow" data-flow="vestibular" style="--flow-color:var(--violet)" d="M734 86 C666 78 594 78 532 88" />
+                <path class="flow" data-flow="vestibular" style="--flow-color:var(--violet)" d="M532 88 C562 106 594 140 612 174" />
+                <path class="flow" data-flow="propriocepcao" style="--flow-color:var(--green)" d="M218 454 C306 496 414 522 505 508" />
+                <path class="flow" data-flow="propriocepcao" data-feedback-loop="base-snc" style="--flow-color:var(--green)" d="M505 508 C558 408 586 270 622 188" />
+                <path class="flow" data-flow="feedback" data-feedback-loop="observed-result" style="--flow-color:var(--teal)" d="M742 392 C680 330 594 302 506 280 C430 270 350 310 272 388" />
+                <path class="flow" data-flow="saida" data-feedback-loop="snc-com" data-comp-pulse="snc-com" style="--flow-color:var(--amber)" d="M690 206 C636 244 572 264 505 282" />
+                <path class="flow" data-flow="saida" data-feedback-loop="com-base" style="--flow-color:var(--amber)" d="M505 282 C512 354 512 444 505 512" />
+
+                <path class="support" d="M350 498 L612 476 L720 510 L430 538 Z" />
+                <path class="sway" d="M430 522 C468 498 520 542 566 512" />
+
+                <ellipse class="muscle" data-muscle="neck" cx="516" cy="132" rx="24" ry="18" />
+                <ellipse class="muscle" data-muscle="hip" cx="504" cy="282" rx="54" ry="42" />
+                <ellipse class="muscle" data-muscle="ankle" cx="500" cy="506" rx="95" ry="30" />
+
+                <line class="com-line" id="com-line" x1="505" y1="96" x2="505" y2="520" />
+                <circle class="com-dot" id="com-dot" cx="505" cy="282" r="10" />
+
+                <g data-node="visao">
+                  <rect class="node" x="46" y="54" width="142" height="58" rx="12" style="--node-color:var(--blue)" />
+                  <path d="M80 83 C102 66 132 66 154 83 C132 101 102 101 80 83Z" fill="none" stroke="#9ee6ff" stroke-width="3.5" />
+                  <circle cx="117" cy="83" r="7" fill="#9ee6ff" />
+                  <text class="node-label" x="117" y="103" text-anchor="middle">VISÃO</text>
+                </g>
+
+                <g data-node="vestibular">
+                  <rect class="node" x="734" y="56" width="164" height="60" rx="12" style="--node-color:var(--violet)" />
+                  <path d="M792 86 C798 68 824 68 832 86 C838 103 818 112 806 101" fill="none" stroke="#d8c7ff" stroke-width="3.5" stroke-linecap="round" />
+                  <text class="node-label" x="816" y="106" text-anchor="middle">VESTIBULAR</text>
+                </g>
+
+                <g data-node="propriocepcao">
+                  <rect class="node" x="44" y="422" width="174" height="62" rx="12" style="--node-color:var(--green)" />
+                  <path d="M82 455 L122 434 L172 455" fill="none" stroke="#b8f4c9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <text class="node-label" x="131" y="474" text-anchor="middle">PROPRIOCEPÇÃO</text>
+                </g>
+
+                <g data-node="integracao">
+                  <rect class="node" x="612" y="138" width="150" height="72" rx="14" style="--node-color:var(--teal)" />
+                  <circle cx="653" cy="174" r="25" fill="rgba(94,226,214,.12)" stroke="#5ee2d6" stroke-width="2" />
+                  <path d="M638 176 C646 159 664 159 674 176 C666 192 646 192 638 176Z" fill="none" stroke="#5ee2d6" stroke-width="3.2" stroke-linecap="round" />
+                  <text class="node-label" x="704" y="173" text-anchor="middle">SNC</text>
+                  <text class="node-label small" x="704" y="190" text-anchor="middle">fusão sensorial</text>
+                </g>
+
+                <circle class="signal-dot" data-signal="visao" cx="490" cy="76" r="5.5" style="--signal-color:var(--blue)" />
+                <circle class="signal-dot" data-signal="vestibular" cx="532" cy="88" r="5.5" style="--signal-color:var(--violet)" />
+                <circle class="signal-dot" data-signal="propriocepcao" cx="505" cy="508" r="8" style="--signal-color:var(--green)" />
+                <circle class="signal-dot" data-signal="feedback" cx="624" cy="314" r="8" style="--signal-color:var(--teal)" />
+                <circle class="signal-dot" data-signal="saida" cx="505" cy="382" r="8" style="--signal-color:var(--amber)" />
+                <circle class="signal-dot" data-signal="saida" cx="505" cy="512" r="8" style="--signal-color:var(--amber)" />
+              </svg>
+            </div>
+
+            <div class="status-strip">
+              <div class="status-item"><span>Entrada</span><strong id="status-input">3 sistemas</strong></div>
+              <div class="status-item"><span>Centro</span><strong id="status-center">SNC</strong></div>
+              <div class="status-item"><span>Resposta</span><strong id="status-output">Estabilidade</strong></div>
+              <div class="status-item"><span>Tempo</span><strong id="status-time">Contínuo</strong></div>
+            </div>
+          </div>
+
+          <aside class="panel" aria-live="polite">
+            <div class="panel-body" id="panel-body">
+              <div class="panel-meta">
+                <span class="badge">Mecanismo ativo</span>
+                <span class="timing" id="timing">controle contínuo</span>
+              </div>
+              <h2 class="panel-title" id="lab-title">INTEGRAÇÃO SENSORIAL</h2>
+              <p class="summary" id="summary">O sistema nervoso combina visão, vestibular e propriocepção para estimar a posição do corpo no espaço.</p>
+
+              <div class="metric-grid">
+                <div class="metric"><span>Prioridade</span><strong id="metric-priority">fusão sensorial</strong></div>
+                <div class="metric"><span>Saída</span><strong id="metric-output">ajuste postural</strong></div>
+                <div class="metric"><span>Risco</span><strong id="metric-risk">instabilidade</strong></div>
+              </div>
+
+              <div class="info-grid">
+                <div class="info-block">
+                  <p class="label">O que informa</p>
+                  <ul class="clean-list" id="input-list">
+                    <li>Visão orienta o corpo no espaço</li>
+                    <li>Vestibular detecta posição da cabeça e aceleração</li>
+                    <li>Propriocepção informa articulações e músculos</li>
+                  </ul>
+                </div>
+                <div class="info-block">
+                  <p class="label">Resposta postural</p>
+                  <ul class="clean-list" id="response-list">
+                    <li>Ajustes automáticos contra a gravidade</li>
+                    <li>Correções imediatas durante o movimento</li>
+                    <li>Estabilidade do centro de massa sobre a base</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="takeaway" id="takeaway">Ideia-chave: postura não é rigidez. É correção contínua baseada em informação sensorial.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="map-title">
+      <p class="eyebrow">Mapa de fixação</p>
+      <h2 id="map-title" style="margin:0;font-size:clamp(1.55rem,3vw,2.05rem);line-height:1.1">Quatro ideias que o aluno precisa levar</h2>
+      <div class="matrix">
+        <article class="matrix-card" style="--card-color:var(--blue)">
+          <h3>Reflexos mantêm estabilidade</h3>
+          <p>Ajustes automáticos mantêm o corpo estável contra a gravidade.</p>
+        </article>
+        <article class="matrix-card" style="--card-color:var(--teal)">
+          <h3>Integração sensorial</h3>
+          <p>Visão, vestibular e propriocepção são combinados pelo sistema nervoso.</p>
+        </article>
+        <article class="matrix-card" style="--card-color:var(--amber)">
+          <h3>Ajuste antecipatório</h3>
+          <p>O corpo prepara a postura antes de executar o movimento voluntário.</p>
+        </article>
+        <article class="matrix-card" style="--card-color:var(--coral)">
+          <h3>Ajuste compensatório</h3>
+          <p>Quando o equilíbrio se perde, a resposta precisa ser rápida e direcionada.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const modes = {
+  integracao: {
+    color: "#5ee2d6",
+    title: "INTEGRAÇÃO SENSORIAL",
+    timing: "controle contínuo",
+    summary: "O sistema nervoso combina visão, vestibular e propriocepção para estimar a posição do corpo no espaço.",
+    flows: ["visao", "vestibular", "propriocepcao", "saida"],
+    nodes: ["visao", "vestibular", "propriocepcao", "integracao", "saida"],
+    muscles: ["ankle", "hip", "neck"],
+    status: ["3 sistemas", "SNC", "Estabilidade", "Contínuo"],
+    metrics: ["fusão sensorial", "ajuste postural", "instabilidade"],
+    input: [
+      "Visão orienta o corpo no espaço",
+      "Vestibular detecta posição da cabeça e aceleração",
+      "Propriocepção informa articulações e músculos"
+    ],
+    response: [
+      "Ajustes automáticos contra a gravidade",
+      "Correções imediatas durante o movimento",
+      "Estabilidade do centro de massa sobre a base"
+    ],
+    takeaway: "Ideia-chave: postura não é rigidez. É correção contínua baseada em informação sensorial."
+  },
+  reflexos: {
+    color: "#5bc7ff",
+    title: "REFLEXOS POSTURAIS",
+    timing: "milissegundos",
+    summary: "Reflexos posturais ajustam o tônus muscular para manter estabilidade contra a gravidade.",
+    flows: ["propriocepcao", "vestibular", "saida"],
+    nodes: ["propriocepcao", "vestibular", "integracao", "saida"],
+    muscles: ["ankle", "hip"],
+    status: ["receptores", "tronco/medula", "tônus", "rápido"],
+    metrics: ["estabilidade", "extensores", "queda"],
+    input: [
+      "Alongamento muscular informa deslocamento corporal",
+      "Aparelho vestibular informa inclinação da cabeça",
+      "Contato plantar informa base de suporte"
+    ],
+    response: [
+      "Ajuste automático do tônus",
+      "Recrutamento de tornozelo e quadril",
+      "Manutenção do centro de massa sobre os pés"
+    ],
+    takeaway: "Reflexo postural é a primeira camada de defesa contra a queda."
+  },
+  antecipatorio: {
+    color: "#ffb43c",
+    title: "AJUSTE ANTECIPATÓRIO",
+    timing: "antes do movimento",
+    summary: "Antes de mover um braço, pegar peso ou iniciar a marcha, o corpo prepara a postura.",
+    flows: ["visao", "saida"],
+    nodes: ["visao", "integracao", "saida"],
+    muscles: ["ankle", "hip", "neck"],
+    status: ["intenção", "córtex/cerebelo", "pré-ativação", "feedforward"],
+    metrics: ["preparação", "pré-ajuste", "desequilíbrio"],
+    input: [
+      "Objetivo motor informa o que vai acontecer",
+      "Visão antecipa obstáculo e direção",
+      "Memória motora estima a perturbação esperada"
+    ],
+    response: [
+      "Ativação postural antes do gesto",
+      "Ajuste do tronco e base de suporte",
+      "Redução da oscilação durante o movimento"
+    ],
+    takeaway: "O corpo não espera cair para agir: ele prepara a postura antes do movimento."
+  },
+  compensatorio: {
+    color: "#ff7664",
+    title: "AJUSTE COMPENSATÓRIO",
+    timing: "após perturbação",
+    summary: "Quando ocorre perda de equilíbrio, o sistema nervoso corrige rapidamente a posição do corpo.",
+    flows: ["saida"],
+    nodes: ["integracao"],
+    muscles: [],
+    status: ["erro sensorial", "SNC", "correção", "feedback"],
+    metrics: ["recuperação", "estratégia", "queda"],
+    input: [
+      "Deslocamento do centro de massa",
+      "Mudança brusca da base de suporte",
+      "Erro entre posição esperada e posição real"
+    ],
+    response: [
+      "Estratégia de tornozelo para perturbações pequenas",
+      "Estratégia de quadril para perturbações maiores",
+      "Passo protetor quando a base não sustenta mais"
+    ],
+    takeaway: "Ajuste compensatório é resposta a erro: detecta a instabilidade e corrige o corpo."
+  },
+  propriocepcao: {
+    color: "#7ddf9b",
+    title: "PROPRIOCEPÇÃO",
+    timing: "posição e movimento",
+    summary: "Informa posição e movimento das articulações e músculos, especialmente nos pés, tornozelos e coluna.",
+    flows: ["propriocepcao", "saida"],
+    nodes: ["propriocepcao", "integracao", "saida"],
+    muscles: ["ankle", "hip"],
+    status: ["articulações", "SNC", "tônus", "contínuo"],
+    metrics: ["posição", "base", "piso instável"],
+    input: [
+      "Fusos musculares detectam alongamento",
+      "Receptores articulares detectam posição",
+      "Planta dos pés informa contato e pressão"
+    ],
+    response: [
+      "Ajusta tornozelo, joelho e quadril",
+      "Mantém alinhamento sobre a base de suporte",
+      "Aumenta demanda quando o piso é instável"
+    ],
+    takeaway: "Propriocepção é o mapa interno do corpo."
+  },
+  vestibular: {
+    color: "#a78bfa",
+    title: "SISTEMA VESTIBULAR",
+    timing: "cabeça e aceleração",
+    summary: "Detecta posição da cabeça, aceleração e orientação em relação à gravidade.",
+    flows: ["vestibular", "saida"],
+    nodes: ["vestibular", "integracao", "saida"],
+    muscles: ["neck", "hip"],
+    status: ["cabeça", "tronco", "olhos/postura", "rápido"],
+    metrics: ["gravidade", "orientação", "vertigem"],
+    input: [
+      "Canais semicirculares detectam rotação",
+      "Utrículo e sáculo detectam aceleração linear",
+      "Cabeça informa orientação gravitacional"
+    ],
+    response: [
+      "Estabiliza olhar e cabeça",
+      "Ajusta pescoço, tronco e membros",
+      "Compensa aceleração durante deslocamento"
+    ],
+    takeaway: "Vestibular é o sensor de gravidade e aceleração do sistema postural."
+  },
+  visao: {
+    color: "#5bc7ff",
+    title: "VISÃO",
+    timing: "referência espacial",
+    summary: "Ajuda a orientar o corpo no espaço e fornece referência externa para o movimento.",
+    flows: ["visao", "saida"],
+    nodes: ["visao", "integracao", "saida"],
+    muscles: ["neck", "hip"],
+    status: ["ambiente", "córtex", "orientação", "contínuo"],
+    metrics: ["espaço", "horizonte", "olhos fechados"],
+    input: [
+      "Horizonte visual informa verticalidade",
+      "Movimento do ambiente informa deslocamento relativo",
+      "Alvo visual guia direção e amplitude"
+    ],
+    response: [
+      "Orienta cabeça, tronco e marcha",
+      "Reduz oscilação quando a visão está disponível",
+      "Aumenta dependência sensorial em piso instável"
+    ],
+    takeaway: "A visão estabiliza o corpo usando o ambiente como referência."
+  },
+  feedback: {
+    color: "#5ee2d6",
+    title: "FEEDBACK SENSORIAL",
+    timing: "durante a ação",
+    summary: "Permite correções imediatas durante o movimento, comparando o planejado com o que está acontecendo.",
+    flows: ["feedback"],
+    nodes: ["integracao"],
+    muscles: [],
+    status: ["erro", "comparação", "correção", "online"],
+    metrics: ["correção", "recalibração", "atraso"],
+    input: [
+      "O corpo compara posição planejada e real",
+      "Erro sensorial atualiza o comando motor",
+      "A correção acontece enquanto o gesto continua"
+    ],
+    response: [
+      "Modifica força e direção do movimento",
+      "Reorganiza estratégia postural",
+      "Reduz erro antes que a queda aconteça"
+    ],
+    takeaway: "Feedback é o sistema de correção em tempo real do movimento."
+  }
+};
+
+const shell = document.getElementById("lab-shell");
+const panelBody = document.getElementById("panel-body");
+const title = document.getElementById("lab-title");
+const timing = document.getElementById("timing");
+const summary = document.getElementById("summary");
+const inputList = document.getElementById("input-list");
+const responseList = document.getElementById("response-list");
+const takeaway = document.getElementById("takeaway");
+const statusInput = document.getElementById("status-input");
+const statusCenter = document.getElementById("status-center");
+const statusOutput = document.getElementById("status-output");
+const statusTime = document.getElementById("status-time");
+const metricPriority = document.getElementById("metric-priority");
+const metricOutput = document.getElementById("metric-output");
+const metricRisk = document.getElementById("metric-risk");
+const diagram = document.querySelector(".diagram");
+
+function renderMode(key){
+  const mode = modes[key];
+  if(!mode) return;
+  const ready = document.documentElement.dataset.sceneReady === "true";
+
+  document.documentElement.style.setProperty("--active", mode.color);
+  shell.style.setProperty("--active", mode.color);
+  diagram?.classList.toggle("is-compensatorio", key === "compensatorio");
+  diagram?.classList.toggle("is-feedback", key === "feedback");
+
+  document.querySelectorAll("[data-mode]").forEach(btn => {
+    const active = btn.dataset.mode === key;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-selected", active ? "true" : "false");
+  });
+
+  document.querySelectorAll("[data-flow]").forEach(flow => {
+    flow.classList.toggle("is-active", mode.flows.includes(flow.dataset.flow));
+  });
+
+  document.querySelectorAll("[data-node]").forEach(node => {
+    node.querySelector(".node")?.classList.toggle("is-active", mode.nodes.includes(node.dataset.node));
+  });
+
+  document.querySelectorAll("[data-muscle]").forEach(muscle => {
+    muscle.classList.toggle("is-active", mode.muscles.includes(muscle.dataset.muscle));
+  });
+
+  document.querySelectorAll("[data-signal]").forEach(dot => {
+    dot.classList.toggle("is-active", mode.flows.includes(dot.dataset.signal));
+  });
+
+  const updatePanel = () => {
+    title.textContent = mode.title;
+    timing.textContent = mode.timing;
+    summary.textContent = mode.summary;
+    statusInput.textContent = mode.status[0];
+    statusCenter.textContent = mode.status[1];
+    statusOutput.textContent = mode.status[2];
+    statusTime.textContent = mode.status[3];
+    metricPriority.textContent = mode.metrics[0];
+    metricOutput.textContent = mode.metrics[1];
+    metricRisk.textContent = mode.metrics[2];
+    inputList.innerHTML = mode.input.map(item => `<li>${item}</li>`).join("");
+    responseList.innerHTML = mode.response.map(item => `<li>${item}</li>`).join("");
+    takeaway.textContent = mode.takeaway;
+  };
+
+  if(!ready){
+    updatePanel();
+    document.documentElement.dataset.sceneReady = "true";
+    return;
+  }
+
+  panelBody.classList.add("is-changing");
+
+  window.setTimeout(() => {
+    updatePanel();
+    panelBody.classList.remove("is-changing");
+  }, 220);
+}
+
+document.querySelectorAll("[data-mode]").forEach(btn => {
+  btn.setAttribute("aria-selected", btn.classList.contains("is-active") ? "true" : "false");
+  btn.addEventListener("click", () => renderMode(btn.dataset.mode));
+});
+
+const initialMode = location.hash.replace("#", "");
+renderMode(modes[initialMode] ? initialMode : "integracao");
+</script>
+</body>
+</html>

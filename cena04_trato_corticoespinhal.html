@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cena 04 - Trato Corticoespinhal</title>
+<style>
+:root{
+  --bg:#071018;
+  --bg-2:#0a1620;
+  --panel:rgba(13,28,39,.76);
+  --panel-2:rgba(16,38,52,.82);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(91,199,255,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --blue:#5bc7ff;
+  --blue-soft:#9ee6ff;
+  --teal:#5ee2d6;
+  --coral:#ff7664;
+  --ink:#061017;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 50% 10%,rgba(30,82,105,.42),transparent 38%),
+    linear-gradient(180deg,#071018 0%,#08141d 48%,#071018 100%);
+}
+button{font:inherit}
+.page{width:min(1180px,100%);margin:0 auto;padding:22px 18px 64px}
+.topbar{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.brand{color:var(--text);font-weight:700}
+.scene-id{color:var(--blue)}
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--blue);
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.hero{padding:18px 0 28px}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.5rem,6vw,4.8rem);
+  line-height:.98;
+  letter-spacing:0;
+}
+.hero-sub{
+  margin:14px 0 0;
+  max-width:680px;
+  color:var(--soft);
+  font-size:1.15rem;
+}
+.hero-text{
+  margin:10px 0 0;
+  max-width:760px;
+  color:var(--muted);
+  font-size:1rem;
+}
+.section{padding-top:36px}
+.section-head{margin-bottom:18px;max-width:760px}
+.section h2{
+  margin:0;
+  font-size:clamp(1.62rem,3.3vw,2.2rem);
+  line-height:1.12;
+  letter-spacing:0;
+}
+.section-note{margin:10px 0 0;color:var(--muted)}
+.glass{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(18,39,52,.82),rgba(9,20,29,.74));
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+}
+.main-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) 280px;
+  gap:18px;
+  align-items:stretch;
+}
+.video-card{padding:14px}
+.video-stage{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:#050d13;
+  aspect-ratio:9/16;
+  max-height:760px;
+  margin:0 auto;
+  box-shadow:inset 0 0 80px rgba(91,199,255,.08);
+}
+.video-stage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:inherit;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(91,199,255,.06),transparent 34%),
+    linear-gradient(180deg,rgba(7,16,24,.02),rgba(7,16,24,.22));
+}
+.signal-video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.96) contrast(1.04) brightness(.92);
+}
+.summary-cards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.summary-card,.clinical-card,.compare-card,.quiz-card,.timeline-card,.closing-card,.impact-card{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.summary-card{
+  min-height:108px;
+  padding:18px;
+}
+.summary-card:hover,.clinical-card:hover,.compare-card:hover,.quiz-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--line-strong);
+  box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 28px rgba(91,199,255,.09);
+}
+.summary-card h3,.clinical-card h3,.compare-card h3{
+  margin:0 0 6px;
+  font-size:1.05rem;
+  letter-spacing:0;
+}
+.summary-card p,.clinical-card p,.compare-card li,.closing-card p{
+  margin:0;
+  color:var(--soft);
+}
+.impact-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr);
+  gap:18px;
+  align-items:center;
+  max-width:860px;
+  margin:18px auto 0;
+  padding:22px;
+  border-color:rgba(91,199,255,.34);
+  background:
+    radial-gradient(circle at 12% 50%,rgba(91,199,255,.16),transparent 34%),
+    linear-gradient(180deg,rgba(18,44,60,.86),rgba(9,20,29,.76));
+  box-shadow:0 24px 70px rgba(0,0,0,.3),0 0 34px rgba(91,199,255,.11);
+}
+.impact-icon{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(91,199,255,.38);
+  background:rgba(91,199,255,.08);
+  box-shadow:0 0 26px rgba(91,199,255,.18);
+}
+.impact-icon svg{width:36px;height:36px;display:block}
+.impact-icon path{
+  fill:none;
+  stroke:var(--blue-soft);
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.impact-card h3{
+  margin:0 0 8px;
+  font-size:1.28rem;
+  letter-spacing:0;
+}
+.impact-card p{
+  margin:0;
+  color:var(--soft);
+}
+.impact-card p + p{margin-top:8px}
+.timeline-card{padding:22px}
+.timeline{
+  position:relative;
+  display:grid;
+  gap:0;
+  max-width:720px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:13px;
+  top:18px;
+  bottom:18px;
+  width:2px;
+  background:linear-gradient(180deg,rgba(91,199,255,.08),rgba(91,199,255,.55),rgba(94,226,214,.12));
+}
+.timeline-step{
+  position:relative;
+  display:grid;
+  grid-template-columns:34px 1fr;
+  align-items:center;
+  min-height:46px;
+  color:var(--soft);
+}
+.timeline-dot{
+  position:relative;
+  z-index:1;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  border:1px solid rgba(91,199,255,.36);
+  background:rgba(7,16,24,.92);
+  box-shadow:0 0 18px rgba(91,199,255,.08);
+}
+.timeline-step.hot .timeline-dot{
+  border-color:var(--blue-soft);
+  background:rgba(91,199,255,.18);
+  box-shadow:0 0 26px rgba(91,199,255,.56);
+  animation:pulseBlue 2.2s ease-in-out infinite;
+}
+.timeline-step.hot span:last-child{
+  color:var(--blue-soft);
+  font-weight:800;
+}
+@keyframes pulseBlue{
+  0%,100%{box-shadow:0 0 18px rgba(91,199,255,.34)}
+  50%{box-shadow:0 0 34px rgba(91,199,255,.7)}
+}
+.quiz-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:18px;
+}
+.quiz-card{padding:22px}
+.quiz-progress{
+  margin:0 0 10px;
+  color:var(--blue);
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.quiz-question{
+  margin:0 0 14px;
+  font-size:1.28rem;
+  line-height:1.2;
+}
+.options{display:grid;gap:9px}
+.option{
+  width:100%;
+  min-height:44px;
+  padding:0 14px;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  transition:border-color .18s ease,background .18s ease,color .18s ease,transform .18s ease;
+}
+.option:hover,.option:focus-visible{
+  outline:0;
+  transform:translateX(2px);
+  border-color:var(--line-strong);
+}
+.option.correct{
+  color:var(--ink);
+  border-color:var(--blue);
+  background:var(--blue);
+}
+.option.wrong{
+  border-color:rgba(255,118,100,.58);
+  background:rgba(255,118,100,.1);
+}
+.feedback{
+  margin-top:14px;
+  min-height:52px;
+  color:var(--muted);
+  border-left:3px solid rgba(91,199,255,.4);
+  padding:8px 0 8px 12px;
+}
+.feedback.good{color:var(--blue-soft);border-left-color:var(--blue)}
+.feedback.review{color:#ffc1b8;border-left-color:var(--coral)}
+.quiz-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:14px;
+}
+.next-question{
+  min-height:40px;
+  padding:0 15px;
+  border-radius:var(--radius);
+  border:1px solid var(--line-strong);
+  background:rgba(91,199,255,.1);
+  color:var(--text);
+  cursor:pointer;
+  font-weight:800;
+  transition:background .18s ease,transform .18s ease;
+}
+.next-question:hover,.next-question:focus-visible{
+  outline:0;
+  transform:translateY(-1px);
+  background:rgba(91,199,255,.18);
+}
+.next-question[hidden]{display:none}
+.quiz-complete{
+  margin-top:14px;
+  color:var(--blue-soft);
+  font-weight:800;
+}
+.clinical-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.clinical-card{padding:18px;min-height:150px}
+.clinical-card .clinical-extra{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.93rem;
+}
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.compare-card{padding:22px}
+.compare-card ul{margin:10px 0 0;padding-left:18px;color:var(--soft)}
+.compare-card li{margin:7px 0}
+.compare-card.nms{border-color:rgba(91,199,255,.28)}
+.compare-card.nmi{border-color:rgba(94,226,214,.22)}
+.closing-card{
+  padding:24px;
+  border-color:rgba(91,199,255,.28);
+  background:
+    radial-gradient(circle at 18% 50%,rgba(91,199,255,.12),transparent 35%),
+    linear-gradient(180deg,rgba(18,39,52,.82),rgba(9,20,29,.78));
+}
+.closing-card p{
+  max-width:860px;
+  font-size:1.12rem;
+}
+@media (max-width:980px){
+  .main-grid,.quiz-layout,.compare-grid{grid-template-columns:1fr}
+  .summary-cards{grid-template-columns:repeat(2,1fr)}
+  .clinical-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:620px){
+  .page{padding:18px 14px 52px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:4px}
+  .summary-cards,.clinical-grid{grid-template-columns:1fr}
+  .video-card{padding:10px}
+  .section{padding-top:30px}
+  .impact-card{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.001ms!important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="topbar" aria-label="Identificação da cena">
+    <div class="brand">BBAMed</div>
+    <div><span class="scene-id">Cena 04</span> - Via motora descendente</div>
+  </header>
+
+  <section class="hero" aria-labelledby="scene-title">
+    <p class="eyebrow">Trato piramidal</p>
+    <h1 id="scene-title">Trato Corticoespinhal</h1>
+    <p class="hero-sub">A via que leva o comando motor do cérebro até a medula.</p>
+    <p class="hero-text">O movimento voluntário começa no córtex motor e percorre uma via descendente até alcançar os circuitos motores da medula.</p>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="video-title">
+      <div class="section-head">
+        <p class="eyebrow">Comando motor voluntário</p>
+        <h2 id="video-title">A descida da via em tempo real.</h2>
+      </div>
+      <div class="main-grid">
+        <article class="glass video-card">
+          <div class="video-stage">
+            <video class="signal-video" autoplay muted loop playsinline preload="metadata" poster="Imagens/Cena 04/Corticospinal.jpeg">
+              <source src="Imagens/Cena 04/Neural_signal_pulse_animation_202606111943.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </article>
+
+        <aside class="summary-cards" aria-label="Resumo da via corticoespinhal">
+          <article class="summary-card">
+            <h3>Origem</h3>
+            <p>Córtex motor primário</p>
+          </article>
+          <article class="summary-card">
+            <h3>Trajeto</h3>
+            <p>Cápsula interna, tronco encefálico e medula</p>
+          </article>
+          <article class="summary-card">
+            <h3>Decussação</h3>
+            <p>Grande parte das fibras cruza no bulbo</p>
+          </article>
+          <article class="summary-card">
+            <h3>Destino</h3>
+            <p>Circuitos motores da medula espinhal</p>
+          </article>
+        </aside>
+      </div>
+      <article class="impact-card">
+        <div class="impact-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M13 8 C13 19 20 23 24 24 C28 25 35 29 35 40"></path>
+            <path d="M35 8 C35 19 28 23 24 24 C20 25 13 29 13 40"></path>
+            <path d="M19 24 H29"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Por que a decussação é importante?</h3>
+          <p>Uma lesão acima da decussação das pirâmides geralmente produz déficit motor no lado oposto do corpo.</p>
+          <p>Uma lesão abaixo da decussação tende a produzir déficit motor no mesmo lado da lesão.</p>
+          <p>Esse cruzamento explica grande parte dos déficits motores observados na prática neurológica.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <p class="eyebrow">Caminho da via</p>
+        <h2 id="timeline-title">Da intenção ao trato lateral.</h2>
+      </div>
+      <article class="glass timeline-card">
+        <div class="timeline">
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Córtex motor</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Cápsula interna</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Mesencéfalo</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Ponte</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Bulbo</span></div>
+          <div class="timeline-step hot"><span class="timeline-dot"></span><span>Decussação das pirâmides</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Trato corticoespinhal lateral</span></div>
+          <div class="timeline-step"><span class="timeline-dot"></span><span>Medula espinhal</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="quiz-title">
+      <div class="section-head">
+        <p class="eyebrow">Cheque rápido</p>
+        <h2 id="quiz-title">O ponto que muda o lado do déficit.</h2>
+      </div>
+      <div class="quiz-layout">
+        <article class="glass quiz-card">
+          <p class="quiz-progress" id="quizProgress">Pergunta 1 de 3</p>
+          <p class="quiz-question" id="quizQuestion">Onde ocorre a decussação das pirâmides?</p>
+          <div class="options" id="quizOptions"></div>
+          <div class="feedback" id="feedback" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button class="next-question" id="nextQuestion" type="button" hidden>Próxima</button>
+          </div>
+          <p class="quiz-complete" id="quizComplete" hidden>Excelente. Você compreendeu os conceitos fundamentais da via corticoespinhal.</p>
+        </article>
+        <article class="glass closing-card">
+          <p>Lesões acima da decussação tendem a produzir déficit motor contralateral, porque grande parte das fibras cruza antes de seguir pela medula.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="clinical-title">
+      <div class="section-head">
+        <p class="eyebrow">Lesão do neurônio motor superior</p>
+        <h2 id="clinical-title">Quando a via é lesionada</h2>
+      </div>
+      <div class="clinical-grid">
+        <article class="clinical-card glass">
+          <h3>Fraqueza</h3>
+          <p>Dificuldade para gerar contração voluntária.</p>
+          <p class="clinical-extra">Dificuldade para gerar movimento voluntário eficiente.</p>
+        </article>
+        <article class="clinical-card glass">
+          <h3>Espasticidade</h3>
+          <p>Aumento do tônus por perda do controle inibitório.</p>
+          <p class="clinical-extra">Perda do controle inibitório descendente sobre os reflexos.</p>
+        </article>
+        <article class="clinical-card glass">
+          <h3>Hiperreflexia</h3>
+          <p>Reflexos exagerados após lesão do neurônio motor superior.</p>
+          <p class="clinical-extra">Reflexos exagerados devido à desinibição dos circuitos medulares.</p>
+        </article>
+        <article class="clinical-card glass">
+          <h3>Babinski</h3>
+          <p>Sinal patológico indicativo de lesão da via piramidal.</p>
+          <p class="clinical-extra">Resposta plantar patológica indicativa de lesão da via piramidal.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="compare-title">
+      <div class="section-head">
+        <p class="eyebrow">Comparação clínica</p>
+        <h2 id="compare-title">NMS x NMI</h2>
+      </div>
+      <div class="compare-grid">
+        <article class="compare-card glass nms">
+          <h3>Neurônio Motor Superior</h3>
+          <ul>
+            <li>Espasticidade</li>
+            <li>Hiperreflexia</li>
+            <li>Babinski positivo</li>
+            <li>Fraqueza</li>
+            <li>Atrofia discreta</li>
+          </ul>
+        </article>
+        <article class="compare-card glass nmi">
+          <h3>Neurônio Motor Inferior</h3>
+          <ul>
+            <li>Hipotonia</li>
+            <li>Hiporreflexia</li>
+            <li>Fraqueza</li>
+            <li>Atrofia importante</li>
+            <li>Fasciculações</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Resumo clínico">
+      <article class="glass closing-card">
+        <p>Resumo clínico: o trato corticoespinhal conecta intenção, comando motor e execução. Quando essa via falha, surgem sinais típicos de lesão do neurônio motor superior.</p>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var quiz = [
+    {
+      question:"Onde ocorre a decussação das pirâmides?",
+      options:["A) Mesencéfalo","B) Ponte","C) Bulbo","D) Cerebelo"],
+      correct:2,
+      correctFeedback:"Correto. A maior parte das fibras cruza no bulbo.",
+      reviewFeedback:"Quase. A decussação das pirâmides acontece no bulbo."
+    },
+    {
+      question:"Uma lesão cerebral esquerda acima da decussação tende a causar déficit motor em qual lado do corpo?",
+      options:["A) Esquerdo","B) Direito","C) Bilateral","D) Nenhum"],
+      correct:1,
+      correctFeedback:"Correto. Como as fibras cruzam no bulbo, lesões acima da decussação geram déficits contralaterais.",
+      reviewFeedback:"Quase. Acima da decussação, o déficit motor tende a aparecer no lado contralateral."
+    },
+    {
+      question:"Qual sinal é clássico de lesão do neurônio motor superior?",
+      options:["A) Fasciculações","B) Babinski positivo","C) Hipotonia","D) Hiporreflexia"],
+      correct:1,
+      correctFeedback:"Correto. O sinal de Babinski é um marcador clássico de lesão da via piramidal.",
+      reviewFeedback:"Quase. Babinski positivo é o sinal clássico de lesão do neurônio motor superior."
+    }
+  ];
+
+  var current = 0;
+  var feedback = document.getElementById("feedback");
+  var optionsEl = document.getElementById("quizOptions");
+  var progress = document.getElementById("quizProgress");
+  var question = document.getElementById("quizQuestion");
+  var next = document.getElementById("nextQuestion");
+  var complete = document.getElementById("quizComplete");
+
+  function renderQuestion(){
+    var item = quiz[current];
+    progress.textContent = "Pergunta " + (current + 1) + " de " + quiz.length;
+    question.textContent = item.question;
+    feedback.className = "feedback";
+    feedback.textContent = "";
+    complete.hidden = true;
+    next.hidden = true;
+    next.textContent = current === quiz.length - 1 ? "Finalizar" : "Próxima";
+    optionsEl.innerHTML = "";
+
+    item.options.forEach(function(label,index){
+      var button = document.createElement("button");
+      button.className = "option";
+      button.type = "button";
+      button.textContent = label;
+      button.setAttribute("aria-pressed","false");
+      button.addEventListener("click",function(){
+        answer(index,button);
+      });
+      optionsEl.appendChild(button);
+    });
+  }
+
+  function answer(index,button){
+    var item = quiz[current];
+    var isCorrect = index === item.correct;
+    Array.prototype.slice.call(optionsEl.querySelectorAll(".option")).forEach(function(option){
+      option.classList.remove("correct","wrong");
+      option.setAttribute("aria-pressed","false");
+    });
+    button.classList.add(isCorrect ? "correct" : "wrong");
+    button.setAttribute("aria-pressed","true");
+    feedback.className = "feedback " + (isCorrect ? "good" : "review");
+    feedback.textContent = isCorrect ? item.correctFeedback : item.reviewFeedback;
+    next.hidden = false;
+  }
+
+  next.addEventListener("click",function(){
+    if(current < quiz.length - 1){
+      current += 1;
+      renderQuestion();
+      return;
+    }
+    next.hidden = true;
+    complete.hidden = false;
+  });
+
+  renderQuestion();
+})();
+</script>
+</body>
+</html>
