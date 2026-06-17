@@ -21,7 +21,7 @@ const modules = [
     time: "16 min",
     slides: [4, 5, 6, 7],
     sceneLinks: [
-      { label: "Cena 02 — Organização do Sistema Motor", href: "Cena02_v7(2).html" },
+      { label: "Cena 02 — Organização do Sistema Motor", href: "cena02_organizacao_sistema_motor.html" },
       { label: "Cena 03 — Homúnculo Sensorial", href: "cena03_homunculo_sensorial_1.html" }
     ],
     goal: "Diferenciar córtex motor primário, área pré-motora e área suplementar.",
