@@ -21,6 +21,7 @@ const modules = [
     time: "16 min",
     slides: [4, 5, 6, 7],
     sceneLinks: [
+      { label: "Cena 02 — Organização do Sistema Motor", href: "Cena02_v7(2).html" },
       { label: "Cena 03 — Homúnculo Sensorial", href: "cena03_homunculo_sensorial_1.html" }
     ],
     goal: "Diferenciar córtex motor primário, área pré-motora e área suplementar.",
@@ -97,6 +98,10 @@ const modules = [
     title: "6. Síndromes neurológicas",
     time: "22 min",
     slides: [17, 18, 19, 20, 21],
+    sceneLinks: [
+      { label: "Cena 08 — Neurônio Motor Superior x Inferior", href: "cena08_PREMIUMv1.html" },
+      { label: "Cena 09 — Doenças do Neurônio Motor Superior", href: "Cena09_Premium.html" }
+    ],
     goal: "Comparar NMS, NMI e alterações cerebelares.",
     summary:
       "O neurônio motor superior comanda de cima e modula o neurônio motor inferior. Quando o NMS é lesado, perde-se controle inibitório, gerando espasticidade, hiperreflexia e Babinski. Quando o NMI é lesado, a ativação muscular falha, com fraqueza, hipotonia, hiporreflexia e atrofia. Lesão cerebelar compromete coordenação.",
