@@ -935,7 +935,7 @@ document.querySelectorAll(".nav-button").forEach((button) => {
 const startSceneButton = document.getElementById("startScene");
 if (startSceneButton) {
   startSceneButton.addEventListener("click", () => {
-    showScene02();
+    openSceneFile("cena02_organizacao_sistema_motor.html");
   });
 }
 
@@ -1020,5 +1020,5 @@ renderChecklist();
 updateSensorLab();
 
 if (window.location.hash === "#scene02") {
-  showScene02();
+  openSceneFile("cena02_organizacao_sistema_motor.html");
 }
