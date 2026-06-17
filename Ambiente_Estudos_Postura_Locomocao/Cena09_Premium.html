@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BBAMed - Cena 09 | Doencas do Neuronio Motor Superior</title>
+<style>
+:root{
+  --bg:#071018;
+  --panel:rgba(13,28,39,.78);
+  --panel-strong:rgba(15,34,47,.92);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(94,226,214,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --blue:#5bc7ff;
+  --teal:#5ee2d6;
+  --coral:#ff7664;
+  --amber:#ffb43c;
+  --green:#7ddf9b;
+  --violet:#a78bfa;
+  --pink:#f078b6;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+  --active:var(--teal);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 14% 8%,rgba(91,199,255,.22),transparent 30%),
+    radial-gradient(circle at 86% 10%,rgba(255,118,100,.12),transparent 34%),
+    radial-gradient(circle at 68% 92%,rgba(125,223,155,.10),transparent 34%),
+    linear-gradient(180deg,#071018 0%,#08141d 52%,#061017 100%);
+}
+button{font:inherit;border:0}
+ul,ol{margin:0;padding:0;list-style:none}
+.page{width:min(1240px,100%);margin:0 auto;padding:16px 18px 58px}
+.topbar{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--muted);
+  font-size:.84rem;
+}
+.brand{color:var(--text);font-weight:750}
+.scene-id{color:var(--teal);font-weight:850}
+.scene-seq-nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.scene-seq-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.scene-seq-nav a:hover,
+.scene-seq-nav a:focus-visible{
+  border-color:var(--teal);
+  color:var(--teal);
+}
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:850;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.hero{
+  position:relative;
+  min-height:clamp(560px,70vh,700px);
+  margin-top:14px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:
+    radial-gradient(circle at 24% 44%,rgba(94,226,214,.10),transparent 38%),
+    linear-gradient(90deg,#06161e 0%,#06191f 48%,#061b1d 100%);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-img{
+  position:absolute;
+  top:22px;
+  right:18px;
+  bottom:22px;
+  width:min(700px,52%);
+  height:calc(100% - 44px);
+  object-fit:contain;
+  object-position:center center;
+  mix-blend-mode:screen;
+  opacity:.94;
+  z-index:0;
+  animation:heroDotPulse 2.6s ease-in-out infinite;
+}
+@keyframes heroDotPulse{
+  0%,100%{filter:saturate(1.28) contrast(1.08) brightness(1.18)}
+  50%{filter:saturate(1.72) contrast(1.16) brightness(1.72)}
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,20,26,.99) 0%,rgba(5,20,26,.96) 38%,rgba(5,20,26,.12) 54%,rgba(5,20,26,.04) 68%,transparent 86%),
+    linear-gradient(180deg,rgba(3,15,18,.06),rgba(3,15,18,.24)),
+    radial-gradient(circle at 24% 44%,rgba(94,226,214,.18),transparent 36%);
+  z-index:1;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(94,226,214,.14);
+  border-radius:6px;
+  box-shadow:inset 0 0 46px rgba(94,226,214,.045);
+  pointer-events:none;
+  z-index:3;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,48%) minmax(0,52%);
+  min-height:inherit;
+  align-items:center;
+  padding:38px 34px;
+}
+.hero-copy{
+  grid-column:1;
+  max-width:560px;
+}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.35rem,4.15vw,4.05rem);
+  line-height:.98;
+  font-weight:830;
+  letter-spacing:0;
+  text-wrap:balance;
+}
+.hero-sub{
+  margin:14px 0 0;
+  max-width:540px;
+  color:var(--soft);
+  font-size:1.06rem;
+}
+.gold-line{
+  display:grid;
+  gap:8px;
+  margin-top:18px;
+}
+.gold-line span{
+  display:inline-flex;
+  width:fit-content;
+  max-width:100%;
+  border:1px solid color-mix(in srgb,var(--active) 42%,transparent);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--active) 13%,transparent);
+  padding:7px 12px;
+  color:var(--soft);
+  font-size:.88rem;
+  font-weight:800;
+}
+.hero-hotspots{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  isolation:isolate;
+}
+.hero-thumb{
+  --thumb-color:var(--teal);
+  --thumb-image:url("../Imagens/Cena 09/thumbs/thumb-avc.png");
+  position:absolute;
+  width:112px;
+  aspect-ratio:1;
+  transform:translateX(-50%);
+  border:2px solid var(--thumb-color);
+  border-radius:50%;
+  background-color:#06151c;
+  box-shadow:
+    0 0 20px color-mix(in srgb,var(--thumb-color) 72%,transparent),
+    inset 0 0 22px rgba(0,0,0,.28);
+  pointer-events:none;
+  overflow:hidden;
+  }
+.hero-thumb::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background-image:var(--thumb-image);
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  filter:var(--thumb-filter,none);
+}
+.hero-thumb--ela{left:51%;top:15.8%;--thumb-color:var(--pink);--thumb-image:url("../Imagens/Cena 09/thumbs/ELAV1.png")}
+.hero-thumb--pc{left:93.5%;top:15.8%;--thumb-color:var(--blue);--thumb-image:url("../Imagens/Cena 09/thumbs/PC1.png")}
+.hero-thumb--peh{left:61%;top:47.2%;--thumb-color:var(--green);--thumb-image:url("../Imagens/Cena 09/thumbs/PEH1.png")}
+.hero-thumb--avc{left:86.5%;top:47.2%;--thumb-color:var(--coral);--thumb-image:url("../Imagens/Cena 09/thumbs/AVC1.png")}
+.hero-thumb--elp{left:57%;top:72.4%;--thumb-color:var(--amber);--thumb-image:url("../Imagens/Cena 09/thumbs/thumb-elp.png")}
+.hero-thumb--em{left:85%;top:72.4%;--thumb-color:var(--violet);--thumb-image:url("../Imagens/Cena 09/thumbs/EM1.png")}
+.hero-thumb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:2px solid var(--thumb-color);
+  border-radius:inherit;
+  box-shadow:
+    0 0 20px color-mix(in srgb,var(--thumb-color) 82%,transparent),
+    0 0 0 8px color-mix(in srgb,var(--thumb-color) 18%,transparent),
+    inset 0 0 18px rgba(0,0,0,.24);
+  opacity:1;
+}
+.nms-lesion-marker{
+  position:absolute;
+  left:70.8%;
+  top:49.5%;
+  width:32px;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:23px;
+  font-weight:950;
+  line-height:1;
+  text-shadow:0 0 7px rgba(255,72,56,.95),0 0 14px rgba(255,72,56,.68);
+  pointer-events:none;
+  animation:nmsLesionPulse 2.5s ease-in-out infinite;
+}
+.nms-lesion-marker::before{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border:2px solid rgba(255,74,62,.68);
+  border-radius:50%;
+  background:rgba(255,55,45,.08);
+  box-shadow:0 0 16px rgba(255,58,42,.58),inset 0 0 12px rgba(255,58,42,.22);
+}
+.nms-lesion-marker::after{
+  content:"X";
+  position:relative;
+  z-index:1;
+}
+@keyframes nmsLesionPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.08)}
+}
+.hero-hotspot{
+  --hotspot-color:var(--teal);
+  --hotspot-shift:translateX(-50%);
+  position:absolute;
+  display:grid;
+  align-content:center;
+  width:96px;
+  height:38px;
+  padding:5px 9px;
+  border:1px solid color-mix(in srgb,var(--hotspot-color) 70%,#ffffff);
+  border-radius:999px;
+  background:rgba(3,19,22,.74);
+  color:var(--text);
+  cursor:pointer;
+  pointer-events:auto;
+  text-align:left;
+  box-shadow:0 14px 32px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.03);
+  backdrop-filter:blur(8px);
+  transform:var(--hotspot-shift);
+  transform-origin:top center;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease,filter .2s ease;
+}
+.hero-hotspot::before{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border:1px solid color-mix(in srgb,var(--hotspot-color) 52%,transparent);
+  border-radius:999px;
+  opacity:.82;
+  animation:heroPulse 2.15s ease-out infinite;
+}
+.hero-hotspot strong{
+  display:block;
+  color:color-mix(in srgb,var(--hotspot-color) 72%,#ffffff);
+  font-size:.64rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  line-height:1;
+}
+.hero-hotspot span{
+  display:block;
+  margin-top:1px;
+  color:var(--soft);
+  font-size:.64rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.hero-hotspot:hover,
+.hero-hotspot:focus-visible,
+.hero-hotspot.is-active{
+  transform:var(--hotspot-shift) scale(1.035);
+  background:color-mix(in srgb,var(--hotspot-color) 18%,rgba(3,19,22,.80));
+  filter:drop-shadow(0 0 14px var(--hotspot-color));
+}
+.hero-hotspot--avc{left:51%;top:32.6%}
+.hero-hotspot--pc{left:93.5%;top:32.6%}
+.hero-hotspot--em{left:61%;top:64%}
+.hero-hotspot--ela{left:86.5%;top:64%}
+.hero-hotspot--elp{left:57%;top:89.2%}
+.hero-hotspot--peh{left:85%;top:89.2%}
+.hero-focus{
+  position:relative;
+  z-index:2;
+  width:min(420px,100%);
+  margin-top:14px;
+  border:1px solid color-mix(in srgb,var(--active) 44%,transparent);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(5,31,30,.88),rgba(4,18,24,.72));
+  padding:11px 13px 12px 15px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+  pointer-events:none;
+  overflow:hidden;
+}
+.hero-focus::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:4px;
+  background:var(--active);
+  box-shadow:0 0 22px var(--active);
+}
+.hero-focus strong{
+  display:block;
+  position:relative;
+  color:color-mix(in srgb,var(--active) 72%,#ffffff);
+  font-size:.74rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.hero-focus h2{
+  position:relative;
+  margin:3px 0 0;
+  color:var(--text);
+  font-size:1.05rem;
+  line-height:1.08;
+}
+.hero-focus p{
+  position:relative;
+  margin:5px 0 0;
+  color:var(--soft);
+  font-size:.82rem;
+}
+.hero-focus.is-live{
+  animation:focusPop .28s ease both;
+}
+.anatomy-zoom{
+  position:relative;
+  z-index:2;
+  width:min(420px,100%);
+  height:146px;
+  margin-top:10px;
+  border:1px solid color-mix(in srgb,var(--active) 38%,transparent);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(5,24,27,.84),rgba(3,14,20,.66));
+  padding:10px 16px 10px 10px;
+  box-shadow:0 18px 38px rgba(0,0,0,.24);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+}
+.clinical-lens-content{
+  position:absolute;
+  inset:10px 16px 10px 10px;
+  z-index:1;
+  display:grid;
+  grid-template-columns:132px 1fr;
+  column-gap:22px;
+  align-items:center;
+  height:126px;
+}
+.anatomy-zoom::before{
+  content:"";
+  position:absolute;
+  inset:auto 14px 12px auto;
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--active) 24%,transparent),transparent 70%);
+  opacity:.78;
+  pointer-events:none;
+}
+.lens-image-wrap{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  justify-self:center;
+  align-self:center;
+  display:grid;
+  place-items:center;
+}
+.anatomy-zoom-window{
+  --zoom-image:url("../Imagens/Cena 09/thumbs/thumb-avc.png");
+  --zoom-size:cover;
+  --zoom-position:center center;
+  width:120px;
+  height:120px;
+  justify-self:center;
+  align-self:center;
+  border:1px solid color-mix(in srgb,var(--active) 70%,#ffffff);
+  border-radius:50%;
+  background-color:#06191f;
+  background-image:var(--zoom-image);
+  background-size:var(--zoom-size);
+  background-position:var(--zoom-position);
+  background-repeat:no-repeat;
+  background-blend-mode:screen;
+  filter:var(--zoom-filter,none);
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.06),
+    0 0 28px color-mix(in srgb,var(--active) 32%,transparent);
+}
+.lens-copy{
+  position:relative;
+  justify-self:start;
+  align-self:center;
+  text-align:left;
+  width:260px;
+  min-width:0;
+  max-width:260px;
+  padding:0;
+}
+.lens-label{
+  display:block;
+  margin:0 0 6px;
+  color:color-mix(in srgb,var(--active) 76%,#ffffff);
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.lens-copy h3{
+  margin:0 0 8px;
+  color:var(--text);
+  font-size:1.04rem;
+  line-height:1.1;
+  max-width:100%;
+}
+.lens-copy p{
+  margin:0;
+  color:var(--soft);
+  font-size:.82rem;
+  font-weight:750;
+  line-height:1.45;
+  max-width:100%;
+}
+.anatomy-zoom.is-live{
+  animation:focusPop .28s ease both;
+}
+@keyframes heroPulse{
+  0%{transform:scale(.84);opacity:.82}
+  100%{transform:scale(1.24);opacity:0}
+}
+@keyframes focusPop{
+  0%{transform:scale(.965);opacity:.72}
+  100%{transform:scale(1);opacity:1}
+}
+@keyframes pathFlow{
+  from{stroke-dashoffset:64}
+  to{stroke-dashoffset:-64}
+}
+.section{padding-top:22px}
+.lab-shell{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(370px,.92fr);
+  gap:14px;
+  align-items:stretch;
+}
+.map-panel,
+.diagnostic-panel,
+.field-card,
+.summary-panel,
+.clinical-quiz{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(18,39,52,.72),rgba(7,16,24,.82));
+  box-shadow:var(--shadow);
+}
+.map-panel{
+  position:relative;
+  min-height:760px;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 54% 42%,rgba(94,226,214,.16),transparent 34%),
+    radial-gradient(circle at 50% 84%,rgba(125,223,155,.13),transparent 30%),
+    linear-gradient(180deg,#06261f 0%,#071d1c 48%,#06161a 100%);
+}
+.map-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 46%,color-mix(in srgb,var(--active) 18%,transparent),transparent 34%),
+    linear-gradient(90deg,rgba(5,31,27,.76),rgba(5,31,27,.18) 30%,rgba(5,31,27,.14) 70%,rgba(5,31,27,.72));
+  pointer-events:none;
+  z-index:0;
+}
+.map-panel::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(94,226,214,.12);
+  border-radius:6px;
+  pointer-events:none;
+  z-index:4;
+}
+.map-asset-img{
+  position:absolute;
+  inset:18px 18px 94px;
+  width:calc(100% - 36px);
+  height:calc(100% - 112px);
+  object-fit:contain;
+  object-position:center center;
+  opacity:.96;
+  filter:saturate(1.2) contrast(1.08) brightness(.98);
+  mix-blend-mode:screen;
+  z-index:1;
+}
+.map-lesion-marker{
+  left:62.8%;
+  top:49.6%;
+  z-index:3;
+}
+.disease-button{
+  position:absolute;
+  display:grid;
+  align-content:center;
+  gap:2px;
+  width:168px;
+  min-height:74px;
+  padding:10px 12px;
+  border:1px solid rgba(137,218,216,.17);
+  border-radius:var(--radius);
+  background:rgba(5,16,24,.70);
+  color:var(--soft);
+  text-align:left;
+  cursor:pointer;
+  z-index:3;
+  box-shadow:0 16px 34px rgba(0,0,0,.24);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease,filter .2s ease;
+}
+.disease-button strong{
+  color:color-mix(in srgb,var(--disease-color) 70%,#ffffff);
+  font-size:.75rem;
+  font-weight:950;
+  letter-spacing:.065em;
+  text-transform:uppercase;
+}
+.disease-button span{
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:750;
+}
+.disease-button:hover,
+.disease-button:focus-visible,
+.disease-button.is-active{
+  transform:translateY(-2px);
+  border-color:var(--disease-color);
+  background:color-mix(in srgb,var(--disease-color) 15%,rgba(5,16,24,.76));
+  color:var(--text);
+  filter:drop-shadow(0 0 13px color-mix(in srgb,var(--disease-color) 55%,transparent));
+}
+.disease-button.is-active span{color:var(--soft)}
+.disease-button--avc{right:22px;top:302px}
+.disease-button--pc{right:24px;top:34px}
+.disease-button--em{right:30px;bottom:158px}
+.disease-button--ela{left:24px;top:28px}
+.disease-button--elp{left:24px;bottom:158px}
+.disease-button--peh{left:64px;top:316px}
+.disease-button--ela,
+.disease-button--pc{
+  width:148px;
+  min-height:66px;
+  padding:8px 10px;
+}
+.map-caption{
+  position:relative;
+  border:1px solid rgba(137,218,216,.18);
+  border-radius:var(--radius);
+  background:rgba(4,16,23,.72);
+  padding:13px;
+}
+.map-caption h2{
+  margin:0;
+  color:var(--teal);
+  font-size:1rem;
+}
+.map-caption p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.diagnostic-panel{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:18px;
+  min-height:640px;
+}
+.panel-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.panel-head h2{
+  margin:0;
+  color:color-mix(in srgb,var(--active) 60%,#ffffff);
+  font-size:2.25rem;
+  line-height:1;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:26px;
+  padding:4px 10px;
+  border:1px solid color-mix(in srgb,var(--active) 38%,transparent);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--active) 12%,transparent);
+  color:color-mix(in srgb,var(--active) 70%,#ffffff);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.diagnostic-copy{
+  margin:0;
+  color:var(--soft);
+  font-size:.95rem;
+}
+.field-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.field-card{
+  min-height:112px;
+  padding:12px;
+  box-shadow:none;
+  background:rgba(255,255,255,.032);
+}
+.field-label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.field-card strong{
+  display:block;
+  color:var(--text);
+  font-size:1rem;
+  line-height:1.18;
+}
+.field-card p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:.82rem;
+}
+.clinical-note{
+  margin-top:auto;
+  border:1px solid color-mix(in srgb,var(--active) 34%,transparent);
+  border-radius:var(--radius);
+  background:color-mix(in srgb,var(--active) 10%,transparent);
+  padding:13px;
+}
+.clinical-note strong{
+  display:block;
+  color:color-mix(in srgb,var(--active) 70%,#ffffff);
+  font-size:.74rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.clinical-note p{
+  margin:5px 0 0;
+  color:var(--soft);
+  font-size:.9rem;
+}
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
+  margin-top:14px;
+}
+.timeline-item{
+  position:relative;
+  min-height:96px;
+  padding:10px;
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.026);
+}
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:0;
+  width:38px;
+  height:3px;
+  border-radius:0 0 999px 999px;
+  background:var(--item-color);
+}
+.timeline-item strong{
+  display:block;
+  color:color-mix(in srgb,var(--item-color) 70%,#ffffff);
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.timeline-item span{
+  display:block;
+  margin-top:5px;
+  color:var(--soft);
+  font-size:.82rem;
+}
+.summary-panel{
+  margin-top:14px;
+  padding:16px;
+}
+.summary-panel h2{
+  margin:0 0 12px;
+  color:var(--teal);
+  font-size:1.18rem;
+}
+.rule-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.rule-card{
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.026);
+  padding:13px;
+}
+.rule-card strong{
+  display:block;
+  color:var(--rule-color);
+  font-size:.82rem;
+  font-weight:950;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.rule-card p{
+  margin:6px 0 0;
+  color:var(--soft);
+  font-size:.9rem;
+}
+.clinical-quiz{
+  position:relative;
+  margin-top:14px;
+  padding:16px;
+  background:
+    linear-gradient(90deg,rgba(94,226,214,.08) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.035),transparent 28%),
+    linear-gradient(180deg,rgba(12,31,42,.86),rgba(6,16,24,.92));
+  background-size:28px 100%,100% 100%,100% 100%;
+  overflow:hidden;
+}
+.quiz-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:12px;
+}
+.quiz-head h2{
+  margin:0;
+  color:var(--teal);
+  font-size:1.8rem;
+  line-height:1;
+}
+.quiz-head p:not(.eyebrow){
+  margin:7px 0 0;
+  max-width:720px;
+  color:var(--soft);
+  font-size:.94rem;
+}
+.quiz-actions{
+  display:flex;
+  align-items:stretch;
+  gap:8px;
+}
+.quiz-score{
+  display:grid;
+  place-items:center;
+  min-width:86px;
+  min-height:58px;
+  padding:8px 12px;
+  border:1px solid rgba(94,226,214,.28);
+  border-radius:var(--radius);
+  background:rgba(5,16,24,.58);
+}
+.quiz-score span{
+  color:var(--teal);
+  font-size:1.28rem;
+  font-weight:900;
+  line-height:1;
+}
+.quiz-score small{
+  color:var(--muted);
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.quiz-reset{
+  min-width:82px;
+  min-height:58px;
+  padding:8px 12px;
+  border:1px solid rgba(137,218,216,.18);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  cursor:pointer;
+  font-size:.74rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.quiz-reset:hover,
+.quiz-reset:focus-visible{
+  transform:translateY(-1px);
+  border-color:var(--teal);
+  background:rgba(94,226,214,.10);
+  color:var(--text);
+}
+.quiz-meter{
+  position:relative;
+  height:8px;
+  margin-bottom:12px;
+  border:1px solid rgba(137,218,216,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  overflow:hidden;
+}
+.quiz-meter span{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--teal),var(--green));
+  transition:width .3s ease;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+}
+.case-card{
+  position:relative;
+  display:grid;
+  grid-template-rows:auto 1fr auto auto;
+  gap:10px;
+  min-height:290px;
+  padding:13px;
+  border:1px solid rgba(137,218,216,.14);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.028);
+  transition:transform .24s ease,border-color .24s ease,background .24s ease,box-shadow .24s ease;
+}
+.case-card::before{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  top:0;
+  height:3px;
+  border-radius:0 0 999px 999px;
+  background:rgba(137,218,216,.24);
+  transition:background .24s ease;
+}
+.case-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(94,226,214,.24);
+  background:rgba(255,255,255,.04);
+}
+.case-card[data-state="correct"]{
+  border-color:rgba(125,223,155,.48);
+  box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 0 1px rgba(125,223,155,.10);
+}
+.case-card[data-state="correct"]::before{background:var(--green)}
+.case-card[data-state="incorrect"]{
+  border-color:rgba(255,118,100,.50);
+  box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 0 1px rgba(255,118,100,.10);
+}
+.case-card[data-state="incorrect"]::before{background:var(--coral)}
+.case-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.case-top strong{
+  color:var(--text);
+  font-size:.76rem;
+  font-weight:950;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.case-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:22px;
+  padding:3px 7px;
+  border:1px solid rgba(137,218,216,.15);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:.6rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.case-card p{
+  margin:0;
+  color:var(--soft);
+  font-size:.86rem;
+}
+.quiz-options{
+  display:grid;
+  gap:7px;
+}
+.quiz-option{
+  min-height:38px;
+  padding:8px 10px;
+  border:1px solid rgba(137,218,216,.16);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.035);
+  color:var(--soft);
+  cursor:pointer;
+  font-size:.74rem;
+  font-weight:950;
+  letter-spacing:.05em;
+  text-align:left;
+  text-transform:uppercase;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease;
+}
+.quiz-option:hover,
+.quiz-option:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(94,226,214,.38);
+  color:var(--text);
+}
+.quiz-option.is-selected{
+  border-color:var(--case-color,var(--teal));
+  background:color-mix(in srgb,var(--case-color,var(--teal)) 16%,transparent);
+  color:var(--text);
+}
+.quiz-option.is-correct{
+  border-color:rgba(125,223,155,.64);
+  background:rgba(125,223,155,.16);
+  color:#dffbe7;
+}
+.quiz-option.is-incorrect{
+  border-color:rgba(255,118,100,.64);
+  background:rgba(255,118,100,.16);
+  color:#ffe4df;
+}
+.case-feedback{
+  min-height:54px;
+  color:var(--muted);
+  font-size:.8rem;
+  font-weight:700;
+}
+.case-card[data-state="correct"] .case-feedback{color:#bdf2cc}
+.case-card[data-state="incorrect"] .case-feedback{color:#ffd0c9}
+.quiz-status{
+  min-height:28px;
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:800;
+}
+@media(max-width:1120px){
+  .case-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .timeline{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:980px){
+  .hero-content,.lab-shell{grid-template-columns:1fr}
+  .hero h1{font-size:3.25rem}
+  .hero-img{
+    width:52%;
+    right:20px;
+    height:calc(100% - 40px);
+  }
+  .hero-copy{max-width:520px}
+  .hero-hotspot{
+    min-width:108px;
+    min-height:44px;
+    padding:7px 9px;
+  }
+  .hero-hotspot strong{font-size:.66rem}
+  .hero-hotspot span{display:none}
+  .hero-focus{width:min(380px,100%)}
+  .anatomy-zoom{
+    width:min(380px,100%);
+    height:126px;
+  }
+  .clinical-lens-content{
+    inset:10px 14px 10px 10px;
+    grid-template-columns:112px 1fr;
+    column-gap:20px;
+    height:106px;
+  }
+  .lens-image-wrap{
+    width:104px;
+    height:104px;
+  }
+  .anatomy-zoom-window{
+    width:104px;
+    height:104px;
+  }
+  .map-panel,.diagnostic-panel{min-height:560px}
+}
+@media(max-width:760px){
+  .page{padding:14px 12px 46px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:6px}
+  .scene-seq-nav{width:100%;justify-content:flex-start}
+  .hero{
+    min-height:850px;
+    background:
+      radial-gradient(circle at 32% 26%,rgba(94,226,214,.09),transparent 36%),
+      linear-gradient(180deg,#06161e 0%,#06191f 58%,#061b1d 100%);
+  }
+  .hero-content{padding:18px}
+  .hero h1{font-size:2.55rem}
+  .hero-img{
+    top:auto;
+    right:0;
+    bottom:12px;
+    width:100%;
+    height:44%;
+    object-fit:contain;
+    object-position:center center;
+    opacity:1;
+  }
+  .hero::before{
+    background:
+      linear-gradient(180deg,rgba(4,24,26,.99) 0%,rgba(4,24,26,.96) 52%,rgba(4,24,26,.42) 70%,rgba(4,24,26,.04) 100%),
+      radial-gradient(circle at 24% 28%,rgba(94,226,214,.18),transparent 34%);
+  }
+  .hero-hotspots{display:none}
+  .hero-focus{width:100%}
+  .anatomy-zoom{
+    width:100%;
+    height:106px;
+    padding:8px;
+  }
+  .clinical-lens-content{
+    inset:8px;
+    grid-template-columns:90px 1fr;
+    column-gap:14px;
+    height:90px;
+  }
+  .lens-image-wrap{
+    width:82px;
+    height:82px;
+  }
+  .anatomy-zoom-window{
+    width:82px;
+    height:82px;
+  }
+  .lens-copy{width:auto;max-width:none}
+  .lens-copy h3{font-size:.94rem}
+  .lens-copy p{font-size:.76rem}
+  .map-panel{min-height:760px}
+  .diagnostic-panel{min-height:0}
+  .field-grid,.rule-grid,.timeline,.case-grid{grid-template-columns:1fr}
+  .quiz-head{flex-direction:column}
+  .quiz-actions{width:100%}
+  .quiz-score,.quiz-reset{flex:1}
+  .disease-button{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+    width:calc(100% - 28px);
+    min-height:58px;
+    margin:0 14px 8px;
+  }
+  .map-panel{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    gap:0;
+    padding-top:420px;
+  }
+  .map-asset-img{
+    inset:14px 14px auto;
+    width:calc(100% - 28px);
+    height:390px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page" data-disease="avc">
+  <header class="topbar">
+    <div class="brand">BBAMed</div>
+    <div><span class="scene-id">Cena 09</span> - Doencas do Neuronio Motor Superior</div>
+    <nav class="scene-seq-nav" aria-label="Navegacao sequencial">
+      <a href="cena08_bbamed.html">&larr; Anterior</a>
+      <a href="index.html">Indice</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-img" src="../Imagens/Cena 09/9.8hero.png" alt="Cerebro, tronco encefalico, medula e vias motoras descendentes em composicao anatomica premium" />
+    <div class="hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">Diagnostico diferencial do padrao NMS</p>
+        <h1 id="hero-title">Doencas do Neuronio Motor Superior</h1>
+        <p class="hero-sub">A Cena 08 ensinou a assinatura semiologica. Agora a pergunta muda: quais doencas acendem esse mesmo padrao?</p>
+        <div class="gold-line" aria-label="Frases de ouro">
+          <span>Padrao reconhecido: espasticidade, hiperreflexia e Babinski.</span>
+          <span>Diagnostico diferencial: mecanismo + tempo + perfil do paciente.</span>
+        </div>
+        <aside class="hero-focus" aria-live="polite">
+          <strong id="hero-focus-kicker">Lente clinica</strong>
+          <h2 id="hero-focus-title">AVC</h2>
+          <p id="hero-focus-text">Adulto / idoso. Inicio subito com deficit focal.</p>
+        </aside>
+        <aside class="anatomy-zoom" aria-live="polite">
+          <div class="clinical-lens-content">
+            <div class="lens-image-wrap">
+              <div class="anatomy-zoom-window" id="hero-zoom-window" role="img" aria-label="Imagem ampliada: AVC"></div>
+            </div>
+            <div class="lens-copy">
+              <div class="lens-label">Lupa anatomica</div>
+              <h3 id="hero-zoom-title">AVC</h3>
+              <p id="hero-zoom-note">Cortex ou capsula: evento vascular agudo.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+<div class="hero-hotspots" aria-label="Thumbnails e cards das doencas na imagem principal">
+      <span class="hero-thumb hero-thumb--ela" aria-hidden="true"></span>
+      <span class="hero-thumb hero-thumb--pc" aria-hidden="true"></span>
+      <span class="hero-thumb hero-thumb--peh" aria-hidden="true"></span>
+      <span class="hero-thumb hero-thumb--avc" aria-hidden="true"></span>
+      <span class="hero-thumb hero-thumb--elp" aria-hidden="true"></span>
+      <span class="hero-thumb hero-thumb--em" aria-hidden="true"></span>
+      <span class="nms-lesion-marker" aria-hidden="true"></span>
+      <button class="hero-hotspot hero-hotspot--avc" data-disease-choice="ela" style="--hotspot-color:var(--pink)" type="button">
+        <strong>ELA</strong>
+        <span>meia idade</span>
+      </button>
+      <button class="hero-hotspot hero-hotspot--pc" data-disease-choice="pc" style="--hotspot-color:var(--blue)" type="button">
+        <strong>PC</strong>
+        <span>infancia</span>
+      </button>
+      <button class="hero-hotspot hero-hotspot--em" data-disease-choice="peh" style="--hotspot-color:var(--green)" type="button">
+        <strong>PEH</strong>
+        <span>historia familiar</span>
+      </button>
+      <button class="hero-hotspot hero-hotspot--ela is-active" data-disease-choice="avc" style="--hotspot-color:var(--coral)" type="button">
+        <strong>AVC</strong>
+        <span>adulto / subito</span>
+      </button>
+      <button class="hero-hotspot hero-hotspot--elp" data-disease-choice="elp" style="--hotspot-color:var(--amber)" type="button">
+        <strong>ELP</strong>
+        <span>NMS quase puro</span>
+      </button>
+      <button class="hero-hotspot hero-hotspot--peh" data-disease-choice="em" style="--hotspot-color:var(--violet)" type="button">
+        <strong>EM</strong>
+        <span>adulto jovem</span>
+      </button>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" aria-labelledby="map-title">
+      <div class="lab-shell">
+        <article class="map-panel" aria-label="Mapa das doencas do NMS">
+          <img class="map-asset-img" src="../Imagens/Cena 09/9.8hero.png" alt="Mapa clinico das doencas do neuronio motor superior ao redor do cerebro e da medula" />
+          <span class="nms-lesion-marker map-lesion-marker" aria-hidden="true"></span>
+
+          <button class="disease-button disease-button--avc is-active" data-disease-choice="avc" style="--disease-color:var(--coral)" type="button">
+            <strong>AVC</strong>
+            <span>inicio subito</span>
+          </button>
+          <button class="disease-button disease-button--pc" data-disease-choice="pc" style="--disease-color:var(--blue)" type="button">
+            <strong>Paralisia cerebral</strong>
+            <span>infancia</span>
+          </button>
+          <button class="disease-button disease-button--em" data-disease-choice="em" style="--disease-color:var(--violet)" type="button">
+            <strong>Esclerose multipla</strong>
+            <span>surtos no SNC</span>
+          </button>
+          <button class="disease-button disease-button--peh" data-disease-choice="peh" style="--disease-color:var(--green)" type="button">
+            <strong>PEH</strong>
+            <span>familia e pernas</span>
+          </button>
+          <button class="disease-button disease-button--elp" data-disease-choice="elp" style="--disease-color:var(--amber)" type="button">
+            <strong>ELP</strong>
+            <span>NMS quase puro</span>
+          </button>
+          <button class="disease-button disease-button--ela" data-disease-choice="ela" style="--disease-color:var(--pink)" type="button">
+            <strong>ELA</strong>
+            <span>NMS + NMI</span>
+          </button>
+        </article>
+
+        <aside class="diagnostic-panel" aria-live="polite">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Painel lateral</p>
+              <h2 id="disease-title">AVC</h2>
+            </div>
+            <span class="badge" id="disease-badge">vascular</span>
+          </div>
+
+          <p class="diagnostic-copy" id="disease-summary">Lesao vascular aguda em cortex, capsula interna ou via descendente pode liberar o padrao de NMS de forma abrupta.</p>
+
+          <div class="field-grid">
+            <section class="field-card">
+              <span class="field-label">Mecanismo</span>
+              <strong id="field-mechanism">Interrupcao vascular da via motora descendente.</strong>
+              <p id="field-mechanism-note">Isquemico ou hemorragico, com deficit focal.</p>
+            </section>
+            <section class="field-card">
+              <span class="field-label">Tempo clinico</span>
+              <strong id="field-time">Subito.</strong>
+              <p id="field-time-note">Minutos a horas, nao anos.</p>
+            </section>
+            <section class="field-card">
+              <span class="field-label">Perfil do paciente</span>
+              <strong id="field-profile">Adulto / idoso.</strong>
+              <p id="field-profile-note">Perfil vascular, especialmente com fatores de risco.</p>
+            </section>
+            <section class="field-card">
+              <span class="field-label">Pista de prova</span>
+              <strong id="field-exam">Hemiparesia espastica apos deficit focal agudo.</strong>
+              <p id="field-exam-note">O tempo de instalacao costuma entregar o diagnostico.</p>
+            </section>
+          </div>
+
+          <div class="map-caption">
+            <h2 id="map-title">Mapa etiologico do padrao NMS</h2>
+            <p>Clique em uma doenca. O painel mostra mecanismo, tempo clinico, perfil tipico e pista de prova.</p>
+          </div>
+
+          <div class="clinical-note">
+            <strong>Armadilha de raciocinio</strong>
+            <p id="clinical-pearl">No AVC, o padrao NMS pode amadurecer com o tempo: fase inicial pode ter fraqueza flacida antes da espasticidade aparecer.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="timeline" aria-label="Perfis clinicos">
+        <article class="timeline-item" style="--item-color:var(--coral)">
+          <strong>AVC</strong>
+          <span>Adulto / idoso, inicio subito.</span>
+        </article>
+        <article class="timeline-item" style="--item-color:var(--blue)">
+          <strong>Paralisia cerebral</strong>
+          <span>Infancia, lesao nao progressiva.</span>
+        </article>
+        <article class="timeline-item" style="--item-color:var(--violet)">
+          <strong>EM</strong>
+          <span>Adulto jovem, surtos ou progressao.</span>
+        </article>
+        <article class="timeline-item" style="--item-color:var(--green)">
+          <strong>PEH</strong>
+          <span>Historia familiar, pernas predominam.</span>
+        </article>
+        <article class="timeline-item" style="--item-color:var(--amber)">
+          <strong>ELP</strong>
+          <span>Adulto, progressivo, NMS quase puro.</span>
+        </article>
+        <article class="timeline-item" style="--item-color:var(--pink)">
+          <strong>ELA</strong>
+          <span>Meia idade, NMS + NMI.</span>
+        </article>
+      </div>
+
+      <article class="summary-panel" aria-labelledby="rule-title">
+        <h2 id="rule-title">Regra de ouro da Cena 09</h2>
+        <div class="rule-grid">
+          <section class="rule-card" style="--rule-color:var(--teal)">
+            <strong>Padrao</strong>
+            <p>Espasticidade, hiperreflexia e Babinski dizem que a via superior perdeu controle descendente.</p>
+          </section>
+          <section class="rule-card" style="--rule-color:var(--amber)">
+            <strong>Contexto</strong>
+            <p>Idade, tempo de evolucao e historia familiar mudam a principal hipotese diagnostica.</p>
+          </section>
+          <section class="rule-card" style="--rule-color:var(--pink)">
+            <strong>Nuance</strong>
+            <p>ELA mistura sinais de NMS e NMI. ELP e a imagem mais proxima de NMS quase puro.</p>
+          </section>
+        </div>
+      </article>
+
+      <article class="clinical-quiz" aria-labelledby="quiz-title">
+        <div class="quiz-head">
+          <div>
+            <p class="eyebrow">Microteste clinico</p>
+            <h2 id="quiz-title">Qual doenca gera o padrao?</h2>
+            <p>Agora a resposta nao e NMS. A resposta e a causa provavel do padrao de NMS.</p>
+          </div>
+          <div class="quiz-actions">
+            <div class="quiz-score" aria-live="polite">
+              <span id="quiz-score">0/5</span>
+              <small>acertos</small>
+            </div>
+            <button class="quiz-reset" id="quiz-reset" type="button">Refazer</button>
+          </div>
+        </div>
+
+        <div class="quiz-meter" aria-hidden="true"><span id="quiz-meter-fill"></span></div>
+
+        <div class="case-grid">
+          <article class="case-card" data-case-card data-answer="AVC" style="--case-color:var(--coral)">
+            <div class="case-top">
+              <strong>Caso 01</strong>
+              <span class="case-tag">subito</span>
+            </div>
+            <p>Idoso com hemiparesia de instalacao aguda. Semanas depois: hiperreflexia e espasticidade no lado afetado.</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 01"></div>
+            <div class="case-feedback" aria-live="polite">Aguardando resposta.</div>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="Paralisia cerebral" style="--case-color:var(--blue)">
+            <div class="case-top">
+              <strong>Caso 02</strong>
+              <span class="case-tag">infancia</span>
+            </div>
+            <p>Crianca com atraso motor, marcha em tesoura e hipertonia espastica desde os primeiros anos de vida.</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 02"></div>
+            <div class="case-feedback" aria-live="polite">Aguardando resposta.</div>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="Esclerose multipla" style="--case-color:var(--violet)">
+            <div class="case-top">
+              <strong>Caso 03</strong>
+              <span class="case-tag">adulto jovem</span>
+            </div>
+            <p>Adulto jovem com episodios neurologicos separados no tempo, fraqueza espastica e queixas sensitivas.</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 03"></div>
+            <div class="case-feedback" aria-live="polite">Aguardando resposta.</div>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="PEH" style="--case-color:var(--green)">
+            <div class="case-top">
+              <strong>Caso 04</strong>
+              <span class="case-tag">familia</span>
+            </div>
+            <p>Paciente com marcha espastica progressiva nas pernas e familiares com quadro semelhante.</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 04"></div>
+            <div class="case-feedback" aria-live="polite">Aguardando resposta.</div>
+          </article>
+
+          <article class="case-card" data-case-card data-answer="ELA" style="--case-color:var(--pink)">
+            <div class="case-top">
+              <strong>Caso 05</strong>
+              <span class="case-tag">misto</span>
+            </div>
+            <p>Meia idade, fraqueza progressiva, hiperreflexia, atrofia e fasciculacoes. O padrao nao e puro.</p>
+            <div class="quiz-options" role="group" aria-label="Resposta do caso 05"></div>
+            <div class="case-feedback" aria-live="polite">Aguardando resposta.</div>
+          </article>
+        </div>
+
+        <p class="quiz-status" id="quiz-status" aria-live="polite">Meta: usar perfil do paciente e tempo clinico para sair da lista e chegar ao diagnostico diferencial.</p>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script>
+const diseases = {
+  avc: {
+    color: "#ff7664",
+    title: "AVC",
+    badge: "vascular",
+    summary: "Lesao vascular aguda em cortex, capsula interna ou via descendente pode liberar o padrao de NMS de forma abrupta.",
+    region: "cortex",
+    mechanism: ["Interrupcao vascular da via motora descendente.", "Isquemico ou hemorragico, com deficit focal."],
+    time: ["Subito.", "Minutos a horas, nao anos."],
+    profile: ["Adulto / idoso.", "Perfil vascular, especialmente com fatores de risco."],
+    exam: ["Hemiparesia espastica apos deficit focal agudo.", "O tempo de instalacao costuma entregar o diagnostico."],
+    lens: "Adulto / idoso. Inicio subito com deficit focal.",
+    thumbnail: "hero-thumb--avc",
+    zoomImage: "../Imagens/Cena 09/thumbs/AVC1.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Cortex ou capsula: evento vascular agudo.",
+    pearl: "No AVC, o padrao NMS pode amadurecer com o tempo: fase inicial pode ter fraqueza flacida antes da espasticidade aparecer."
+  },
+  pc: {
+    color: "#5bc7ff",
+    title: "Paralisia Cerebral Espastica",
+    badge: "neurodesenvolvimento",
+    summary: "Lesao do cerebro em desenvolvimento gera dificuldade permanente de movimento e postura, frequentemente com padrao espastico.",
+    region: "cortex",
+    mechanism: ["Lesao ou desenvolvimento anormal do cerebro imaturo.", "O insulto e antigo; os efeitos motores acompanham o crescimento."],
+    time: ["Inicio precoce.", "Quadro reconhecido na infancia e nao progressivo como lesao primaria."],
+    profile: ["Infancia.", "Atraso motor, hipertonia, assimetria ou marcha em tesoura."],
+    exam: ["Diplegia ou hemiparesia espastica desde cedo.", "Nao venda como 'hipoxia neonatal' unica: muitas causas sao pre-natais ou indefinidas."],
+    lens: "Infancia. Espasticidade desde o desenvolvimento.",
+    thumbnail: "hero-thumb--pc",
+    zoomImage: "../Imagens/Cena 09/thumbs/PC1.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Cerebro em desenvolvimento: lesao antiga, efeito motor permanente.",
+    pearl: "A palavra-chave e desenvolvimento: a lesao nao progride, mas contraturas, deformidades e demandas funcionais podem mudar com a idade."
+  },
+  em: {
+    color: "#a78bfa",
+    title: "Esclerose Multipla",
+    badge: "desmielinizante",
+    summary: "Doenca do sistema nervoso central que danifica mielina no cerebro e medula, podendo interromper vias motoras descendentes.",
+    region: "white",
+    mechanism: ["Dano inflamatorio/desmielinizante no SNC.", "A conducao pela via motora fica lenta, bloqueada ou irregular."],
+    time: ["Surtos ou progressao.", "Sintomas separados no tempo e no espaco fortalecem o raciocinio."],
+    profile: ["Adulto jovem.", "Mais comum em adultos jovens, com grande variabilidade clinica."],
+    exam: ["Fraqueza espastica associada a sinais sensitivos ou visuais.", "Neurite optica, parestesias e sinais medulares ajudam a diferenciar."],
+    lens: "Adulto jovem. Surtos com sinais neurologicos variados.",
+    thumbnail: "hero-thumb--em",
+    zoomImage: "../Imagens/Cena 09/thumbs/EM1.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Substancia branca do SNC: lesoes disseminadas no tempo e espaco.",
+    pearl: "Pense em EM quando o padrao motor vem com disseminacao: locais diferentes, momentos diferentes, sintomas neurologicos variados."
+  },
+  peh: {
+    color: "#7ddf9b",
+    title: "Paraplegia Espastica Hereditaria",
+    badge: "genetica",
+    summary: "Grupo de doencas geneticas que degeneram principalmente tratos longos, com espasticidade e fraqueza progressivas nas pernas.",
+    region: "cord",
+    mechanism: ["Degeneracao hereditaria de axonios longos corticospinais.", "As pernas sofrem mais porque dependem de trajetos longos."],
+    time: ["Lento e progressivo.", "Pode iniciar em varias idades, mas costuma evoluir por anos."],
+    profile: ["Historia familiar.", "Familia com marcha espastica ou paraparesia sugere fortemente."],
+    exam: ["Pernas rigidas, reflexos vivos e marcha espastica progressiva.", "Predominio em membros inferiores e padrao familiar sao as pistas."],
+    lens: "Historia familiar. Paraparesia espastica progressiva.",
+    thumbnail: "hero-thumb--peh",
+    zoomImage: "../Imagens/Cena 09/thumbs/PEH1.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Tratos longos: pernas, familia e progressao lenta.",
+    pearl: "PEH e a doenca para lembrar quando o caso parece uma 'paraplegia espastica de familia'."
+  },
+  elp: {
+    color: "#ffb43c",
+    title: "Esclerose Lateral Primaria",
+    badge: "NMS quase puro",
+    summary: "Doenca rara e progressiva com predominio de sinais de neuronio motor superior, sem sinais de NMI no inicio.",
+    region: "cord",
+    mechanism: ["Degeneracao predominante de neuronios motores superiores.", "A via superior falha de forma lenta e progressiva."],
+    time: ["Progressivo cronico.", "Meses a anos, sem instalacao aguda."],
+    profile: ["Adulto / meia idade.", "Rigidez e fraqueza progressivas, muitas vezes comecando em pernas."],
+    exam: ["Espasticidade progressiva sem atrofia/fasciculacao marcante.", "Diagnostico exige excluir ELA, EM, PEH e lesoes estruturais."],
+    lens: "Adulto. NMS quase puro e progressivo.",
+    thumbnail: "hero-thumb--elp",
+    zoomImage: "../Imagens/Cena 09/thumbs/thumb-elp.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Via superior predominante: espasticidade progressiva quase pura.",
+    pearl: "ELP e a imagem didatica de NMS quase puro. Se surgem sinais claros de NMI, o raciocinio muda."
+  },
+  ela: {
+    color: "#f078b6",
+    title: "Esclerose Lateral Amiotrofica",
+    badge: "mista",
+    summary: "Doenca do neuronio motor que pode combinar sinais de NMS e NMI: essa mistura e a grande pista clinica.",
+    region: "white",
+    mechanism: ["Degeneracao de neuronios motores superiores e inferiores.", "A mesma pessoa pode ter hiperreflexia e atrofia/fasciculacoes."],
+    time: ["Progressivo.", "Piora regional e dissemina ao longo do tempo."],
+    profile: ["Meia idade.", "Fraqueza progressiva, bulbar ou em membros, sem perda sensitiva predominante."],
+    exam: ["Hiperreflexia com fasciculacoes e atrofia.", "Nao e NMS puro: a mistura NMS + NMI e a assinatura de prova."],
+    lens: "Meia idade. Mistura NMS + NMI.",
+    thumbnail: "hero-thumb--ela",
+    zoomImage: "../Imagens/Cena 09/thumbs/ELAV1.png",
+    zoomSize: "cover",
+    zoomPosition: "center center",
+    zoomNote: "Circuito motor misto: sinais de NMS junto com NMI.",
+    pearl: "Na ELA, nao force pureza. A coexistencia de Babinski/hiperreflexia com atrofia/fasciculacoes e exatamente o ponto."
+  }
+};
+
+const page = document.querySelector(".page");
+const diseaseTitle = document.getElementById("disease-title");
+const diseaseBadge = document.getElementById("disease-badge");
+const diseaseSummary = document.getElementById("disease-summary");
+const mechanism = document.getElementById("field-mechanism");
+const mechanismNote = document.getElementById("field-mechanism-note");
+const time = document.getElementById("field-time");
+const timeNote = document.getElementById("field-time-note");
+const profile = document.getElementById("field-profile");
+const profileNote = document.getElementById("field-profile-note");
+const exam = document.getElementById("field-exam");
+const examNote = document.getElementById("field-exam-note");
+const clinicalPearl = document.getElementById("clinical-pearl");
+const heroFocus = document.querySelector(".hero-focus");
+const heroFocusTitle = document.getElementById("hero-focus-title");
+const heroFocusText = document.getElementById("hero-focus-text");
+const heroZoom = document.querySelector(".anatomy-zoom");
+const heroZoomWindow = document.getElementById("hero-zoom-window");
+const heroZoomTitle = document.getElementById("hero-zoom-title");
+const heroZoomNote = document.getElementById("hero-zoom-note");
+
+function setDisease(key){
+  const disease = diseases[key];
+  if(!disease) return;
+
+  page.dataset.disease = key;
+  document.documentElement.style.setProperty("--active", disease.color);
+  diseaseTitle.textContent = disease.title;
+  diseaseBadge.textContent = disease.badge;
+  diseaseSummary.textContent = disease.summary;
+  mechanism.textContent = disease.mechanism[0];
+  mechanismNote.textContent = disease.mechanism[1];
+  time.textContent = disease.time[0];
+  timeNote.textContent = disease.time[1];
+  profile.textContent = disease.profile[0];
+  profileNote.textContent = disease.profile[1];
+  exam.textContent = disease.exam[0];
+  examNote.textContent = disease.exam[1];
+  clinicalPearl.textContent = disease.pearl;
+  heroFocusTitle.textContent = disease.title;
+  heroFocusText.textContent = disease.lens;
+  heroZoomWindow.style.setProperty("--zoom-image", `url("${disease.zoomImage}")`);
+  heroZoomWindow.style.setProperty("--zoom-size", disease.zoomSize);
+  heroZoomWindow.style.setProperty("--zoom-position", disease.zoomPosition);
+  heroZoomWindow.style.setProperty("--zoom-filter", disease.zoomFilter || "none");
+  heroZoomWindow.setAttribute("aria-label", `Imagem ampliada: ${disease.title}`);
+  heroZoomTitle.textContent = disease.title;
+  heroZoomNote.textContent = disease.zoomNote;
+  if(heroFocus){
+    heroFocus.classList.remove("is-live");
+    void heroFocus.offsetWidth;
+    heroFocus.classList.add("is-live");
+  }
+  if(heroZoom){
+    heroZoom.classList.remove("is-live");
+    void heroZoom.offsetWidth;
+    heroZoom.classList.add("is-live");
+  }
+
+  document.querySelectorAll("[data-disease-choice]").forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.diseaseChoice === key);
+  });
+
+}
+
+document.querySelectorAll("[data-disease-choice]").forEach((button) => {
+  button.addEventListener("click", () => setDisease(button.dataset.diseaseChoice));
+});
+
+const diseaseOptions = ["AVC", "Paralisia cerebral", "Esclerose multipla", "PEH", "ELP", "ELA"];
+const quizFeedback = {
+  "AVC": "Correto. Inicio subito em adulto/idoso aponta para evento vascular.",
+  "Paralisia cerebral": "Correto. Infancia, atraso motor e espasticidade precoce apontam para paralisia cerebral espastica.",
+  "Esclerose multipla": "Correto. Adulto jovem com sintomas em surtos e sinais variados sugere EM.",
+  "PEH": "Correto. Historia familiar com paraparesia espastica progressiva puxa para PEH.",
+  "ELA": "Correto. A mistura NMS + NMI em meia idade e a pista forte de ELA."
+};
+
+const quizCards = Array.from(document.querySelectorAll("[data-case-card]"));
+const quizScore = document.getElementById("quiz-score");
+const quizMeterFill = document.getElementById("quiz-meter-fill");
+const quizStatus = document.getElementById("quiz-status");
+const quizReset = document.getElementById("quiz-reset");
+
+function buildQuizOptions(){
+  quizCards.forEach((card) => {
+    const answer = card.dataset.answer;
+    const localOptions = diseaseOptions.filter((option) => {
+      if(answer === "AVC") return ["AVC","Esclerose multipla","PEH"].includes(option);
+      if(answer === "Paralisia cerebral") return ["Paralisia cerebral","AVC","ELP"].includes(option);
+      if(answer === "Esclerose multipla") return ["Esclerose multipla","PEH","ELA"].includes(option);
+      if(answer === "PEH") return ["PEH","Paralisia cerebral","Esclerose multipla"].includes(option);
+      return ["ELA","ELP","AVC"].includes(option);
+    });
+
+    const options = localOptions.includes(answer) ? localOptions : [answer, ...localOptions].slice(0, 3);
+    const holder = card.querySelector(".quiz-options");
+    holder.innerHTML = options.map((option) => `<button class="quiz-option" data-quiz-choice="${option}" type="button" aria-pressed="false">${option}</button>`).join("");
+  });
+}
+
+function updateQuizProgress(){
+  const answered = quizCards.filter((card) => card.dataset.selected).length;
+  const correct = quizCards.filter((card) => card.dataset.selected === card.dataset.answer).length;
+
+  quizScore.textContent = `${correct}/${quizCards.length}`;
+  quizMeterFill.style.width = `${(correct / quizCards.length) * 100}%`;
+
+  if(answered === 0){
+    quizStatus.textContent = "Meta: usar perfil do paciente e tempo clinico para sair da lista e chegar ao diagnostico diferencial.";
+    return;
+  }
+
+  if(answered < quizCards.length){
+    quizStatus.textContent = `${answered} de ${quizCards.length} casos respondidos. Continue cruzando tempo, perfil e pista de prova.`;
+    return;
+  }
+
+  quizStatus.textContent = correct === quizCards.length
+    ? "Fechamento premium: voce reconheceu o padrao e localizou as causas."
+    : "Revise os erros: tempo clinico e perfil do paciente costumam resolver a questao.";
+}
+
+function answerQuizCase(card, choice){
+  const answer = card.dataset.answer;
+  const isCorrect = choice === answer;
+  const feedback = card.querySelector(".case-feedback");
+
+  card.dataset.selected = choice;
+  card.dataset.state = isCorrect ? "correct" : "incorrect";
+
+  card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+    const buttonChoice = button.dataset.quizChoice;
+    button.classList.toggle("is-selected", buttonChoice === choice);
+    button.classList.toggle("is-correct", buttonChoice === answer);
+    button.classList.toggle("is-incorrect", buttonChoice === choice && !isCorrect);
+    button.setAttribute("aria-pressed", buttonChoice === choice ? "true" : "false");
+  });
+
+  feedback.textContent = isCorrect ? quizFeedback[answer] : `Quase. A melhor resposta e ${answer}.`;
+  updateQuizProgress();
+}
+
+buildQuizOptions();
+
+quizCards.forEach((card) => {
+  card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+    button.addEventListener("click", () => answerQuizCase(card, button.dataset.quizChoice));
+  });
+});
+
+quizReset.addEventListener("click", () => {
+  quizCards.forEach((card) => {
+    delete card.dataset.selected;
+    delete card.dataset.state;
+    card.querySelector(".case-feedback").textContent = "Aguardando resposta.";
+    card.querySelectorAll("[data-quiz-choice]").forEach((button) => {
+      button.classList.remove("is-selected","is-correct","is-incorrect");
+      button.setAttribute("aria-pressed", "false");
+    });
+  });
+
+  updateQuizProgress();
+});
+
+setDisease("avc");
+</script>
+</body>
+</html>
