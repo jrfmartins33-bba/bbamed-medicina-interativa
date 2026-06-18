@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BBAMed — Iniciar Aqui · Painel de Orientação</title>
+<style>
+:root{
+  --bg:#071018;
+  --bg-2:#0a1620;
+  --panel:rgba(13,28,39,.78);
+  --line:rgba(137,218,216,.18);
+  --line-strong:rgba(94,226,214,.42);
+  --text:#f2f7f8;
+  --muted:#9fb4bd;
+  --soft:#d6e4e7;
+  --teal:#5ee2d6;
+  --blue:#5bc7ff;
+  --coral:#ff7664;
+  --amber:#ffb43c;
+  --gold:#f5c842;
+  --violet:#a78bfa;
+  --green:#4ade80;
+  --radius:8px;
+  --shadow:0 24px 70px rgba(0,0,0,.36);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{
+  font-family:"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(30,77,122,.32),transparent 38%),
+    radial-gradient(circle at 82% 6%,rgba(94,226,214,.10),transparent 32%),
+    linear-gradient(180deg,#071018 0%,#08141d 52%,#061017 100%);
+}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;border:0;cursor:pointer}
+.page{width:min(1120px,100%);margin:0 auto;padding:20px 18px 80px}
+
+/* ── Topbar ── */
+.topbar{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:var(--muted);
+  font-size:.84rem;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+.brand{color:var(--text);font-weight:700}
+.scene-id{color:var(--teal);font-weight:800}
+.scene-seq-nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.scene-seq-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:4px 11px;
+  color:var(--muted);
+  background:rgba(94,226,214,.06);
+  border:1px solid var(--line);
+  border-radius:6px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.scene-seq-nav a:hover,
+.scene-seq-nav a:focus-visible{
+  border-color:var(--teal);
+  color:var(--teal);
+}
+.scene-seq-nav a[aria-current="page"]{
+  border-color:rgba(94,226,214,.4);
+  color:var(--teal);
+  background:rgba(94,226,214,.10);
+}
+
+/* ── Hero ── */
+.eyebrow{
+  margin:0 0 8px;
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.hero{padding:32px 0 36px;border-bottom:1px solid var(--line)}
+.hero h1{
+  margin:0;
+  font-size:clamp(2.6rem,6vw,4.4rem);
+  line-height:.96;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+.hero-sub{
+  margin:14px 0 0;
+  max-width:680px;
+  color:var(--soft);
+  font-size:1.1rem;
+  line-height:1.5;
+}
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:20px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 13px;
+  font-size:.82rem;
+  font-weight:700;
+  border-radius:20px;
+  border:1px solid;
+}
+.badge--teal{color:var(--teal);border-color:rgba(94,226,214,.35);background:rgba(94,226,214,.09);}
+.badge--amber{color:var(--amber);border-color:rgba(255,180,60,.35);background:rgba(255,180,60,.09);}
+.badge--blue{color:var(--blue);border-color:rgba(91,199,255,.35);background:rgba(91,199,255,.09);}
+
+/* ── Sections ── */
+.section{padding-top:44px}
+.section-head{max-width:740px;margin-bottom:24px}
+.section h2{
+  margin:0 0 8px;
+  font-size:clamp(1.5rem,3vw,2rem);
+  line-height:1.1;
+  font-weight:700;
+}
+.section-note{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+
+/* ── Journey flow ── */
+.journey-flow{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  flex-wrap:wrap;
+}
+.journey-step{
+  flex:1;
+  min-width:200px;
+  padding:20px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  text-decoration:none;
+  color:inherit;
+}
+.journey-step--done{opacity:.65;}
+.journey-step--active{border-color:var(--teal);background:rgba(94,226,214,.07);}
+.journey-step--next{opacity:.75;}
+.journey-step-tag{
+  font-size:.68rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:var(--muted);
+}
+.journey-step--active .journey-step-tag{color:var(--teal)}
+.journey-step-title{
+  font-size:.97rem;
+  font-weight:700;
+  color:var(--text);
+  margin:0;
+}
+.journey-step-desc{
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.45;
+  margin:0;
+}
+.journey-step-file{
+  font-size:.73rem;
+  font-family:monospace;
+  color:var(--muted);
+  margin-top:4px;
+  opacity:.8;
+}
+.journey-step--active .journey-step-file{color:var(--teal);opacity:1}
+.you-are-here{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:.68rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--teal);
+  background:rgba(94,226,214,.12);
+  border:1px solid rgba(94,226,214,.3);
+  border-radius:10px;
+  padding:2px 8px;
+  margin-top:6px;
+  width:fit-content;
+}
+.journey-arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 14px;
+  color:var(--teal);
+  font-size:1.3rem;
+  flex-shrink:0;
+  opacity:.6;
+}
+
+/* ── Intro card ── */
+.intro-panel{
+  padding:26px 28px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:4px solid var(--teal);
+  border-radius:var(--radius);
+  max-width:860px;
+}
+.intro-panel p{margin:0 0 12px;color:var(--soft)}
+.intro-panel p:last-child{margin-bottom:0}
+
+/* ── Module grid ── */
+.module-list{display:grid;gap:16px;}
+.module-card{
+  padding:22px 24px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  transition:border-color 180ms;
+}
+.module-card:hover{border-color:var(--line-strong)}
+.module-card--current{border-color:rgba(94,226,214,.35);background:rgba(94,226,214,.04);}
+.module-top{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.module-num{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);}
+.module-time{font-size:.76rem;color:var(--muted);font-weight:600;white-space:nowrap;}
+.module-title{margin:0 0 6px;font-size:1.08rem;font-weight:700;color:var(--text);}
+.module-goal{margin:0 0 10px;font-size:.9rem;color:var(--teal);font-weight:600;}
+.module-summary{margin:0 0 12px;font-size:.9rem;color:var(--muted);line-height:1.55;}
+.module-cenas{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+.cena-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 10px;
+  font-size:.76rem;
+  font-weight:700;
+  color:var(--blue);
+  background:rgba(91,199,255,.08);
+  border:1px solid rgba(91,199,255,.22);
+  border-radius:20px;
+  text-decoration:none;
+  transition:background 150ms,border-color 150ms;
+}
+.cena-chip:hover{background:rgba(91,199,255,.15);border-color:rgba(91,199,255,.45);}
+.cena-chip--static{color:var(--muted);border-color:var(--line);background:transparent;cursor:default;}
+
+/* ── Scene map ── */
+.scene-map{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:12px;
+}
+.scene-tile{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:16px 18px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  text-decoration:none;
+  transition:border-color 180ms,transform 160ms;
+  position:relative;
+}
+.scene-tile:hover{border-color:var(--teal);transform:translateY(-2px);}
+.scene-tile--done{border-color:rgba(78,222,128,.25);background:rgba(78,222,128,.04);}
+.scene-tile--done:hover{border-color:rgba(78,222,128,.5);}
+.scene-tile--soon{opacity:.55;pointer-events:none;cursor:default;}
+.scene-tile-id{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);}
+.scene-tile--done .scene-tile-id{color:var(--green);}
+.scene-tile-name{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.35;}
+.scene-tile-status{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:.64rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  border-radius:10px;
+  padding:2px 7px;
+  width:fit-content;
+}
+.scene-tile-status--done{
+  color:var(--green);
+  background:rgba(78,222,128,.12);
+  border:1px solid rgba(78,222,128,.3);
+}
+.scene-tile-status--soon{
+  color:var(--muted);
+  background:rgba(159,180,189,.08);
+  border:1px solid rgba(159,180,189,.2);
+}
+
+/* ── Tips ── */
+.tips-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:14px;
+}
+.tip-card{
+  padding:18px 20px;
+  background:rgba(13,28,39,.60);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+}
+.tip-icon{font-size:1.4rem;margin-bottom:8px;}
+.tip-title{margin:0 0 6px;font-size:.9rem;font-weight:700;color:var(--text);}
+.tip-text{margin:0;font-size:.84rem;color:var(--muted);line-height:1.5;}
+
+/* ── CTA ── */
+.cta-section{padding-top:48px;text-align:center;}
+.cta-section p{margin:0 0 24px;color:var(--muted);font-size:1rem;}
+.btn-start{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+  color:#060f15;
+  background:linear-gradient(135deg,var(--teal),#3cc9be);
+  border-radius:10px;
+  font-size:1.12rem;
+  font-weight:800;
+  text-decoration:none;
+  letter-spacing:.01em;
+  box-shadow:0 12px 36px rgba(94,226,214,.28);
+  transition:transform 160ms,box-shadow 160ms;
+}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(94,226,214,.38);}
+.btn-start svg{flex-shrink:0}
+
+/* ── Divider ── */
+.divider{margin:44px 0 0;border:0;border-top:1px solid var(--line);}
+
+/* ── Mobile ── */
+@media(max-width:680px){
+  .page{padding:14px 14px 56px}
+  .topbar{align-items:flex-start;flex-direction:column;gap:6px}
+  .scene-seq-nav{width:100%;justify-content:flex-start}
+  .hero h1{font-size:clamp(2rem,9vw,3rem)}
+  .module-card{padding:18px 16px}
+  .intro-panel{padding:18px 16px}
+  .journey-flow{flex-direction:column}
+  .journey-arrow{transform:rotate(90deg);padding:8px 0;align-self:center}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div>
+      <span class="brand">BBAMed</span>
+      <span style="margin:0 8px;opacity:.3">|</span>
+      <span><span class="scene-id">Painel de Orientação</span> — Guia do Estudante</span>
+    </div>
+    <nav class="scene-seq-nav" aria-label="Navegação sequencial">
+      <a href="Ambiente_Estudos_Postura_Locomocao/index.html">&larr; Portal</a>
+      <a href="INICIAR_AQUI.html" aria-current="page">Iniciar Aqui</a>
+      <a href="Ambiente_Estudos_Postura_Locomocao/cena02_organizacao_sistema_motor.html">Cena 02 &rarr;</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">BBAMed · Painel de Orientação</p>
+    <h1 id="hero-title">POSTURA<br>E LOCOMOÇÃO</h1>
+    <p class="hero-sub">Este é o seu ponto de partida. Conheça o roteiro completo, os objetivos de cada módulo e o mapa das cenas interativas antes de começar.</p>
+    <div class="hero-meta">
+      <span class="badge badge--teal">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~106 min no total
+      </span>
+      <span class="badge badge--amber">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        6 módulos
+      </span>
+      <span class="badge badge--blue">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        8 cenas interativas
+      </span>
+    </div>
+  </section>
+
+  <!-- Jornada do módulo -->
+  <section class="section" aria-labelledby="s-jornada">
+    <div class="section-head">
+      <h2 id="s-jornada">Estrutura do módulo</h2>
+      <p class="section-note">O módulo tem três etapas em sequência. Você está na segunda etapa.</p>
+    </div>
+    <div class="journey-flow">
+
+      <a class="journey-step journey-step--done" href="Ambiente_Estudos_Postura_Locomocao/index.html">
+        <span class="journey-step-tag">Etapa 1 — Concluída</span>
+        <h3 class="journey-step-title">Cena 01 · Capa do Módulo</h3>
+        <p class="journey-step-desc">Tela inicial premium com cérebro interativo, título "Postura e Locomoção" e botão Iniciar. Ponto de entrada do módulo.</p>
+        <span class="journey-step-file">index.html</span>
+      </a>
+
+      <div class="journey-arrow" aria-hidden="true">&#8594;</div>
+
+      <div class="journey-step journey-step--active">
+        <span class="journey-step-tag">Etapa 2 — Você está aqui</span>
+        <h3 class="journey-step-title">Painel de Orientação</h3>
+        <p class="journey-step-desc">Esta página. Apresenta o roteiro completo, objetivos de aprendizagem, mapa das cenas e instruções de uso do ambiente.</p>
+        <span class="journey-step-file">INICIAR_AQUI.html</span>
+        <span class="you-are-here">&#9679; você está aqui</span>
+      </div>
+
+      <div class="journey-arrow" aria-hidden="true">&#8594;</div>
+
+      <div class="journey-step journey-step--next">
+        <span class="journey-step-tag">Etapa 3 — A seguir</span>
+        <h3 class="journey-step-title">Cenas 02 – 09</h3>
+        <p class="journey-step-desc">Oito cenas em sequência. Cada cena aprofunda um tema com animações, hotspots e quizzes.</p>
+        <span class="journey-step-file">cena02 → cena09</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- O que você vai aprender -->
+  <section class="section" aria-labelledby="s-intro">
+    <div class="section-head">
+      <h2 id="s-intro">O que você vai aprender</h2>
+      <p class="section-note">Este curso cobre o sistema nervoso motor de forma sequencial — da organização cortical às síndromes neurológicas.</p>
+    </div>
+    <div class="intro-panel">
+      <p>Movimento não é apenas músculo contraindo. Ele depende de <strong>cérebro, medula, músculos e sentidos</strong> trabalhando de forma coordenada. O córtex decide e planeja, o tronco encefálico ajusta comandos automáticos, a medula organiza a saída final e os músculos executam.</p>
+      <p>Ao final deste curso você saberá diferenciar os neurônios motores superior e inferior, reconhecer as principais vias descendentes, entender como a postura é mantida contra a gravidade, e aplicar esses conceitos para interpretar síndromes neurológicas clássicas.</p>
+    </div>
+  </section>
+
+  <!-- Roteiro completo -->
+  <section class="section" aria-labelledby="s-roteiro">
+    <div class="section-head">
+      <h2 id="s-roteiro">Roteiro completo</h2>
+      <p class="section-note">Seis módulos em sequência, cada um com objetivo claro e cenas interativas associadas.</p>
+    </div>
+    <div class="module-list">
+
+      <!-- Módulo 1 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 1</span>
+          <span class="module-time">&#9201; 12 min</span>
+        </div>
+        <h3 class="module-title">Base do sistema motor</h3>
+        <p class="module-goal">Objetivo: entender o movimento como uma cadeia integrada — decisão, ajuste, execução e feedback.</p>
+        <p class="module-summary">Movimento não é apenas músculo contraindo. Ele depende de cérebro, medula, músculos e sentidos trabalhando de forma coordenada. O córtex decide e planeja, o tronco encefálico ajusta comandos automáticos, a medula organiza a saída final e os músculos executam.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/index.html">Cena 01 — Capa do Módulo</a>
+          <a class="cena-chip" href="INICIAR_AQUI.html" aria-current="page">Painel de Orientação</a>
+        </div>
+      </article>
+
+      <!-- Módulo 2 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 2</span>
+          <span class="module-time">&#9201; 16 min</span>
+        </div>
+        <h3 class="module-title">Córtex motor e áreas associadas</h3>
+        <p class="module-goal">Objetivo: diferenciar córtex motor primário, área pré-motora e área suplementar.</p>
+        <p class="module-summary">O córtex motor fica no giro pré-central, no lobo frontal. Ele inicia movimentos voluntários. A representação corporal é somatotópica: cada região corporal tem uma área cortical relacionada. Áreas associadas ajudam a preparar movimentos com base em estímulos externos e sequências aprendidas.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena02_organizacao_sistema_motor.html">Cena 02 — Organização do Sistema Motor</a>
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena03_homunculo_sensorial_1.html">Cena 03 — Homúnculo Sensorial</a>
+        </div>
+      </article>
+
+      <!-- Módulo 3 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 3</span>
+          <span class="module-time">&#9201; 18 min</span>
+        </div>
+        <h3 class="module-title">Trato corticoespinal</h3>
+        <p class="module-goal">Objetivo: seguir a via voluntária do córtex até o músculo.</p>
+        <p class="module-summary">O trato corticoespinal é a via voluntária mais importante para o controle consciente dos movimentos. Ele nasce no córtex motor primário, desce pelo tronco encefálico, cruza em grande parte na decussação das pirâmides e chega à medula, onde influencia interneurônios e neurônios motores inferiores.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena04_trato_corticoespinhal.html">Cena 04 — Trato Corticoespinhal</a>
+        </div>
+      </article>
+
+      <!-- Módulo 4 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 4</span>
+          <span class="module-time">&#9201; 18 min</span>
+        </div>
+        <h3 class="module-title">Tronco encefálico e vias extrapiramidais</h3>
+        <p class="module-goal">Objetivo: entender o controle automático que sustenta postura e locomoção.</p>
+        <p class="module-summary">O tronco encefálico regula funções motoras básicas sem necessidade de consciência. Ele integra córtex, cerebelo e medula, mantém tônus muscular, coordena reflexos e participa do equilíbrio. As vias extrapiramidais são essenciais para movimentos automáticos e ajustes posturais.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena05_HOTSPOTS_3.html">Cena 05 — Tronco Encefálico 3D</a>
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena06_tres_andares_tronco_encefalico.html">Cena 06 — Três Andares</a>
+        </div>
+      </article>
+
+      <!-- Módulo 5 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 5</span>
+          <span class="module-time">&#9201; 20 min</span>
+        </div>
+        <h3 class="module-title">Controle da postura e integração sensorial</h3>
+        <p class="module-goal">Objetivo: compreender como o corpo se mantém estável contra a gravidade.</p>
+        <p class="module-summary">Postura é estabilidade ativa. Reflexos e ajustes automáticos mantêm o corpo contra a gravidade. Propriocepção, sistema vestibular e visão se combinam para orientar o corpo no espaço. Antes do movimento, há ajustes antecipatórios; quando há desequilíbrio, ajustes compensatórios corrigem rapidamente.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena07_controle_postura_integracao_sensorial.html">Cena 07 — Controle da Postura</a>
+        </div>
+      </article>
+
+      <!-- Módulo 6 -->
+      <article class="module-card">
+        <div class="module-top">
+          <span class="module-num">Módulo 6</span>
+          <span class="module-time">&#9201; 22 min</span>
+        </div>
+        <h3 class="module-title">Síndromes neurológicas</h3>
+        <p class="module-goal">Objetivo: comparar NMS, NMI e alterações cerebelares.</p>
+        <p class="module-summary">O neurônio motor superior comanda de cima e modula o neurônio motor inferior. Quando o NMS é lesado, perde-se controle inibitório, gerando espasticidade, hiperreflexia e Babinski. Quando o NMI é lesado, a ativação muscular falha, com fraqueza, hipotonia, hiporreflexia e atrofia. Lesão cerebelar compromete coordenação.</p>
+        <div class="module-cenas">
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/cena08_PREMIUMv1.html">Cena 08 — NMS × NMI</a>
+          <a class="cena-chip" href="Ambiente_Estudos_Postura_Locomocao/Cena09_Premium.html">Cena 09 — Doenças do NMS</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Mapa de cenas -->
+  <section class="section" aria-labelledby="s-cenas">
+    <div class="section-head">
+      <h2 id="s-cenas">Mapa das cenas</h2>
+      <p class="section-note">O módulo tem 9 cenas no total — da Cena 01 (capa) à Cena 09. Cenas concluídas estão disponíveis agora. As demais chegam em breve.</p>
+    </div>
+    <div class="scene-map">
+
+      <!-- Cena 01 — CONCLUÍDA -->
+      <a class="scene-tile scene-tile--done" href="Ambiente_Estudos_Postura_Locomocao/index.html">
+        <span class="scene-tile-id">Cena 01</span>
+        <span class="scene-tile-name">Capa do Módulo — Postura e Locomoção</span>
+        <span class="scene-tile-status scene-tile-status--done">&#10003; Disponível</span>
+      </a>
+
+      <!-- Cena 02 — CONCLUÍDA -->
+      <a class="scene-tile scene-tile--done" href="Ambiente_Estudos_Postura_Locomocao/cena02_organizacao_sistema_motor.html">
+        <span class="scene-tile-id">Cena 02</span>
+        <span class="scene-tile-name">Organização do Sistema Motor</span>
+        <span class="scene-tile-status scene-tile-status--done">&#10003; Disponível</span>
+      </a>
+
+      <!-- Cena 03 — CONCLUÍDA -->
+      <a class="scene-tile scene-tile--done" href="Ambiente_Estudos_Postura_Locomocao/cena03_homunculo_sensorial_1.html">
+        <span class="scene-tile-id">Cena 03</span>
+        <span class="scene-tile-name">Homúnculo Sensorial</span>
+        <span class="scene-tile-status scene-tile-status--done">&#10003; Disponível</span>
+      </a>
+
+      <!-- Cena 04 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 04</span>
+        <span class="scene-tile-name">Trato Corticoespinhal</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+      <!-- Cena 05 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 05</span>
+        <span class="scene-tile-name">Tronco Encefálico 3D</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+      <!-- Cena 06 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 06</span>
+        <span class="scene-tile-name">Três Andares do Tronco Encefálico</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+      <!-- Cena 07 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 07</span>
+        <span class="scene-tile-name">Controle da Postura e Integração Sensorial</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+      <!-- Cena 08 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 08</span>
+        <span class="scene-tile-name">Neurônio Motor Superior × Inferior</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+      <!-- Cena 09 — EM BREVE -->
+      <div class="scene-tile scene-tile--soon">
+        <span class="scene-tile-id">Cena 09</span>
+        <span class="scene-tile-name">Doenças do Neurônio Motor Superior</span>
+        <span class="scene-tile-status scene-tile-status--soon">Em breve</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dicas de uso -->
+  <section class="section" aria-labelledby="s-dicas">
+    <div class="section-head">
+      <h2 id="s-dicas">Como usar este ambiente</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">→</div>
+        <h3 class="tip-title">Siga a sequência</h3>
+        <p class="tip-text">Cada cena constrói sobre a anterior. Comece pela Cena 01 e avance até a Cena 09 para melhor aproveitamento.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">↗</div>
+        <h3 class="tip-title">Navegação entre cenas</h3>
+        <p class="tip-text">Cada cena tem botões "← Anterior" e "Próxima →" no topo. Você também pode voltar ao Painel de Orientação a qualquer momento.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">◎</div>
+        <h3 class="tip-title">Interaja com o conteúdo</h3>
+        <p class="tip-text">Clique nas estruturas, hotspots e botões dentro de cada cena. O aprendizado é ativo — explore as opções disponíveis.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">&#10022;</div>
+        <h3 class="tip-title">Cenas Premium (08 e 09)</h3>
+        <p class="tip-text">As últimas duas cenas abordam comparação clínica NMS × NMI e doenças como AVC, ELA e Paralisia Cerebral.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p>Pronto? Comece pela primeira cena disponível — a organização do sistema motor.</p>
+    <a class="btn-start" href="Ambiente_Estudos_Postura_Locomocao/cena02_organizacao_sistema_motor.html">
+      Começar Cena 02
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
